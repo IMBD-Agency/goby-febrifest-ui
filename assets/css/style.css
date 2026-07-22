@@ -1,0 +1,277 @@
+/* ===========================================================
+   Manfare - Custom styles (works alongside Tailwind CDN)
+   Brand palette:
+   --ink #1a1a1a | --brand #c79a3f | --olive #5a5232
+   --cream #f5f2ec | --line #e7e2d8
+   =========================================================== */
+
+:root {
+  --ink: #1a1a1a;
+  --charcoal: #2b2b2b;
+  --brand: #c79a3f;
+  --brand-dark: #a97f2b;
+  --olive: #5a5232;
+  --cream: #f5f2ec;
+  --line: #e7e2d8;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ---------- Arrow-navigated carousel ----------
+   Manual navigation: one product per arrow click.
+   Wraps around at the ends for an infinity feel. */
+.carousel {
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transition: transform 0.5s ease;
+}
+
+/* prev / next arrow buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #ffffff; */
+  /* border: 1px solid var(--line); */
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); */
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--brand);
+  color: #000000;
+  border-color: var(--brand);
+}
+
+.carousel-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel-prev {
+  left: 26px;
+}
+
+.carousel-next {
+  right: 26px;
+}
+
+.w-65 {
+  width: 18.5rem;
+  /* 280px — proportional to h-80 images */
+}
+
+/* ---------- Product card ---------- */
+.product-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* image swap on hover */
+.img-swap {
+  position: relative;
+  overflow: hidden;
+  height: 320px !important;
+  /* Fixed image container height */
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #f7f6f2 !important;
+  /* Clean premium off-white/cream background */
+}
+
+.img-swap .img-front,
+.img-swap .img-back {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  /* Uniform scaling to cover container, leaving no empty space */
+  object-position: center !important;
+  /* Removed padding: 8% !important to avoid global shrinking */
+  transition: opacity 0.4s ease, transform 0.6s ease;
+  backface-visibility: hidden;
+}
+
+.img-swap .img-back {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.img-swap:hover .img-front {
+  opacity: 0;
+  transform: scale(1.06) !important;
+}
+
+.img-swap:hover .img-back {
+  opacity: 1;
+  transform: scale(1.06) !important;
+}
+
+/* ---------- Buttons: color change on hover ---------- */
+.btn-cart {
+  border: 1px solid #A97F2B;
+  color: #fff;
+  background: #A97F2B;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-cart:hover {
+  background: #fff;
+  color: #000;
+  border-color: #A97F2B;
+}
+
+.btn-solid {
+  background: var(--ink);
+  color: #fff;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-solid:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-outline-light:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- Category chip slider card ---------- */
+.cat-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cat-card img {
+  transition: transform 0.6s ease;
+}
+
+.cat-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ---------- Nav link hover ---------- */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-dark);
+}
+
+/* ---------- Fixed promo banner strip ---------- */
+.promo-strip {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ---------- About section: fixed background image ---------- */
+.about-fixed {
+  background-image: url("../images/banners/about-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* mobile: fixed attachment is unreliable, fall back to scroll */
+@media (max-width: 767px) {
+  .about-fixed {
+    background-attachment: scroll;
+  }
+}
+
+/* ---------- Utility: hide scrollbar for manual sliders ---------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .slider-track {
+    animation: none;
+  }
+}
+
+/* ---------- Carousel dots ---------- */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-dot.active {
+  background: #A97F2B;
+  transform: scale(1.2);
+}

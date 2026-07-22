@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manfare — Revolutionizing Men's Fashion Since 2017</title>
+  <meta name="description"
+    content="Manfare — premium men's fashion. Shop panjabi, shirts, polo shirts, formal pants, t-shirts, wallets and belts. Summer comfort collection now live." />
+  <meta name="theme-color" content="#1a1a1a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind (CDN for instant preview) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#1a1a1a",
+            charcoal: "#2b2b2b",
+            brand: "#c79a3f",
+            brandDark: "#a97f2b",
+            olive: "#5a5232",
+            cream: "#f5f2ec",
+            line: "#e7e2d8",
+            white: "#FFFFFF",
+            black: "#000000",
+
+          },
+          fontFamily: { sans: ["Poppins", "system-ui", "sans-serif"] },
+        },
+      },
+    };
+  </script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="font-sans text-ink">
+  <!-- ============ TOP HEADER ============ -->
+  <header class="sticky top-0 z-50 bg-white border-b border-line">
+    <!-- upper row -->
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-center justify-between gap-4 py-3">
+        <!-- mobile menu button -->
+        <button id="menuBtn" class="lg:hidden text-ink" aria-label="Open menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <!-- search (hidden on small) -->
+        <div class="hidden md:flex items-center flex-1 max-w-xs">
+          <div class="flex items-center w-full rounded-full border border-line px-3 py-1.5">
+            <input type="search" placeholder="Search for products ..."
+              class="w-full text-sm outline-none bg-transparent" aria-label="Search for products" />
+            <i data-lucide="search" class="w-4 h-4 text-charcoal"></i>
+          </div>
+        </div>
+
+        <!-- logo -->
+        <a href="#" class="mx-auto lg:mx-0 flex items-center" aria-label="Manfare home">
+          <img src="assets/images/logo/manfare.svg" alt="Manfare" class="h-9 w-auto" />
+        </a>
+
+        <!-- icons -->
+        <div class="flex items-center gap-4 text-ink">
+          <a href="tel:+8809606999695" class="hidden sm:flex items-center gap-1 text-sm" aria-label="Call us">
+            <i data-lucide="phone-call" class="w-5 h-5 text-brand"></i>
+          </a>
+          <button class="relative" aria-label="Account">
+            <i data-lucide="user" class="w-5 h-5"></i>
+          </button>
+          <button class="relative" aria-label="Cart">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span data-cart-count
+              class="hidden absolute -top-2 -right-2 bg-brand text-white text-[10px] leading-none w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- nav row (desktop) -->
+    <nav class="hidden lg:block border-t border-line">
+      <ul
+        class="mx-auto max-w-7xl px-4 flex items-center justify-center gap-6 py-2.5 text-[13px] font-medium tracking-wide">
+        <li><a href="#" class="nav-link">HOME</a></li>
+        <li><a href="#panjabi" class="nav-link">PANJABI</a></li>
+        <li><a href="#" class="nav-link">SHIRT</a></li>
+        <li><a href="#" class="nav-link">POLO SHIRT</a></li>
+        <li><a href="#pant" class="nav-link">PANT</a></li>
+        <li><a href="#" class="nav-link">BOXER</a></li>
+        <li><a href="#tshirt" class="nav-link">T-SHIRT</a></li>
+        <li><a href="#" class="nav-link">WINTER</a></li>
+        <li><a href="#" class="nav-link">ACCESSORIES</a></li>
+        <li><a href="#" class="nav-link">SHOP</a></li>
+        <li><a href="#" class="nav-link">LIFESTYLE</a></li>
+      </ul>
+    </nav>
+
+    <!-- nav (mobile) -->
+    <nav id="mobileMenu" class="hidden lg:hidden border-t border-line bg-white">
+      <div class="px-4 py-3">
+        <div class="flex items-center w-full rounded-full border border-line px-3 py-2 mb-3">
+          <input type="search" placeholder="Search for products ..." class="w-full text-sm outline-none bg-transparent"
+            aria-label="Search" />
+          <i data-lucide="search" class="w-4 h-4 text-charcoal"></i>
+        </div>
+        <ul class="flex flex-col text-sm font-medium">
+          <li><a href="#" class="block py-2 border-b border-line">HOME</a></li>
+          <li><a href="#panjabi" class="block py-2 border-b border-line">PANJABI</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">SHIRT</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">POLO SHIRT</a></li>
+          <li><a href="#pant" class="block py-2 border-b border-line">PANT</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">BOXER</a></li>
+          <li><a href="#tshirt" class="block py-2 border-b border-line">T-SHIRT</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">WINTER</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">ACCESSORIES</a></li>
+          <li><a href="#" class="block py-2 border-b border-line">SHOP</a></li>
+          <li><a href="#" class="block py-2">LIFESTYLE</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO (infinity autoplay 3s) ============ -->
+    <section data-hero class="relative overflow-hidden">
+      <div data-hero-track class="flex transition-transform duration-700 ease-in-out">
+        <!-- slide 1 -->
+        <div class="min-w-full relative">
+          <img src="assets/images/banners/hero.png"
+            alt="Summer comfort collection — men in printed summer shirts by a vintage car"
+            class="w-full h-[42vw] max-h-[520px] min-h-[220px] object-cover" />
+          <div class="absolute inset-y-0 right-4 sm:right-10 flex flex-col justify-center items-end text-right">
+            <p class="text-white/90 text-[10px] sm:text-xs tracking-[0.3em] mb-1">
+              NEW ARRIVAL
+            </p>
+            <h2 class="text-white text-2xl sm:text-4xl md:text-5xl font-semibold leading-none drop-shadow">
+              Summer
+            </h2>
+            <h2 class="text-white text-2xl sm:text-4xl md:text-5xl font-semibold leading-none drop-shadow">
+              comfort
+            </h2>
+          </div>
+        </div>
+        <!-- slide 2 (Video Slide) -->
+        <div class="min-w-full relative bg-black">
+          <video
+            src="https://assets.mixkit.co/videos/preview/mixkit-man-in-a-white-t-shirt-and-sunglasses-42171-large.mp4"
+            autoplay loop muted playsinline
+            class="w-full h-[42vw] max-h-[520px] min-h-[220px] object-cover opacity-80"></video>
+          <div class="absolute inset-y-0 right-4 sm:right-10 flex flex-col justify-center items-end text-right">
+            <p class="text-white/90 text-[10px] sm:text-xs tracking-[0.3em] mb-1">
+              SEASON 2026
+            </p>
+            <h2 class="text-white text-2xl sm:text-4xl md:text-5xl font-semibold leading-none drop-shadow">
+              Style in
+            </h2>
+            <h2 class="text-white text-2xl sm:text-4xl md:text-5xl font-semibold leading-none drop-shadow">
+              every step
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- controls -->
+      <button data-hero-prev
+        class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-ink w-9 h-9 rounded-full flex items-center justify-center shadow"
+        aria-label="Previous slide">
+        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+      </button>
+      <button data-hero-next
+        class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-ink w-9 h-9 rounded-full flex items-center justify-center shadow"
+        aria-label="Next slide">
+        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+      </button>
+    </section>
+
+    <!-- ============ FEATURE STRIP ============ -->
+    <section class="border-b border-line">
+      <div class="mx-auto max-w-7xl px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <i data-lucide="truck" class="w-7 h-7 text-brand"></i>
+          <div>
+            <p class="text-xs font-semibold">FASTEST SHIPPING</p>
+            <p class="text-[11px] text-charcoal/70">Countrywide delivery</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <i data-lucide="rotate-ccw" class="w-7 h-7 text-brand"></i>
+          <div>
+            <p class="text-xs font-semibold">EASY RETURN POLICY</p>
+            <p class="text-[11px] text-charcoal/70">Hassle free returns</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <i data-lucide="badge-check" class="w-7 h-7 text-brand"></i>
+          <div>
+            <p class="text-xs font-semibold">PREMIUM QUALITY</p>
+            <p class="text-[11px] text-charcoal/70">Best-in-class fabric</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <i data-lucide="headphones" class="w-7 h-7 text-brand"></i>
+          <div>
+            <p class="text-xs font-semibold">ONLINE SUPPORT 24/7</p>
+            <p class="text-[11px] text-charcoal/70">Always here to help</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BROWSE CATEGORIES (infinity marquee) ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-10">
+      <h2 class="section-title text-center text-lg mb-6">Browse Our Categories</h2>
+
+      <div class="carousel" data-carousel>
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track>
+            <!-- category card template (4 cards total) -->
+            <a href="#" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/polo.png" alt="Polo shirt category"
+                class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">POLO
+                SHIRT</span>
+            </a>
+            <a href="#" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/wallet.png" alt="Wallet category"
+                class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">WALLET</span>
+            </a>
+            <a href="#" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/belt.png" alt="Belt category" class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">BELT</span>
+            </a>
+            <a href="#" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/wallet.png" alt="Wallet category"
+                class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">WALLET</span>
+            </a>
+            <a href="#pant" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/pant.png" alt="Bootcut formal pant category"
+                class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">BOOTCUT
+                FORMAL PANT</span>
+            </a>
+            <a href="#" class="cat-card block mx-1 w-[302.9px] shrink-0">
+              <img src="assets/images/categories/wallet.png" alt="Wallet category"
+                class="w-full h-[248px] object-cover" />
+              <span
+                class="cat-btn absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#A97F2B] text-white text-xs font-semibold tracking-wide px-6 py-2 rounded whitespace-nowrap">WALLET</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BEST SELLING PRODUCTS (infinity marquee) ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="section-title text-lg">Best Selling Products</h2>
+        <a href="#" class="text-xs text-brandDark hover:underline">View All</a>
+      </div>
+
+      <div class="carousel" data-carousel data-autoplay="5000">
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track style="--marquee-duration: 34s">
+            <!-- product cards -->
+            <!-- 1 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-teal.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-floral.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+                <span class="absolute top-2 left-2 bg-brand text-white text-[10px] px-2 py-0.5 rounded">SALE</span>
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/pant-maroon.png" alt="Premium Formal Bootcut Gurkha Pant"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/pant-olive.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/tshirt-olive.png" alt="Acid Wash Drop Shoulder T-Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/tshirt-black.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt</p>
+                <p class="text-sm font-semibold mt-1">TK. 650</p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <!-- 4 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/tshirt-black.png" alt="Drop Shoulder Graphic T-Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/tshirt-olive.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+                <span class="absolute top-2 left-2 bg-brand text-white text-[10px] px-2 py-0.5 rounded">SALE</span>
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt</p>
+                <p class="text-sm font-semibold mt-1">TK. 600</p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <!-- 5 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-floral.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-dark.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <!-- 6 -->
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-floral.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-dark.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEW ARRIVAL PRODUCTS (infinity marquee) ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="section-title text-lg">New Arrival Products</h2>
+        <a href="#" class="text-xs text-brandDark hover:underline">See All</a>
+      </div>
+
+      <div class="carousel" data-carousel data-autoplay="5000">
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track style="--marquee-duration: 32s">
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/polo-model.png" alt="Premium Knitted Polo Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/polo-navy.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+                <span class="absolute top-2 left-2 bg-brand text-white text-[10px] px-2 py-0.5 rounded">NEW</span>
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1690</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/polo-navy.png" alt="Premium Knitted Polo Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/polo-model.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1690</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-dark.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-teal.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/pant-maroon.png" alt="Premium Formal Bootcut Gurkha Pant"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/pant-olive.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-dark.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-teal.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/polo-navy.png" alt="Premium Knitted Polo Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/polo-model.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1690</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO CARDS ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <p class="text-xs font-semibold mb-2">MANFARE EID COLLECTION 2026</p>
+        <div class="relative rounded-lg overflow-hidden bg-black aspect-video">
+          <img src="assets/images/products/panjabi-black.png" alt="Manfare Eid collection video"
+            class="w-full h-full object-cover opacity-90" />
+          <button class="absolute inset-0 flex items-center justify-center" aria-label="Play video">
+            <span
+              class="w-14 h-14 rounded-full bg-brand/90 hover:bg-brand flex items-center justify-center transition-colors">
+              <i data-lucide="play" class="w-6 h-6 text-white"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold mb-2">KNITTED POLO</p>
+        <div class="relative rounded-lg overflow-hidden bg-black aspect-video">
+          <img src="assets/images/products/polo-model.png" alt="Knitted polo video"
+            class="w-full h-full object-cover opacity-90" />
+          <button class="absolute inset-0 flex items-center justify-center" aria-label="Play video">
+            <span
+              class="w-14 h-14 rounded-full bg-brand/90 hover:bg-brand flex items-center justify-center transition-colors">
+              <i data-lucide="play" class="w-6 h-6 text-white"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECONDARY HERO BANNER ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-6">
+      <div class="relative rounded-lg overflow-hidden">
+        <img src="assets/images/banners/hero.png" alt="Summer comfort banner"
+          class="w-full h-[36vw] max-h-[420px] min-h-[180px] object-cover" />
+        <div class="absolute inset-y-0 right-6 sm:right-12 flex flex-col justify-center items-end text-right">
+          <h2 class="text-white text-2xl sm:text-4xl font-semibold leading-none drop-shadow">Summer</h2>
+          <h2 class="text-white text-2xl sm:text-4xl font-semibold leading-none drop-shadow">comfort</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SHIRT SLIDER (infinity marquee) ============ -->
+    <section id="tshirt" class="mx-auto max-w-7xl px-4 py-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="section-title text-lg">Casual Shirt Collection</h2>
+        <a href="#" class="text-xs text-brandDark hover:underline">View All</a>
+      </div>
+
+      <div class="carousel" data-carousel data-autoplay="5000">
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track style="--marquee-duration: 30s">
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-dark.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-teal.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-floral.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-dark.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-dark.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-floral.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+            <div class="product-card mx-2 w-65 shrink-0">
+              <div class="img-swap">
+                <img src="assets/images/products/shirt-teal.png" alt="Half Sleeve Printed Casual Shirt"
+                  class="img-front w-full h-80 object-cover" />
+                <img src="assets/images/products/shirt-floral.png" alt="Alternate view"
+                  class="img-back w-full h-80 object-cover" />
+              </div>
+              <div class="p-3">
+                <p class="text-[13px] leading-snug h-9 overflow-hidden">Half Sleeve Printed Casual Shirt For Men</p>
+                <p class="text-sm font-semibold mt-1">TK. 699 <span
+                    class="text-charcoal/50 line-through text-xs font-normal">TK. 1249</span></p>
+                <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT (fixed background image) ============ -->
+    <section class="about-fixed relative text-white">
+      <div class="absolute inset-0 bg-olive/80"></div>
+      <div class="relative mx-auto max-w-3xl px-4 py-20 text-center">
+        <img src="assets/images/logo/manfare.svg" alt="Manfare" class="h-9 w-auto mx-auto mb-5 invert" />
+        <p class="text-sm leading-relaxed text-white/90 text-pretty">
+          Manfare is a lifestyle brand with a touch of enhanced heritage in our
+          design. We make your personality stand out with our top of the line
+          collection. Be the attention of every occasion with Manfare — a modern
+          wardrobe crafted for the confident man.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FIXED PROMOTIONAL BANNER (above Luxury Panjabi) ============ -->
+    <div class="promo-strip">
+      <div
+        class="mx-auto max-w-7xl px-4 py-3 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+        <span class="text-sm font-semibold tracking-wide">EID SPECIAL OFFER</span>
+        <span class="hidden sm:inline text-white/40">|</span>
+        <span class="text-xs sm:text-sm text-white/85">Flat 20% OFF on all Luxury Panjabi — Use code <b
+            class="text-brand">MANFARE20</b></span>
+        <a href="#panjabi" class="btn-outline-light text-xs font-medium px-4 py-1.5 rounded mt-1 sm:mt-0">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- ============ LUXURY PANJABI ============ -->
+    <section id="panjabi" class="mx-auto max-w-7xl px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- feature card -->
+        <div class="relative rounded-lg overflow-hidden lg:row-span-1">
+          <img src="assets/images/banners/panjabi.png" alt="Luxury Panjabi collection"
+            class="w-full min-w-[400px] h-full min-h-[400px] object-cover" />
+          <div class="absolute inset-0 bg-black/25 flex flex-col justify-end p-5">
+            <h3 class="text-white text-lg font-semibold tracking-wide">LUXURY PANJABI</h3>
+            <a href="#" class="btn-outline-light text-[11px] font-medium px-4 py-1.5 rounded mt-2 w-max">VIEW ALL</a>
+          </div>
+        </div>
+
+        <!-- products slider spanning 3 cols -->
+        <div class="lg:col-span-3">
+          <div class="carousel" data-carousel data-autoplay="5000">
+            <div class="carousel-viewport">
+              <div class="carousel-track" data-carousel-track style="--marquee-duration: 30s">
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/panjabi-blue.png" alt="Manfare ELITE Quality Panjabi"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/panjabi-black.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Manfare ELITE Quality Panjabi | MP-283</p>
+                    <p class="text-sm font-semibold mt-1">TK. 2990 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 3790</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/panjabi-black.png" alt="Manfare ELITE Quality Panjabi"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/panjabi-blue.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Manfare ELITE Quality Panjabi | MP-255</p>
+                    <p class="text-sm font-semibold mt-1">TK. 2990 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 3790</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/panjabi-blue.png" alt="Manfare ELITE Quality Panjabi"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/panjabi-black.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Manfare ELITE Quality Panjabi | MP-251</p>
+                    <p class="text-sm font-semibold mt-1">TK. 2990 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 3790</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/panjabi-black.png" alt="Manfare ELITE Quality Panjabi"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/panjabi-blue.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Manfare ELITE Quality Panjabi | MP-247</p>
+                    <p class="text-sm font-semibold mt-1">TK. 2990 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 3790</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOTCUT FORMAL PANT ============ -->
+    <section id="pant" class="mx-auto max-w-7xl px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- feature card -->
+        <div class="relative rounded-lg overflow-hidden lg:row-span-1 lg:order-last">
+          <img src="assets/images/categories/pant.png" alt="Bootcut formal pant"
+            class="w-full min-w-[400px] h-full min-h-[400px] object-cover" />
+          <div class="absolute inset-0 bg-black/25 flex flex-col justify-end p-5">
+            <h3 class="text-white text-lg font-semibold tracking-wide">BOOTCUT FORMAL PANT</h3>
+            <a href="#" class="btn-outline-light text-[11px] font-medium px-4 py-1.5 rounded mt-2 w-max">VIEW ALL</a>
+          </div>
+        </div>
+
+        <!-- products slider spanning 3 cols -->
+        <div class="lg:col-span-3 lg:order-first">
+          <div class="carousel" data-carousel data-autoplay="5000">
+            <div class="carousel-viewport">
+              <div class="carousel-track" data-carousel-track style="--marquee-duration: 30s">
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/pant-olive.png" alt="Premium Formal Bootcut Gurkha Pant"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/pant-maroon.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/pant-olive.png" alt="Premium Formal Bootcut Gurkha Pant"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/pant-maroon.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/pant-maroon.png" alt="Premium Formal Bootcut Gurkha Pant"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/pant-olive.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/pant-olive.png" alt="Premium Formal Bootcut Gurkha Pant"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/pant-maroon.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Formal Bootcut Gurkha Pant</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190 <span
+                        class="text-charcoal/50 line-through text-xs font-normal">TK. 1990</span></p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WALLET + ACCESSORIES BANNERS ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="relative rounded-lg overflow-hidden">
+        <img src="assets/images/banners/wallet.png" alt="Leather wallet collection" class="w-full h-60 object-cover" />
+        <div class="absolute top-4 right-4 text-right">
+          <p class="text-white font-semibold drop-shadow">LEATHER WALLET</p>
+          <a href="#" class="btn-solid inline-block text-[11px] px-3 py-1.5 rounded mt-1">Shop Now</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="relative rounded-lg overflow-hidden">
+          <img src="assets/images/categories/belt.png" alt="Belt collection" class="w-full h-60 object-cover" />
+          <div class="absolute bottom-3 left-3">
+            <a href="#" class="btn-solid inline-block text-[11px] px-3 py-1.5 rounded">Shop Belt</a>
+          </div>
+        </div>
+        <div class="relative rounded-lg overflow-hidden">
+          <img src="assets/images/categories/wallet.png" alt="Wallet collection" class="w-full h-60 object-cover" />
+          <div class="absolute bottom-3 left-3">
+            <a href="#" class="btn-solid inline-block text-[11px] px-3 py-1.5 rounded">Shop Wallet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KNITTED POLO ============ -->
+    <section id="polo" class="mx-auto max-w-7xl px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- feature card -->
+        <div class="relative rounded-lg overflow-hidden lg:row-span-1">
+          <img src="assets/images/products/polo-model.png" alt="Knitted polo collection"
+            class="w-full min-w-[400px] h-full min-h-[400px] object-cover" />
+          <div class="absolute inset-0 bg-black/25 flex flex-col justify-end p-5">
+            <h3 class="text-white text-lg font-semibold tracking-wide">KNITTED POLO</h3>
+            <a href="#" class="btn-outline-light text-[11px] font-medium px-4 py-1.5 rounded mt-2 w-max">VIEW ALL</a>
+          </div>
+        </div>
+
+        <!-- products slider spanning 3 cols -->
+        <div class="lg:col-span-3">
+          <div class="carousel" data-carousel data-autoplay="5000">
+            <div class="carousel-viewport">
+              <div class="carousel-track" data-carousel-track style="--marquee-duration: 30s">
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/polo-navy.png" alt="Premium Knitted Polo Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/polo-model.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/polo-model.png" alt="Premium Knitted Polo Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/polo-navy.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/polo-navy.png" alt="Premium Knitted Polo Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/polo-model.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/polo-model.png" alt="Premium Knitted Polo Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/polo-navy.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Premium Knitted Polo Shirt For Men</p>
+                    <p class="text-sm font-semibold mt-1">TK. 1190</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DROP SHOULDER T-SHIRT ============ -->
+    <section id="drop-shoulder" class="mx-auto max-w-7xl px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- feature card -->
+        <div class="relative rounded-lg overflow-hidden lg:row-span-1 lg:order-last">
+          <img src="assets/images/products/tshirt-black.png" alt="Drop shoulder t-shirt"
+            class="w-full min-w-[300px] h-full min-h-[400px] object-cover bg-cream" />
+          <div class="absolute inset-0 bg-black/25 flex flex-col justify-end p-5">
+            <h3 class="text-white text-lg font-semibold tracking-wide">DROP SHOULDER T-SHIRT</h3>
+            <a href="#" class="btn-outline-light text-[11px] font-medium px-4 py-1.5 rounded mt-2 w-max">VIEW ALL</a>
+          </div>
+        </div>
+
+        <!-- products slider spanning 3 cols -->
+        <div class="lg:col-span-3 lg:order-first">
+          <div class="carousel" data-carousel data-autoplay="5000">
+            <div class="carousel-viewport">
+              <div class="carousel-track" data-carousel-track style="--marquee-duration: 30s">
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/tshirt-olive.png" alt="Acid Wash Drop Shoulder T-Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/tshirt-black.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt
+                    </p>
+                    <p class="text-sm font-semibold mt-1">TK. 650</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/tshirt-black.png" alt="Acid Wash Drop Shoulder T-Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/tshirt-olive.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt
+                    </p>
+                    <p class="text-sm font-semibold mt-1">TK. 650</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/tshirt-olive.png" alt="Acid Wash Drop Shoulder T-Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/tshirt-black.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt
+                    </p>
+                    <p class="text-sm font-semibold mt-1">TK. 650</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+                <div class="product-card mx-2 w-[295px] shrink-0">
+                  <div class="img-swap">
+                    <img src="assets/images/products/tshirt-black.png" alt="Acid Wash Drop Shoulder T-Shirt"
+                      class="img-front w-full h-80 object-cover" />
+                    <img src="assets/images/products/tshirt-olive.png" alt="Alternate view"
+                      class="img-back w-full h-80 object-cover" />
+                  </div>
+                  <div class="p-3">
+                    <p class="text-[13px] leading-snug h-9 overflow-hidden">Acid Wash Most Trendy Drop Shoulder T-Shirt
+                    </p>
+                    <p class="text-sm font-semibold mt-1">TK. 650</p>
+                    <button data-add-cart class="btn-cart w-full mt-2 text-xs font-medium py-2 rounded">Add To
+                      Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CUSTOMER REVIEW ============ -->
+    <section class="bg-cream">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <h2 class="section-title text-center text-lg">Customer Review</h2>
+        <p class="text-center text-xs text-charcoal/60 mb-8">What our customers think about us</p>
+
+        <div class="carousel" data-carousel data-autoplay="5000" data-dots="true" data-arrows="false">
+          <div class="carousel-viewport">
+            <div class="carousel-track" data-carousel-track>
+              <!-- review card 1 -->
+              <article class="bg-white rounded-lg p-5 shadow-card mx-2 w-[295px] shrink-0">
+                <div class="flex text-brand mb-2" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="font-semibold text-sm">Far Han</p>
+                <p class="text-xs text-charcoal/70 mt-2 leading-relaxed">
+                  Alhamdulillah product received in good condition, on a bad deal in that price range. Satisfied.
+                </p>
+              </article>
+              <!-- review card 2 -->
+              <article class="bg-white rounded-lg p-5 shadow-card mx-2 w-[295px] shrink-0">
+                <div class="flex text-brand mb-2" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="font-semibold text-sm">Mostofa Mehedi Saad</p>
+                <p class="text-xs text-charcoal/70 mt-2 leading-relaxed">
+                  The product quality is very good &amp; good service. Thanks Manfare.
+                </p>
+              </article>
+              <!-- review card 3 -->
+              <article class="bg-white rounded-lg p-5 shadow-card mx-2 w-[295px] shrink-0">
+                <div class="flex text-brand mb-2" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="font-semibold text-sm">Toufiqur Rahman</p>
+                <p class="text-xs text-charcoal/70 mt-2 leading-relaxed">
+                  Simple design &amp; fabric quality is top notch. Their crafting stalks fabulous. Highly recommended.
+                </p>
+              </article>
+              <!-- review card 4 -->
+              <article class="bg-white rounded-lg p-5 shadow-card mx-2 w-[295px] shrink-0">
+                <div class="flex text-brand mb-2" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="font-semibold text-sm">Hamim Ove</p>
+                <p class="text-xs text-charcoal/70 mt-2 leading-relaxed">
+                  Quality products in reasonable price. Recommended to every stylish people.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="mx-auto max-w-7xl px-4 py-12">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h2 class="text-xl font-semibold">Join Our Newsletter To Get Offers</h2>
+          <p class="text-sm text-charcoal/60 mt-1">Subscribe to our newsletter and stay updated</p>
+        </div>
+        <form id="newsletterForm" class="flex w-full md:w-auto gap-2">
+          <input type="email" required placeholder="Enter your email"
+            class="flex-1 md:w-72 rounded border border-line px-4 py-2.5 text-sm outline-none focus:border-brand"
+            aria-label="Email address" />
+          <button type="submit" class="btn-solid px-6 py-2.5 rounded text-sm font-medium">Subscribe</button>
+        </form>
+      </div>
+      <p id="newsletterNote" class="hidden mt-3 text-sm text-brandDark">Thanks for subscribing!</p>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <img src="assets/images/logo/manfare.svg" alt="Manfare" class="h-9 w-auto mb-4 invert" />
+        <p class="text-sm font-semibold">+880 9606999695</p>
+        <p class="text-xs text-white/60 mt-1">Worktime: SAT - FRI, 9AM - 11PM</p>
+        <div class="flex items-center gap-3 mt-4">
+          <a href="#" aria-label="Facebook" class="text-white/70 hover:text-brand"><i data-lucide="facebook"
+              class="w-5 h-5"></i></a>
+          <a href="#" aria-label="Instagram" class="text-white/70 hover:text-brand"><i data-lucide="instagram"
+              class="w-5 h-5"></i></a>
+          <a href="#" aria-label="YouTube" class="text-white/70 hover:text-brand"><i data-lucide="youtube"
+              class="w-5 h-5"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold mb-4 tracking-wide">INFORMATION</h4>
+        <ul class="space-y-2 text-xs text-white/70">
+          <li><a href="#" class="hover:text-brand">About</a></li>
+          <li><a href="#" class="hover:text-brand">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-brand">Shipping Policy</a></li>
+          <li><a href="#" class="hover:text-brand">Return &amp; Exchange Policy</a></li>
+          <li><a href="#" class="hover:text-brand">Payment &amp; Refund policy</a></li>
+          <li><a href="#" class="hover:text-brand">Contact Us</a></li>
+          <li><a href="#" class="hover:text-brand">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold mb-4 tracking-wide">CONTACT INFO</h4>
+        <ul class="space-y-2 text-xs text-white/70">
+          <li>Bashundhara City Shopping Complex, Level 3, Block D, Shop 46, 46, Panthapath, Dhaka.</li>
+          <li>info@manfarebd.com</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold mb-4 tracking-wide">FOLLOW US</h4>
+        <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+          <p class="text-sm font-semibold">Manfare</p>
+          <p class="text-xs text-white/60">63K+ Followers</p>
+          <a href="#"
+            class="inline-block mt-3 text-xs bg-brand text-white px-4 py-1.5 rounded hover:bg-brandDark transition-colors">Follow
+            Page</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- payment strip -->
+    <div class="border-t border-white/10">
+      <div class="mx-auto max-w-7xl px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-white/50">&copy; <span id="year">2026</span> Manfare. All rights reserved.</p>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-[10px] text-white/50 mr-1">Pay With</span>
+          <span class="text-[10px] bg-white text-ink px-2 py-1 rounded">VISA</span>
+          <span class="text-[10px] bg-white text-ink px-2 py-1 rounded">Mastercard</span>
+          <span class="text-[10px] bg-white text-ink px-2 py-1 rounded">bKash</span>
+          <span class="text-[10px] bg-white text-ink px-2 py-1 rounded">Nagad</span>
+          <span class="text-[10px] bg-white text-ink px-2 py-1 rounded">Rocket</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING CHAT ============ -->
+  <a href="#"
+    class="fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full bg-brand hover:bg-brandDark transition-colors flex items-center justify-center shadow-lg"
+    aria-label="Chat with us">
+    <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+  </a>
+
+  <!-- scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // render lucide icons
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+
+</html>
