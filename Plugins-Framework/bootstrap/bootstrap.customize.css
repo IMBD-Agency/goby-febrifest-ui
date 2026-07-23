@@ -1,0 +1,399 @@
+   /* Method 1: Remove focus styles for all form controls */
+   .form-control:focus {
+       outline: none !important;
+       border-color: inherit !important;
+       box-shadow: none !important;
+   }
+
+   /* Method 2: More comprehensive - covers all input types */
+   input:focus,
+   textarea:focus,
+   select:focus,
+   .form-control:focus,
+   .form-select:focus,
+   .form-check-input:focus {
+       outline: none !important;
+       border-color: inherit !important;
+       box-shadow: none !important;
+   }
+
+   /* Method 3: Target specific Bootstrap classes */
+   .form-control:focus,
+   .form-control:focus-visible,
+   .form-select:focus,
+   .form-check-input:focus,
+   .form-range:focus,
+   .form-switch .form-check-input:focus {
+       outline: none !important;
+       border-color: inherit !important;
+       box-shadow: none !important;
+   }
+
+   /* Method 4: Global disable for all focusable elements */
+   *:focus {
+       outline: none !important;
+       box-shadow: none !important;
+   }
+
+   /* Method 5: Keep border but remove glow effect */
+   .form-control:focus {
+       outline: none !important;
+       box-shadow: none !important;
+       /* Keep original border color or set custom */
+       border-color: #ced4da !important;
+   }
+
+   /* Method 6: Custom class approach */
+   .no-focus:focus {
+       outline: none !important;
+       border-color: inherit !important;
+       box-shadow: none !important;
+   }
+
+   /* Method 7: Bootstrap 5 specific - disable focus ring */
+   .form-control:focus,
+   .form-select:focus {
+       --bs-focus-ring-color: transparent;
+       border-color: var(--bs-border-color);
+       box-shadow: none;
+       outline: none;
+   }
+
+   /* For Bootstrap 4 */
+   .form-control:focus {
+       color: #495057;
+       background-color: #fff;
+       border-color: #ced4da;
+       outline: 0;
+       box-shadow: none;
+   }
+
+   /* Alternative: Subtle focus (recommended for accessibility) */
+   .form-control:focus {
+       outline: none;
+       border-color: #dee2e6;
+       box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
+   }
+
+
+
+
+
+
+   .form-switch .form-check-input {
+       margin-left: 0 !important;
+   }
+
+   .form-check .form-check-input {
+       margin-left: 0 !important;
+   }
+
+   .form-check-input {
+       margin-right: 0 !important;
+   }
+
+   .form-check-input {
+       margin-top: 0 !important;
+   }
+
+   .form-check {
+       min-height: auto !important;
+       margin-bottom: 0 !important;
+       padding-left: 0 !important;
+   }
+
+   .form-switch {
+       padding-left: 0 !important;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .form-group {
+       position: relative;
+   }
+
+   .form-control:focus+.form-label,
+   .form-control:not(:placeholder-shown)+.form-label,
+   .form-control.has-value+.form-label {
+       padding-top: 7px !important;
+       top: 20% !important;
+   }
+
+   .form-control {
+       width: 100%;
+       border-radius: 10px;
+       font-size: var(--FontSizeSmall);
+       position: relative;
+       z-index: 1;
+   }
+
+   .form-control::placeholder {
+       color: var(--ColorPrimary);
+       opacity: 0.7;
+   }
+
+   .form-control:focus {
+       outline: none;
+       border-color: var(--ColorPrimary);
+       background: var(--ColorLightPrimary);
+       box-shadow: 0 0 0 3px rgba(var(--ColorPrimaryRGB), 0.1);
+   }
+
+   .form-control:focus+.form-label,
+   .form-control:not(:placeholder-shown)+.form-label,
+   .form-control.has-value+.form-label {
+       transform: translateY(-25px) scale(0.85);
+       color: var(--ColorPrimary);
+       background: var(--ColorLightPrimary);
+       padding: 4px 12px;
+       border-radius: 8px;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       font-weight: 500;
+   }
+
+   .float-label .form-label {
+       position: absolute;
+       left: 20px;
+       top: 50%;
+       transform: translateY(-50%);
+       color: var(--ColorPrimary);
+       font-size: var(--FontSizeSmall);
+       transition: all 0.3s ease;
+       pointer-events: none;
+       z-index: 2;
+       padding: 0 8px;
+       background: transparent;
+   }
+
+   .form-check {
+       display: flex;
+       align-items: start;
+   }
+
+   .form-check-input {
+       width: 20px;
+       height: 20px;
+       margin-right: 10px;
+       accent-color: var(--ColorPrimary);
+       cursor: pointer;
+   }
+
+   .form-check-label {
+       color: var(--ColorDarkSecondary);
+       font-size: var(--FontSizeSmall);
+       cursor: pointer;
+       user-select: none;
+       /* margin-top: 6px; */
+   }
+
+   .input-group .form-control.form-inline {
+       width: auto;
+       flex: unset;
+       text-align: center;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* modal css start  */
+   .modal-backdrop {
+       z-index: 999999999;
+       background: transparent;
+       /* backdrop-filter: blur(10px); */
+   }
+
+   .modal {
+       z-index: 9999999999;
+       -webkit-backdrop-filter: blur(10px);
+       backdrop-filter: blur(10px);
+       --bs-modal-border-color: 0 !important;
+   }
+
+   .modal-sm {
+       min-width: 400px;
+   }
+
+   .modal-content {
+       background: var(--ColorLightPrimary) !important;
+       border-radius: 10px !important;
+       box-shadow: var(--BoxShadow);
+   }
+
+   .modal-header {
+       /* padding: 13px 13px; */
+       border-bottom: 0;
+   }
+
+   .modal-footer {
+       /* padding: .5rem 0.5rem; */
+       border-top: 0;
+   }
+
+   /* modal css end  */
+
+
+
+   /* offcanvas css start  */
+   /* .offcanvas {
+       z-index: 9999;
+   }
+
+   .offcanvas-backdrop {
+       z-index: 9998;
+   } */
+
+   /* offcanvas css end  */
+
+
+
+
+   /* card css start  */
+   .card {
+       border: 0;
+       border-radius: 10px !important;
+       box-shadow: var(--BoxShadow);
+       border: 1px solid var(--ColorLightSecondary);
+   }
+
+   .card-header,
+   .card-body,
+   .card-footer {
+       /* padding: 20px !important; */
+       background: var(--ColorLightPrimary);
+       border-radius: 10px !important;
+
+       padding: 16px;
+   }
+
+   .card-header {
+       border-bottom-left-radius: 0 !important;
+       border-bottom-right-radius: 0 !important;
+   }
+
+   .card-footer {
+       border-top-left-radius: 0 !important;
+       border-top-right-radius: 0 !important;
+   }
+
+   .card-title {
+       margin-bottom: 0;
+       font-size: var(--FontSizeExtraLarge);
+       font-weight: 700;
+       padding: 0;
+   }
+
+   /* card css start  */
+
+
+
+
+   /* breadcrumb css start  */
+   .breadcrumb-section {
+       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+       border-radius: 12px;
+       padding: 5px 10px;
+       border: 1px solid #dee2e6;
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+   }
+
+   .custom-breadcrumb {
+       background: none;
+       padding: 0;
+       margin: 0;
+       display: flex;
+       align-items: center;
+       flex-wrap: wrap;
+   }
+
+   .custom-breadcrumb .breadcrumb-item {
+       display: flex;
+       align-items: center;
+       font-size: 0.9rem;
+       font-weight: 500;
+       margin: 5px 0;
+       line-height: 30px;
+   }
+
+   .custom-breadcrumb .breadcrumb-item:not(.active) {
+       max-width: 250px;
+   }
+
+   .custom-breadcrumb .breadcrumb-item a {
+       color: #6c757d;
+       text-decoration: none;
+       padding: 4px 16px;
+       border-radius: 6px;
+       transition: all 0.3s ease;
+       background: rgba(255, 255, 255, 0.7);
+       border: 1px solid transparent;
+
+       overflow: hidden;
+       text-overflow: ellipsis;
+       display: -webkit-box;
+       -webkit-line-clamp: 1;
+       /* number of lines to show */
+       -webkit-box-orient: vertical;
+   }
+
+   .custom-breadcrumb .breadcrumb-item a:hover {
+       color: var(--ColorPrimary);
+       background: rgba(16, 124, 65, 0.1);
+       border-color: var(--ColorPrimary);
+       box-shadow: 0 2px 4px rgba(16, 124, 65, 0.2);
+   }
+
+   .custom-breadcrumb .breadcrumb-item.active a {
+       color: white;
+       font-weight: 600;
+       background: var(--ColorPrimary);
+       box-shadow: 0 2px 4px rgba(16, 124, 65, 0.3);
+   }
+
+   .custom-breadcrumb .breadcrumb-item.active a:hover {
+       color: white;
+       background: var(--ColorPrimary);
+       border-color: var(--ColorPrimary);
+       box-shadow: 0 2px 4px rgba(16, 124, 65, 0.3);
+   }
+
+   /* Custom separator styling */
+   .custom-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+       content: "\f054";
+       /* FontAwesome chevron-right icon */
+       font-family: "Font Awesome 6 Free";
+       font-weight: 900;
+       color: #adb5bd;
+       font-size: 0.7rem;
+       margin: 0 8px;
+       display: flex;
+       align-items: center;
+   }
+
+   /* breadcrumb css end  */

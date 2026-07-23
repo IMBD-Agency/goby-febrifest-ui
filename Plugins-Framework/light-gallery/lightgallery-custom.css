@@ -1,0 +1,188 @@
+/* ==============================
+   LightGallery Base Overrides
+============================== */
+/* html.lg-on body {
+    overflow: hidden !important;
+} */
+
+.lg-zoomed .lg-prev,
+.lg-zoomed .lg-next{
+    /* opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease; */
+    display: none !important;
+}
+
+
+
+.lg-backdrop,
+.lg-outer {
+    z-index: 999999;
+}
+
+.lg-backdrop {
+    background-color: var(--ColorLightPrimaryAlpha) !important;
+    backdrop-filter: blur(10px);
+}
+
+.lg-toolbar,
+.lg-components{
+    box-shadow: var(--BoxShadow) !important;
+}
+
+
+/* ==============================
+   Toolbar
+============================== */
+.lg-toolbar {
+    background: var(--ColorLightPrimary) !important;
+    padding: 16px 10px !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+.lg-toolbar .lg-icon {
+    height: 48px;
+    line-height: 28px;
+}
+
+.lg-toolbar .lg-icon:hover {
+    color: var(--ColorPrimary) !important;
+}
+
+/* Hide caption/sub-html */
+.lg-components .lg-sub-html {
+    display: none !important;
+}
+
+/* ==============================
+   Image Content
+============================== */
+.lg-img-wrap * {
+    border-radius: 10px !important;
+}
+
+.lg-next, .lg-prev {
+    transition: .3s linear;
+    box-shadow: var(--BoxShadow) !important;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    overflow: hidden;
+    color: var(--ColorPrimary) !important;
+    background: var(--ColorLightPrimaryAlpha);
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-33%);
+}
+
+.lg-content button:hover {
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary) !important;
+}
+
+/* ==============================
+   Thumbnails
+============================== */
+.lg-outer .lg-thumb-outer {
+    background-color: var(--ColorLightPrimaryAlpha) !important;
+}
+
+.lg-thumb-outer {
+    display: flex;
+    justify-content: center;
+    position: relative !important;
+}
+
+.lg-thumb {
+    display: flex !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    transition: .3s linear !important;
+    padding: 8px 2px !important;
+    margin-bottom: 0px !important;
+
+    /* Hide scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.lg-thumb::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Thumb Items */
+.lg-outer .lg-thumb-item {
+    border: 2px solid #fff;
+}
+
+.lg-thumb-item {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 10px !important;
+    padding: 0 !important;
+    margin: 0 4px !important;
+    box-shadow: var(--BoxShadow) !important;
+    cursor: pointer !important;
+}
+
+/* Active & Hover States */
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+    border-color: var(--ColorPrimary) !important;
+}
+
+#lg-inner-1 {
+    margin: 10px 0 !important;
+}
+
+/* ==============================
+   Custom Thumbnail Arrows
+============================== */
+.custom-prev-btn,
+.custom-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ColorLightPrimaryAlpha);
+    color: var(--ColorPrimary);
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 9999;
+    user-select: none;
+    border-radius: 100px;
+
+    width: 40px;
+    height: 40px;
+    box-shadow: var(--BoxShadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-prev-btn {
+    left: 10px;
+}
+
+.custom-next-btn {
+    right: 10px;
+}
+
+.custom-prev-btn i,
+.custom-next-btn i {
+    transition: .3s linear;
+    font-size: var(--FontSizeSmall) !important;
+}
+
+.custom-prev-btn:hover,
+.custom-next-btn:hover {
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary) !important;
+}

@@ -1,0 +1,121 @@
+/* Custom Theme Button Styles */
+.btn-primary-custom {
+    background-color: var(--ColorPrimary) !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary-custom:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   Bootstrap 5 Mobile-First Media Queries System (Clean Integer Values)
+   ========================================================================== */
+
+/* Base Styles (xs / mobile default < 768px) */
+#mobile-menu-btn {
+    display: inline-flex !important;
+}
+#mobile-search-btn {
+    display: inline-flex !important;
+}
+.header-desktop-search {
+    display: none !important;
+}
+.header-desktop-nav {
+    display: none !important;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Reserved for sm enhancements */
+}
+
+/* Medium devices (tablets & desktop, 768px and up) */
+@media (min-width: 768px) {
+    #mobile-menu-btn {
+        display: none !important;
+    }
+    #mobile-search-btn {
+        display: none !important;
+    }
+    #mobile-menu-dropdown,
+    #mobile-search-drawer {
+        display: none !important;
+    }
+    .header-desktop-search {
+        display: block !important;
+    }
+    .header-desktop-nav {
+        display: block !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Reserved for lg enhancements */
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Reserved for xl enhancements */
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    /* Reserved for xxl enhancements */
+}
+
+/* ==========================================================================
+   Fluid Container-Query Typography for Hero Banner
+   ========================================================================== */
+.slider_item {
+    container-type: inline-size;
+    container-name: banner;
+}
+
+.fluid-banner-padding {
+    padding-top: clamp(12px, 3cqw, 48px) !important;
+    padding-bottom: clamp(12px, 3cqw, 48px) !important;
+    padding-right: clamp(12px, 3cqw, 48px) !important;
+    padding-left: clamp(56px, 7.5cqw, 100px) !important;
+}
+
+/* Mobile small screen padding adjustment (< 576px) */
+@media (max-width: 576px) {
+    .fluid-banner-padding {
+        padding-left: clamp(16px, 4cqw, 32px) !important;
+    }
+}
+
+.fluid-badge {
+    font-size: clamp(8px, 1.1cqw, 12px) !important;
+    margin-bottom: clamp(2px, 0.6cqw, 8px) !important;
+}
+
+.fluid-h1 {
+    font-size: clamp(14px, 3.8cqw, 54px) !important;
+    line-height: 1 !important;
+}
+
+.fluid-accent {
+    font-size: clamp(18px, 4.8cqw, 68px) !important;
+    margin-top: clamp(-4px, -1cqw, -14px) !important;
+}
+
+.fluid-desc {
+    font-size: clamp(8px, 1.1cqw, 13px) !important;
+    line-height: 1.35 !important;
+    margin-bottom: clamp(6px, 1.4cqw, 20px) !important;
+}
+
+.fluid-btn {
+    font-size: clamp(8px, 1cqw, 12px) !important;
+    padding: clamp(4px, 0.8cqw, 12px) clamp(12px, 2cqw, 28px) !important;
+    border-radius: 9999px !important;
+}

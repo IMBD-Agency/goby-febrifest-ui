@@ -1,0 +1,27 @@
+.note-editable ul,
+.note-editable ol {
+    padding-left: 25px !important;
+    margin: 1em 0 !important;
+}
+
+.note-editable ul li {
+    list-style-type: disc !important;
+}
+
+.note-editable ol li {
+    list-style-type: decimal !important;
+}
+
+.content-display-area ul {
+    padding-left: 25px;
+    list-style-type: disc;
+}
+
+.content-display-area ol {
+    padding-left: 25px;
+    list-style-type: decimal;
+}
+
+.note-btn-group button .note-icon-caret::before {
+    display: none !important;
+}

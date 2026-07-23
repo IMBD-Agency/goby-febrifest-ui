@@ -1,0 +1,43 @@
+<div 
+    slider-name="Product-Slider-Details" 
+    data-slides-to-show="BPD: 1"
+    data-slides-to-scroll="BPD: 1"
+    data-arrows="true"
+    data-dots="false"
+    data-infinite="true"
+    data-autoplay="false"
+    data-slider-for="Product-Slider-Nav"
+    class="slider position-relative overflow-visible"
+>
+    <div>
+        <span class="left_btn">
+            <i class="fas fa-angle-left"></i>
+        </span>
+        <span class="right_btn">
+            <i class="fas fa-angle-right"></i>
+        </span>
+    </div>
+
+    <div class="slider_wrap">
+        @for($i = 0; $i < 8; $i++)
+            <div class="slider_item lightgallery-selector" data-lightgallery-selector="#lightgallery-product" data-lightgallery-id="{{ $i }}">
+                <div class="ratio ratio-1x1 position-relative">
+                    <img src="{{ asset('FrontEnd/assets/images/banner/WB-1.jpg') }}" alt="Product Image" class="object_cover">
+                </div>
+            </div>
+        @endfor
+    </div>
+</div>
+
+
+<div class="d-none">
+    <div class="lightgallery" id="lightgallery-product" data-infinite-loop="false" class="d-flex gap-2 flex-wrap justify-content-center py-3">
+        @for($i = 0; $i < 8; $i++)
+            <a  class="ratio ratio-1x1" style="width: 80px; height: 80px;"
+                href="{{ asset('FrontEnd/assets/images/banner/WB-1.jpg') }}"
+            >
+                <img src="{{ asset('FrontEnd/assets/images/banner/WB-1.jpg') }}" class="object_cover w-100"/>
+            </a>
+        @endfor
+    </div>
+</div>

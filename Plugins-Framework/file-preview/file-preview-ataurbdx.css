@@ -1,0 +1,26 @@
+
+.file-wrapper{
+    position: relative;
+}
+.cross_btn{
+    position: absolute;
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--ColorDarkSecondary);
+    color: var(--ColorLightPrimary);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .1s linear;
+    border: none;
+}
+.file-wrapper:hover .cross_btn {
+    background-color: var(--ColorPrimary);
+}
+.file-wrapper.hidden-cross .cross_btn{
+    display: none;
+}

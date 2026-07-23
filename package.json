@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "serve -s . -l 3000",
     "start": "serve -s . -l 3000",
-    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify"
+    "build:css": "tailwindcss -i ./frontend/assets/css/tailwind.css -o ./frontend/assets/css/tailwind-built.css --minify"
   },
   "devDependencies": {
     "serve": "^14.2.4",

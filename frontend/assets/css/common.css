@@ -1,0 +1,488 @@
+/* ###################### COMMON CSS START ################### */
+:root {
+
+    /* Light Colors  */
+    --ColorLightPrimaryRGB: 255, 255, 255;
+    --ColorLightPrimary: rgb(var(--ColorLightPrimaryRGB));
+    --ColorLightPrimaryAlpha: rgba(var(--ColorLightPrimaryRGB), 0.5);
+
+    --ColorLightSecondaryRGB: 244, 246, 248;
+    --ColorLightSecondary: rgb(var(--ColorLightSecondaryRGB));
+    --ColorLightSecondaryAlpha: rgba(var(--ColorLightSecondaryRGB), 0.4);
+
+
+    /* Dark Colors  */
+    --ColorDarkPrimaryRGB: 33, 33, 33;
+    --ColorDarkPrimary: rgb(var(--ColorDarkPrimaryRGB));
+    --ColorDarkPrimaryAlpha: rgba(var(--ColorDarkPrimaryRGB), 0.7);
+
+    --ColorDarkSecondaryRGB: 99, 115, 129;
+    --ColorDarkSecondary: rgb(var(--ColorDarkSecondaryRGB));
+    --ColorDarkSecondaryAlpha: rgba(var(--ColorDarkSecondaryRGB), 0.4);
+
+    /* Theme Colors  */
+    --ColorPrimaryRGB: 247, 147, 30;
+    --ColorPrimary: rgb(var(--ColorPrimaryRGB));
+    --ColorPrimaryAlpha: rgba(var(--ColorPrimaryRGB), 0.15);
+
+    --ColorSecondaryRGB: 33, 43, 54;
+    --ColorSecondary: rgb(var(--ColorSecondaryRGB));
+    --ColorSecondaryAlpha: rgba(var(--ColorSecondaryRGB), 0.15);
+
+    /* fonts  */
+    --FontPrimary: 'Poppins', 'Noto Sans Bengali', sans-serif;
+    --FontSecondary: 'Inter', 'Noto Sans Bengali', sans-serif;
+
+    /* font-size  */
+    --FontSizeUltraSmall: 10px;
+    --FontSizeExtraSmall: 12px;
+    --FontSizeSmall: 14px;
+    --FontSizeNormal: 16px;
+    --FontSizeLarge: 20px;
+    --FontSizeExtraLarge: 24px;
+    --FontSizeUltraLarge: 32px;
+
+    /* shadow and borders  */
+    --BoxShadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    --BoxShadowHover: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+/* font colors  */
+.ColorLightPrimary {
+    color: var(--ColorLightPrimary) !important;
+    transition: .3s linear;
+}
+
+body.dark .ColorLightPrimary {
+    color: var(--ColorDarkPrimary) !important;
+}
+
+.ColorLightSecondary {
+    color: var(--ColorLightSecondary) !important;
+    transition: .3s linear;
+}
+
+body.dark .ColorLightSecondary {
+    color: var(--ColorDarkSecondary) !important;
+}
+
+.ColorDarkPrimary {
+    color: var(--ColorDarkPrimary) !important;
+    transition: .3s linear;
+}
+
+body.dark .ColorDarkPrimary {
+    color: var(--ColorLightPrimary) !important;
+}
+
+.ColorDarkSecondary {
+    color: var(--ColorDarkSecondary) !important;
+    transition: .3s linear;
+}
+
+body.dark .ColorDarkSecondary {
+    color: var(--ColorLightSecondary) !important;
+}
+
+/* font-size */
+.FontSizeUltraLarge {
+    font-size: var(--FontSizeUltraLarge);
+}
+
+.FontSizeExtraLarge {
+    font-size: var(--FontSizeExtraLarge);
+}
+
+.FontSizeLarge {
+    font-size: var(--FontSizeLarge);
+}
+
+.FontSizeNormal {
+    font-size: var(--FontSizeNormal);
+}
+
+.FontSizeSmall {
+    font-size: var(--FontSizeSmall);
+}
+
+.FontSizeExtraSmall {
+    font-size: var(--FontSizeExtraSmall);
+}
+
+.FontSizeUltraSmall {
+    font-size: var(--FontSizeUltraSmall);
+}
+
+/* background colors  */
+.BgDarkPrimary {
+    background: var(--ColorDarkPrimary) !important;
+    transition: .3s linear;
+}
+
+body.dark .BgDarkPrimary {
+    background: var(--ColorLightPrimary) !important;
+}
+
+.BgDarkSecondary {
+    background: var(--ColorDarkSecondary) !important;
+    transition: .3s linear;
+}
+
+body.dark .BgDarkSecondary {
+    background: var(--ColorLightSecondary) !important;
+}
+
+.BgLightPrimary {
+    background: var(--ColorLightPrimary) !important;
+    transition: .3s linear;
+}
+
+body.dark .BgLightPrimary {
+    background: var(--ColorDarkPrimary) !important;
+}
+
+.BgLightSecondary {
+    background: var(--ColorLightSecondary) !important;
+    transition: .3s linear;
+}
+
+body.dark .BgLightSecondary {
+    background: var(--ColorDarkSecondary) !important;
+}
+
+.BgLightBlur {
+    background: var(--ColorLightPrimaryAlpha);
+    backdrop-filter: blur(10px);
+}
+
+body.dark .BgLightBlur {
+    background: var(--ColorDarkPrimaryAlpha);
+    backdrop-filter: blur(10px);
+}
+
+/* theme colors  */
+.ColorPrimary {
+    color: var(--ColorPrimary) !important;
+}
+
+.BgPrimary {
+    background: var(--ColorPrimary) !important;
+}
+
+.BgPrimaryBlur {
+    background: rgba(var(--ColorPrimaryRGB), 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+.BgPrimaryAlpha {
+    background: var(--ColorPrimaryAlpha) !important;
+}
+
+.BgPrimary {
+    background: var(--ColorPrimary) !important;
+}
+
+
+/* fonts  */
+.FontPrimary {
+    font-family: var(--FontPrimary) !important;
+}
+
+.FontSecondary {
+    font-family: var(--FontSecondary) !important;
+}
+
+/* shadows  */
+.BoxShadow {
+    /* box-shadow: 0 4px 8px var(--ColorPrimaryAlpha); */
+    box-shadow: var(--BoxShadow);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--FontPrimary);
+    font-weight: normal;
+    font-style: normal;
+    font-size: var(--FontSizeNormal);
+    box-sizing: border-box;
+    line-height: 1.5;
+    background: var(--ColorLightPrimary);
+    color: var(--ColorDarkPrimary);
+
+    /* show scrollbar forcefully */
+    min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* ::-webkit-scrollbar {
+  width: 12px;
+} */
+
+/* ::-webkit-scrollbar-track {
+  background: var(--ColorPrimaryAlpha);
+} */
+
+/* ::-webkit-scrollbar-thumb {
+  background: var(--ColorPrimary); 
+  border-radius: 10px;
+} */
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--FontPrimary);
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 400 !important;
+}
+
+p {
+    font-size: var(--FontSizeSmall);
+    font-weight: 400;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 0;
+    font-family: var(--FontPrimary);
+    color: var(--ColorDarkPrimary);
+}
+
+body.dark p {
+    color: var(--ColorLightSecondary);
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    /* list-style-type: none; */
+}
+
+a {
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+a:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus,
+option:focus,
+input:focus {
+    outline: none !important;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+span,
+a {
+    display: inline-block;
+}
+
+/* a{
+    margin-bottom: -2px;
+} */
+
+a,
+button {
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.title {
+    font-size: var(--FontSizeNormal);
+    font-weight: 700;
+    line-height: 25px;
+    color: var(--ColorDarkPrimary);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    vertical-align: middle;
+    /* border-radius: 10px; */
+}
+
+.bg_cover {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    width: 100%;
+    height: 100%;
+}
+
+.bg_cover_fixed {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    width: 100%;
+    height: 100%;
+}
+
+.object_cover {
+    object-fit: cover;
+}
+
+
+.overlay_inner {
+    background: var(--ColorPrimaryBanner);
+    width: 100%;
+    height: 100% !important;
+}
+
+.overlay_pos {
+    /*Make position relative it's parent'*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: var(--overlayColor); */
+
+}
+
+.gradiant_overlay {
+    overflow: hidden;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(255, 121, 14, 0), rgb(255, 121, 14));
+}
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--ColorLightSecondary);
+    border-top: 5px solid var(--ColorPrimary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Top bar loader (like YouTube) */
+.barloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--ColorPrimary);
+    z-index: 999999999;
+    display: none;
+    transition: width 0.4s ease;
+}
+
+
+.truncate_1line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.truncate_2line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.truncate_3line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.truncate_4line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+
+.rounded_10 {
+    border-radius: 10px;
+}
+
+.line_height_1 {
+    line-height: 1;
+}
+
+.line_height_2 {
+    line-height: 20px;
+}
+
+.line_height_3 {
+    line-height: 30px;
+}
+
+.line_height_4 {
+    line-height: 40px;
+}
+
+.line_height_5 {
+    line-height: 50px;
+}

@@ -1,0 +1,191 @@
+/* SELECTIZE CSS START  */
+.selectize-dropdown-content {
+    padding: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.selectize-dropdown{
+    font-size: 14px !important;
+}
+.selectize-dropdown .selected {
+	background: var(--ColorDarkPrimary) !important;
+}
+.selectize-control.form-control{
+    padding: 0 !important;
+}
+.selectize-input {
+	border: 0;
+    /* padding: 0.62rem .75rem; */
+    box-shadow: none;
+	border-radius: 10px;
+}
+.selectize-input.full {
+	background-color: var(--ColorLightSecondary) !important;
+}
+.selectize-input.dropdown-active{
+    border-radius: 10px;
+}
+.selectize-control.single .selectize-input.input-active, .selectize-input {
+	background: var(--ColorLightSecondary);
+}
+.selectize-input.focus {
+	box-shadow: none;
+}
+.selectize-control.multi .selectize-input {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+.selectize-control.multi .selectize-input.has-items {
+	/* padding: 0.26rem .75rem; */
+}
+.selectize-control.multi .selectize-input > div.active {
+	background: var(--ColorDarkPrimary);
+	color: var(--ColorLightPrimary);
+	border: 0;
+}
+.selectize-control.multi .selectize-input [data-value] {
+	/* text-shadow: 0 1px 0 rgba(0,51,83,.3); */
+	text-shadow: none;
+	border-radius: 3px;
+	background-color: var(--ColorDarkPrimary);
+	background-image: none;
+    border-radius: 7px;
+	/* box-shadow: 0 1px 0 rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.03); */
+	box-shadow: none;
+}
+.selectize-control.multi .selectize-input > div {
+	margin: 0 3px 3px 0;
+	background: var(--ColorDarkPrimary);
+	color: var(--ColorLightPrimary);
+	border: 0;
+}
+.selectize-control.multi .selectize-input [data-value].active {
+	background-color: var(--ColorDarkPrimary);
+	background-image: none;
+}
+
+
+
+
+.selectize-dropdown, .selectize-dropdown.form-control {
+	background: var(--ColorLightSecondary);
+	border: 0;
+	border-radius: 10px;
+    overflow: hidden !important;
+	box-shadow: none;
+    margin: 1px 0 !important;
+}
+
+.selectize-dropdown.plugin-auto_position.selectize-position-top {
+	border: 0 !important;
+	box-shadow: none;
+    border-radius: 10px !important;
+    margin: 1px 0 !important;
+}
+.selectize-control.plugin-auto_position .selectize-input.selectize-position-top.dropdown-active{
+    border: 0 !important;
+    border-radius: 10px !important;
+}
+
+
+.selectize-dropdown .optgroup-header {
+	color: var(--ColorDarkPrimary);
+	background: var(--ColorLightSecondary);
+    font-weight: bold;
+}
+.selectize-dropdown .option{
+    margin-left: 0;
+    border-radius: 10px;
+    background: transparent !important;
+    color: var(--ColorDarkPrimary);
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.selectize-dropdown .optgroup .option{
+    margin-left: 15px;
+}
+.selectize-dropdown .option.active{
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary);
+}
+
+.selectize-dropdown .option.selected.active,
+.selectize-dropdown .option.selected:hover,
+.selectize-dropdown .option:hover{
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary);
+    
+}
+
+.selectize-dropdown .option.selected{
+	border: 1px solid var(--ColorPrimary);
+	color: var(--ColorPrimary);
+}
+
+.selectize-dropdown .option, .selectize-dropdown .optgroup-header, .selectize-dropdown .no-results, .selectize-dropdown .create {
+	padding: 5px 15px;
+}
+/* SELECTIZE CSS END  */
+
+
+
+
+
+
+
+
+
+
+
+
+/* DARK THEME COLORS ONLY */
+body.dark .selectize-input,
+body.dark .selectize-input.full,
+body.dark .selectize-control.single .selectize-input.input-active {
+    background: var(--ColorDarkSecondary) !important;
+    color: var(--ColorLightPrimary) !important;
+}
+
+body.dark .selectize-dropdown,
+body.dark .selectize-dropdown.plugin-auto_position.selectize-position-top {
+    background: var(--ColorDarkSecondary) !important;
+    color: var(--ColorLightPrimary) !important;
+}
+
+body.dark .selectize-dropdown .optgroup-header {
+    color: var(--ColorLightPrimary) !important;
+    background: var(--ColorDarkSecondary) !important;
+}
+
+body.dark .selectize-dropdown .option {
+    color: var(--ColorLightPrimary) !important;
+    background: transparent !important;
+}
+
+body.dark .selectize-dropdown .option:hover,
+body.dark .selectize-dropdown .option.active,
+body.dark .selectize-dropdown .option.selected.active,
+body.dark .selectize-dropdown .option.selected:hover {
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary) !important;
+}
+
+body.dark .selectize-dropdown .option.selected {
+    border: 1px solid var(--ColorPrimary) !important;
+    color: var(--ColorPrimary) !important;
+}
+
+body.dark .selectize-control.multi .selectize-input > div,
+body.dark .selectize-control.multi .selectize-input [data-value] {
+    background: var(--ColorPrimary) !important;
+    color: var(--ColorLightPrimary) !important;
+}
+
+body.dark .selectize-control.multi .selectize-input > div.active,
+body.dark .selectize-control.multi .selectize-input [data-value].active {
+    background: var(--ColorDarkPrimary) !important;
+}
+body.dark .selectize-dropdown .option.selected{
+	border: 1px solid var(--ColorLightPrimary) !important;
+	color: var(--ColorLightPrimary) !important;
+}
+

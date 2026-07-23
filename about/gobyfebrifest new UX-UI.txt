@@ -1,0 +1,18 @@
+Febrifest - frontend
+Reference: https://manfarebd.com/
+=======================
+1. home page - heavy
+2. category/sub-category page
+3. trending product/offer product/hot deal/search result
+4. product page - heavy
+5. product detail page - heavy
+6. login/register
+7. cart page
+8. checkout - heavy
+9. thank you page
+10. about page
+11. contact page
+12. privacy policy/refund policy/terms & condition
+13. track order
+14. user account (dashboard, wishlist)
+15. user account (profile, setting)

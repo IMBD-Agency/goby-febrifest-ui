@@ -1,0 +1,194 @@
+/* SLIDER CONTROL BUTTON CSS START  */
+
+
+/* button css start  */
+.left_btn,
+.right_btn {
+    position: absolute;
+    top: 50%;
+    z-index: 9;
+    transform: translateY(-50%);
+    transition: .3s linear;
+    box-shadow: var(--BoxShadow);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    overflow: hidden;
+    /* backdrop-filter: blur(10px); */
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s linear;
+    background: var(--ColorLightPrimary);
+}
+
+.slider:hover .left_btn,
+.slider:hover .right_btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.left_btn:hover,
+.right_btn:hover {
+    background: var(--ColorPrimary);
+}
+
+.left_btn i,
+.right_btn i {
+    color: var(--ColorPrimary);
+}
+
+.left_btn:hover i,
+.right_btn:hover i {
+    color: var(--ColorLightPrimary);
+}
+
+.left_btn {
+    left: 2%;
+}
+
+.right_btn {
+    right: 2%;
+}
+
+.slider[data-arrows="false"] .left_btn,
+.slider[data-arrows="false"] .right_btn {
+    display: none !important;
+}
+
+.slider[data-dots="false"] .slick-dots,
+.slider .slick-dots.hidden {
+    display: none !important;
+}
+
+/* button css end  */
+
+
+/* dots css start  */
+.slider_wrap .slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    display: flex;
+    transform: translateX(-50%);
+    /* opacity: 0;
+    visibility: hidden; */
+    transition: .3s linear;
+    z-index: 9;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background: var(--ColorLightPrimary);
+    box-shadow: var(--BoxShadow);
+}
+
+.slider:hover .slick-dots {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider_wrap .slick-dots li {
+    display: inline-block;
+    margin-top: -8px;
+}
+
+.slider_wrap .slick-dots li button {
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--ColorPrimary);
+    background: transparent;
+    backdrop-filter: blur(5px);
+    margin: 5px;
+    transition: all .3s linear;
+}
+
+.slider_wrap .slick-dots li.slick-active button {
+    background: var(--ColorPrimary);
+}
+
+/* dots css end  */
+
+
+
+/* slider item css start  */
+.slider_wrap {
+    overflow: hidden;
+}
+
+.slider_item {
+    overflow: hidden;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    /* margin: 0 5px !important; */
+}
+
+
+
+
+.slick-list {
+    /* margin: 0 -5px !important; */
+    /* margin set dynamically for gap  */
+}
+
+.slick-track {
+    /* margin: 0 5px !important; */
+    display: flex;
+    align-items: center;
+
+    /* gap: 10px; */
+    /* gap set dynamically for gap  */
+}
+
+
+
+/* dynamically set gap start  */
+/* managed in slick.customize.js  */
+/* .slider.has-gap .slick-list {
+    margin: 0 !important;
+}
+
+.slider.has-gap .slick-track {
+    gap: var(--gap-value) !important;
+    display: flex !important;
+}
+.slider.has-gap .slick-track.test-class {
+    gap: var(--gap-value) !important;
+    display: flex !important;
+}
+.slider[data-gap-value] .slick-track {
+    gap: var(--gap-value) !important;
+    display: flex !important;
+} */
+/* dynamically set gap end  */
+
+/* slider item css end  */
+
+
+
+/* responsive css start  */
+/* Optional: if you want to hide arrows on mobile for all sliders */
+/* @media (max-width: 767.98px) {
+    .slider_wrap .slick-dots {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .slider .left_btn,
+    .slider .right_btn {
+        display: none !important;
+    }
+} */
+/* responsive css end  */
+
+
+
+/* Prevent navigation slider track movement when content does not exceed visible slides */
+.no-scroll .slick-track {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* SLIDER CONTROL BUTTON CSS END  */
