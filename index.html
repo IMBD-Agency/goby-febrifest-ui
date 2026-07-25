@@ -155,7 +155,8 @@
               <a href="#" aria-label="Account" class="hover:text-brand transition-colors p-1">
                 <i data-lucide="user" class="w-4 h-4 stroke-[1.75]"></i>
               </a>
-              <button id="cart-toggle-btn" aria-label="Cart" class="hover:text-brand transition-colors p-1 relative cursor-pointer">
+              <button id="cart-toggle-btn" aria-label="Cart"
+                class="hover:text-brand transition-colors p-1 relative cursor-pointer">
                 <i data-lucide="shopping-bag" class="w-4 h-4 stroke-[1.75]"></i>
                 <span id="cart-badge"
                   class="absolute -top-1 -right-1 bg-brand text-white text-[8px] leading-none w-3.5 h-3.5 rounded-full items-center justify-center font-bold hidden">0</span>
@@ -1746,7 +1747,7 @@
         <i data-lucide="shopping-cart" class="w-5 h-5 text-brand"></i>
         <h2 class="font-extrabold text-sm text-ink tracking-wide uppercase">Your Cart</h2>
         <span id="cart-count-badge"
-          class="bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none hidden">0</span>
+          class="bg-brand text-white text-[10px] font-bold px-2 py-1 rounded-full leading-none hidden">0</span>
       </div>
       <button id="cart-close-btn"
         class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand hover:text-white text-ink flex items-center justify-center transition-all cursor-pointer">
@@ -1755,14 +1756,17 @@
     </div>
 
     <!-- Scrollable Items Area -->
-    <div id="cart-items-container" class="flex-1 overflow-y-auto px-5 py-4 space-y-3">
+    <div id="cart-items-container" class="flex-1 overflow-y-auto px-5 py-4 space-y-3 flex flex-col">
       <!-- Empty State -->
-      <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full py-16 text-center">
+      <div id="cart-empty-state" class="flex flex-col items-center justify-center text-center min-h-full">
         <div class="w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mb-4 border border-line">
           <i data-lucide="shopping-cart" class="w-9 h-9 text-gray-300"></i>
         </div>
         <p class="font-bold text-sm text-ink mb-1">Your cart is empty</p>
-        <p class="text-xs text-charcoal/50">Add products to get started</p>
+        <p class="text-xs text-charcoal/50 mb-5">Add products to get started</p>
+        <button class="cart-continue-empty px-5 py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all cursor-pointer">
+          Continue Shopping
+        </button>
       </div>
     </div>
 
@@ -1779,7 +1783,8 @@
         Free delivery on orders above ৳999
       </div>
       <!-- Checkout Button -->
-      <button class="w-full py-3 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+      <button
+        class="w-full py-3 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
         <i data-lucide="credit-card" class="w-4 h-4"></i> Proceed to Checkout
       </button>
       <!-- Continue Shopping -->
@@ -1800,17 +1805,17 @@
       let nextId = 1;
 
       // ── DOM Refs ───────────────────────────────────────────────
-      const offcanvas     = document.getElementById('cart-offcanvas');
-      const backdrop      = document.getElementById('cart-backdrop');
-      const closeBtn      = document.getElementById('cart-close-btn');
-      const toggleBtn     = document.getElementById('cart-toggle-btn');
-      const continueBtn   = document.getElementById('cart-continue-btn');
-      const itemsContainer= document.getElementById('cart-items-container');
-      const emptyState    = document.getElementById('cart-empty-state');
-      const footer        = document.getElementById('cart-footer');
-      const subtotalEl    = document.getElementById('cart-subtotal');
-      const badgeHeader   = document.getElementById('cart-badge');        // header icon badge
-      const badgePanel    = document.getElementById('cart-count-badge');  // panel header badge
+      const offcanvas = document.getElementById('cart-offcanvas');
+      const backdrop = document.getElementById('cart-backdrop');
+      const closeBtn = document.getElementById('cart-close-btn');
+      const toggleBtn = document.getElementById('cart-toggle-btn');
+      const continueBtn = document.getElementById('cart-continue-btn');
+      const itemsContainer = document.getElementById('cart-items-container');
+      const emptyState = document.getElementById('cart-empty-state');
+      const footer = document.getElementById('cart-footer');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const badgeHeader = document.getElementById('cart-badge');        // header icon badge
+      const badgePanel = document.getElementById('cart-count-badge');  // panel header badge
 
       // ── Open / Close ───────────────────────────────────────────
       function openCart() {
@@ -1830,10 +1835,11 @@
         document.body.style.overflow = '';
       }
 
-      toggleBtn  && toggleBtn.addEventListener('click', openCart);
-      closeBtn   && closeBtn.addEventListener('click', closeCart);
+      toggleBtn && toggleBtn.addEventListener('click', openCart);
+      closeBtn && closeBtn.addEventListener('click', closeCart);
       continueBtn && continueBtn.addEventListener('click', closeCart);
-      backdrop   && backdrop.addEventListener('click', closeCart);
+      document.querySelector('.cart-continue-empty') && document.querySelector('.cart-continue-empty').addEventListener('click', closeCart);
+      backdrop && backdrop.addEventListener('click', closeCart);
 
       // ── Badge Update ───────────────────────────────────────────
       function updateBadge() {
@@ -1842,7 +1848,7 @@
           if (!el) return;
           el.textContent = total;
           if (total > 0) { el.classList.remove('hidden'); el.classList.add('flex'); }
-          else           { el.classList.add('hidden');    el.classList.remove('flex'); }
+          else { el.classList.add('hidden'); el.classList.remove('flex'); }
         });
       }
 
@@ -1922,7 +1928,7 @@
 
       // ── Add Item (Public API) ──────────────────────────────────
       window.addToCart = function (productData) {
-        const name  = productData.name  || 'Product';
+        const name = productData.name || 'Product';
         const price = parseInt(String(productData.price || '0').replace(/[^0-9]/g, '')) || 0;
         const image = productData.image || 'frontend/assets/images/products/shirt (1).jpg';
 
@@ -1938,8 +1944,8 @@
       };
 
       // ── Wire product card ADD TO CART buttons ─────────────────
+      // Opens Quick View modal (for size selection) instead of direct add
       document.addEventListener('click', function (e) {
-        // Product card add-to-cart (not quick-view-btn, not wishlist-btn, not inside modal)
         const btn = e.target.closest('.action-btn');
         if (!btn) return;
         if (btn.classList.contains('wishlist-btn')) return;
@@ -1952,15 +1958,11 @@
 
         e.stopPropagation();
 
-        const img      = card.querySelector('img');
-        const titleEl  = card.querySelector('h3');
-        const priceEl  = card.querySelector('.font-black');
-
-        window.addToCart({
-          name:  titleEl  ? titleEl.textContent.trim()  : 'Product',
-          price: priceEl  ? priceEl.textContent.trim()  : '0',
-          image: img      ? img.src                     : ''
-        });
+        // Trigger the quick view modal — same as clicking QUICK VIEW button
+        const qvTrigger = card.querySelector('.quick-view-btn');
+        if (qvTrigger) {
+          qvTrigger.click();
+        }
       });
 
       // ── Wire modal #qv-submit-btn ──────────────────────────────
@@ -1968,15 +1970,15 @@
         const qvBtn = document.getElementById('qv-submit-btn');
         if (qvBtn) {
           qvBtn.addEventListener('click', function () {
-            const titleEl  = document.getElementById('qv-title');
-            const priceEl  = document.getElementById('qv-price');
+            const titleEl = document.getElementById('qv-title');
+            const priceEl = document.getElementById('qv-price');
             const qtyInput = document.getElementById('qv-qty-input');
-            const mainImg  = document.querySelector('.qv-main-slider .slider_wrap .slick-current img, .qv-main-slider .slider_wrap img');
+            const mainImg = document.querySelector('.qv-main-slider .slider_wrap .slick-current img, .qv-main-slider .slider_wrap img');
 
-            const name  = titleEl  ? titleEl.textContent.trim()  : 'Product';
-            const price = priceEl  ? priceEl.textContent.trim()  : '0';
-            const image = mainImg  ? mainImg.src                 : '';
-            const qty   = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+            const name = titleEl ? titleEl.textContent.trim() : 'Product';
+            const price = priceEl ? priceEl.textContent.trim() : '0';
+            const image = mainImg ? mainImg.src : '';
+            const qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
 
             // Close quick view first
             const closeQv = document.getElementById('close-quick-view');
