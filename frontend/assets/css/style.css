@@ -1,8 +1,13 @@
-html, body {
+/* ==========================================================================
+   01. GLOBAL & BASE COMPONENT STYLES
+   ========================================================================== */
+html,
+body {
     cursor: default;
+    font-family: var(--FontPrimary, 'Poppins', 'Noto Sans Bengali', sans-serif);
 }
 
-/* Custom Theme Button Styles */
+/* Custom Theme Button Component */
 .btn-primary-custom {
     background-color: var(--ColorPrimary) !important;
     color: #ffffff !important;
@@ -18,7 +23,7 @@ html, body {
 }
 
 /* ==========================================================================
-   Bootstrap 5 Mobile-First Media Queries System (Clean Integer Values)
+   02. HEADER & RESPONSIVE MEDIA QUERIES SYSTEM (Bootstrap 5 Integers)
    ========================================================================== */
 
 /* Base Styles (xs / mobile default < 768px) */
@@ -83,7 +88,7 @@ html, body {
 }
 
 /* ==========================================================================
-   Fluid Container-Query Typography for Hero Banner
+   03. HERO BANNER & FLUID TYPOGRAPHY COMPONENT
    ========================================================================== */
 .slider_item {
     container-type: inline-size;
@@ -133,4 +138,156 @@ html, body {
     font-size: clamp(8px, 1cqw, 12px) !important;
     padding: clamp(4px, 0.8cqw, 12px) clamp(12px, 2cqw, 28px) !important;
     border-radius: 9999px !important;
+}
+
+/* ==========================================================================
+   04. DESKTOP NAVIGATION & MEGA MENU COMPONENT
+   ========================================================================== */
+
+/* Mega Menu Container (Clean White Theme matching Goby Fabrifest design) */
+.mega-menu-panel {
+    background-color: #ffffff !important;
+    color: var(--ColorDarkPrimary, #1E1E1E);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--ColorLine, #E2E8F0);
+    max-height: 75vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--ColorPrimaryRGB), 0.5) rgba(0, 0, 0, 0.05);
+}
+
+.mega-menu-panel::-webkit-scrollbar {
+    width: 5px;
+}
+
+.mega-menu-panel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 99px;
+}
+
+.mega-menu-panel::-webkit-scrollbar-thumb {
+    background: var(--ColorPrimary);
+    border-radius: 99px;
+}
+
+/* Category Headers & Items inside Mega Menu */
+.mega-category-title {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ColorPrimary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.mega-subitem {
+    font-size: 12px;
+    color: #4A5568;
+    padding: 0.25rem 0;
+    display: block;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.mega-subitem:hover {
+    color: var(--ColorPrimary);
+    transform: translateX(3px);
+}
+
+/* Multi-level Flyout Submenus (.dropdown-submenu) */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0.25rem;
+    margin-left: 0.25rem;
+    display: none;
+    min-width: 190px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 60;
+}
+
+.dropdown-submenu:hover>.dropdown-menu,
+.dropdown-submenu.show>.dropdown-menu {
+    display: block !important;
+}
+
+/* ==========================================================================
+   05. SMART OVERFLOW "MORE ▾" DROPDOWN COMPONENT
+   ========================================================================== */
+.more-dropdown {
+    position: relative;
+}
+
+.more-dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    min-width: 190px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.more-dropdown-items .nav-dropdown-panel {
+    position: static !important;
+    margin-top: 0.25rem !important;
+    width: 100% !important;
+    box-shadow: none !important;
+}
+
+.more-dropdown-items .nav-dropdown-panel::before {
+    display: none !important;
+}
+
+.more-dropdown-items .nav-item-link,
+.more-dropdown-items button {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.5rem 0.70rem !important;
+    border-radius: 0.5rem !important;
+}
+
+/* ==========================================================================
+   06. MOBILE DRAWER & ACCORDION INDENT SYSTEM
+   ========================================================================== */
+.mobile-subaccordion-content,
+#mobile-menu-dropdown .mobile-accordion-content,
+.more-dropdown-items .nav-dropdown-panel {
+    border-left: 2px solid rgba(var(--ColorPrimaryRGB), 0.45) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    margin-left: 0.70rem !important;
+    padding-left: 0.70rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+    background: transparent !important;
+}
+
+/* ==========================================================================
+   07. UNIVERSAL REUSABLE PRODUCT CARD SYSTEM
+   ========================================================================== */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid rgb(var(--ColorLightSecondaryRGB));
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

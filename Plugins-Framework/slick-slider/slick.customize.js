@@ -155,7 +155,7 @@ $(document).ready(function () {
             fade: fade,
             centerMode: centerModeOpt,
             responsive: responsive,
-            focusOnSelect: true
+            focusOnSelect: (dataSliderFor || dataSliderNav || centerModeOpt) ? true : false
         };
 
         if (dataSliderFor) slickOptions.asNavFor = '.wrap-id-' + dataSliderFor;
@@ -298,5 +298,10 @@ $(document).ready(function () {
         if (targetMainName && index !== undefined) {
             $('.wrap-id-' + targetMainName).slick('slickGoTo', index);
         }
+    });
+
+    // Prevent action buttons (.action-btn) from shifting/sliding the carousel
+    $(document).on('click', '.action-btn', function (e) {
+        e.stopPropagation();
     });
 });

@@ -118,11 +118,52 @@
     overflow: hidden;
 }
 
+/* Pre-initialization layout preservation (Universal 0% FOUC / 0% layout shift before Slick JS runs) */
+.slider_wrap:not(.slick-initialized) {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+    gap: 12px !important;
+    width: 100% !important;
+}
+
+.slider_wrap:not(.slick-initialized)>.slider_item {
+    flex: 0 0 calc((100% - 48px) / 5) !important;
+    min-width: 0 !important;
+    width: calc((100% - 48px) / 5) !important;
+}
+
+@media (max-width: 1200px) {
+    .slider_wrap:not(.slick-initialized)>.slider_item {
+        flex: 0 0 calc((100% - 36px) / 4) !important;
+        width: calc((100% - 36px) / 4) !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .slider_wrap:not(.slick-initialized)>.slider_item {
+        flex: 0 0 calc((100% - 24px) / 3) !important;
+        width: calc((100% - 24px) / 3) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider_wrap:not(.slick-initialized)>.slider_item {
+        flex: 0 0 calc((100% - 12px) / 2) !important;
+        width: calc((100% - 12px) / 2) !important;
+    }
+}
+
+/* Single-Slide / Full-Width Sliders (Hero Banners, Single Cards) */
+.slider[data-slides-to-show="BPD: 1"] .slider_wrap:not(.slick-initialized)>.slider_item,
+.slider[data-slides-to-show="1"] .slider_wrap:not(.slick-initialized)>.slider_item {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+}
+
 .slider_item {
     overflow: hidden;
     cursor: default;
-    /* border-radius: 10px; */
-    /* margin: 0 5px !important; */
 }
 
 
@@ -163,6 +204,26 @@
     display: flex !important;
 } */
 /* dynamically set gap end  */
+
+/* Quick View Nav Slider — Thumbnail Active / Hover States */
+.qv-thumb-slider .qv-thumb-btn {
+    border: 2px solid transparent;
+    border-radius: 12px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.qv-thumb-slider .slick-slide:hover .qv-thumb-btn {
+    opacity: 1;
+}
+
+/* Active thumbnail: slick puts slick-current/slick-center on .slick-slide wrapper */
+.qv-thumb-slider .slick-slide.slick-current .qv-thumb-btn,
+.qv-thumb-slider .slick-slide.slick-center .qv-thumb-btn {
+    border-color: var(--ColorPrimary) !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 0 1px rgba(var(--ColorPrimaryRGB), 0.25);
+}
 
 /* slider item css end  */
 
