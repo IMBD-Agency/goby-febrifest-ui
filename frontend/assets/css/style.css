@@ -1,3 +1,7 @@
+html, body {
+    cursor: default;
+}
+
 /* Custom Theme Button Styles */
 .btn-primary-custom {
     background-color: var(--ColorPrimary) !important;
@@ -21,12 +25,15 @@
 #mobile-menu-btn {
     display: inline-flex !important;
 }
+
 #mobile-search-btn {
     display: inline-flex !important;
 }
+
 .header-desktop-search {
     display: none !important;
 }
+
 .header-desktop-nav {
     display: none !important;
 }
@@ -41,16 +48,20 @@
     #mobile-menu-btn {
         display: none !important;
     }
+
     #mobile-search-btn {
         display: none !important;
     }
+
     #mobile-menu-dropdown,
     #mobile-search-drawer {
         display: none !important;
     }
+
     .header-desktop-search {
         display: block !important;
     }
+
     .header-desktop-nav {
         display: block !important;
     }
@@ -86,10 +97,14 @@
     padding-left: clamp(56px, 7.5cqw, 100px) !important;
 }
 
-/* Mobile small screen padding adjustment (< 576px) */
+/* Mobile small screen adjustment (<= 576px) */
 @media (max-width: 576px) {
     .fluid-banner-padding {
         padding-left: clamp(16px, 4cqw, 32px) !important;
+    }
+
+    .logo-text {
+        display: none !important;
     }
 }
 

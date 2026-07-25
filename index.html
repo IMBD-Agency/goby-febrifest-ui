@@ -83,27 +83,31 @@
 
 <body class="bg-[#F4F6F8] text-ink antialiased">
 
+  <!-- Mobile Overlay Backdrop (Top-level viewport overlay) -->
+  <div id="mobile-drawer-backdrop"
+    class="hidden fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 cursor-default transition-opacity duration-300"></div>
+
   <!-- ============ TOP BAR ============ -->
   <div id="top-bar"
-    class="bg-black text-white text-[11px] pt-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-40 transition-all duration-300">
+    class="bg-black text-white text-[11px] pt-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-30 transition-all duration-300">
     <span>Free Shipping on <span class="text-brand font-semibold">orders over ৳1999</span></span>
     <i data-lucide="truck" class="w-3.5 h-3.5 text-white ml-0.5"></i>
   </div>
 
   <!-- ============ HEADER ============ -->
   <header id="main-header" class="sticky top-2 z-50 bg-transparent transition-all duration-300">
-    <div class="container relative">
+    <div class="container relative z-50">
       <!-- Single Floating Rounded Header Card -->
       <div id="header-card"
-        class="w-full bg-white rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-line px-6 py-3 transition-all duration-300">
+        class="w-full bg-white rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-line px-3 py-3 transition-all duration-300 relative z-50">
 
         <!-- Top Row: Logo + Search + Utility Icons -->
-        <div class="flex items-center justify-between gap-3 sm:gap-4">
+        <div id="header-top-row" class="flex items-center justify-between gap-3 sm:gap-4 h-9">
           <!-- Left: Mobile Menu Toggler + Logo -->
           <div class="flex items-center gap-2 shrink-0">
             <!-- Mobile Hamburger Toggle Button (Left side next to logo) -->
             <button id="mobile-menu-btn"
-              class="md:hidden p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none"
+              class="md:hidden p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer"
               aria-label="Toggle Navigation Menu">
               <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
@@ -114,7 +118,7 @@
                 class="w-9 h-9 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-xs">
                 <span class="text-brand font-bold text-base tracking-tighter">G</span>
               </div>
-              <div class="flex flex-col">
+              <div class="flex flex-col logo-text max-[576px]:hidden">
                 <span class="text-base font-extrabold tracking-wider text-ink leading-tight">GO BY
                   FABRIFEST</span>
                 <span class="text-[7.5px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S
@@ -128,9 +132,9 @@
             <!-- Search Input (Desktop/Tablet) -->
             <div class="relative header-desktop-search w-44 md:w-64 lg:w-80">
               <input type="text" placeholder="Search for products..."
-                class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors placeholder:text-dark-secondary">
+                class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors placeholder:text-dark-secondary cursor-text">
               <button
-                class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand transition-colors"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand transition-colors cursor-pointer z-10"
                 aria-label="Submit Search">
                 <i data-lucide="search" class="w-3.5 h-3.5"></i>
               </button>
@@ -138,9 +142,9 @@
 
             <!-- Utility Icons (ALWAYS VISIBLE on all screens) -->
             <div class="flex items-center gap-2.5 sm:gap-3 text-ink">
-              <!-- Mobile Search Icon Button (visible on screens < sm) -->
+              <!-- Mobile Search Icon Button (visible on screens < md) -->
               <button id="mobile-search-btn" aria-label="Search"
-                class="hover:text-brand transition-colors p-1 text-ink focus:outline-none">
+                class="md:hidden hover:text-brand transition-colors p-1 text-ink focus:outline-none cursor-pointer">
                 <i data-lucide="search" class="w-4 h-4 stroke-[1.75]"></i>
               </button>
 
@@ -159,6 +163,26 @@
           </div>
         </div>
 
+        <!-- Mobile Inline Full Search Bar (Replaces Top Row directly inside header card when search is active) -->
+        <div id="header-mobile-search-bar" class="hidden flex items-center gap-2 w-full h-9">
+          <!-- Back Button to Exit Search -->
+          <button id="mobile-search-close-btn" aria-label="Close Search"
+            class="p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer shrink-0">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Full Width Mobile Search Input -->
+          <div class="relative flex-1 h-9 flex items-center">
+            <input type="text" id="mobile-search-input" placeholder="Search for products..."
+              class="w-full h-9 bg-[#f4f4f4] text-xs text-ink px-4 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors cursor-text">
+            <button
+              class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand cursor-pointer z-10"
+              aria-label="Submit Search">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
         <!-- Bottom Row: Desktop Navigation Links (Dedicated Menu Row) -->
         <div class="header-desktop-nav pt-2.5 mt-2 border-t border-gray-100">
           <nav
@@ -174,49 +198,36 @@
           </nav>
         </div>
 
-      </div>
-
-      <!-- Mobile Search Drawer (Absolute Floating Overlay) -->
-      <div id="mobile-search-drawer"
-        class="hidden absolute left-3 right-3 sm:left-6 sm:right-6 top-full mt-2 bg-white rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-3 z-50 transition-all duration-300">
-        <div class="relative">
-          <input type="text" id="mobile-search-input" placeholder="Search for products..."
-            class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2.5 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors">
-          <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand"
-            aria-label="Submit Search">
-            <i data-lucide="search" class="w-4 h-4"></i>
-          </button>
+        <!-- Mobile Dropdown Navigation Drawer (Positioned relative to header-card) -->
+        <div id="mobile-menu-dropdown"
+          class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-4 z-50 transition-all duration-300">
+          <!-- Mobile Links Grid -->
+          <nav class="flex flex-col space-y-2 text-xs font-semibold text-ink">
+            <a href="#"
+              class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between">
+              <span>New Arrival</span>
+              <span class="bg-brand/10 text-brand text-[9px] font-bold px-2 py-0.5 rounded-full">HOT</span>
+            </a>
+            <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Men</a>
+            <a href="#"
+              class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between">
+              <span>Shirts</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-charcoal/50"></i>
+            </a>
+            <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Panjabi</a>
+            <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">T-Shirts</a>
+            <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Pants</a>
+            <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand text-red-500 transition-colors">Sale
+              🔥</a>
+          </nav>
         </div>
-      </div>
 
-      <!-- Mobile Dropdown Navigation Drawer (Absolute Floating Overlay) -->
-      <div id="mobile-menu-dropdown"
-        class="hidden absolute left-3 right-3 sm:left-6 sm:right-6 top-full mt-2 bg-white rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-4 z-50 transition-all duration-300">
-        <!-- Mobile Links Grid -->
-        <nav class="flex flex-col space-y-2 text-xs font-semibold text-ink">
-          <a href="#"
-            class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between">
-            <span>New Arrival</span>
-            <span class="bg-brand/10 text-brand text-[9px] font-bold px-2 py-0.5 rounded-full">HOT</span>
-          </a>
-          <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Men</a>
-          <a href="#"
-            class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between">
-            <span>Shirts</span>
-            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-charcoal/50"></i>
-          </a>
-          <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Panjabi</a>
-          <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">T-Shirts</a>
-          <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand transition-colors">Pants</a>
-          <a href="#" class="p-2 rounded-lg hover:bg-gray-50 hover:text-brand text-red-500 transition-colors">Sale
-            🔥</a>
-        </nav>
       </div>
     </div>
   </header>
 
   <!-- ============ HERO BANNER SECTION ============ -->
-  <section class="mt-4 mb-8">
+  <section class="mt-4 mb-4">
     <div class="container">
 
       <!-- 1. STANDALONE HERO VIDEO BANNER (NO SLIDER - ACTIVE) -->
@@ -258,9 +269,9 @@
       </div>
 
       <!-- 2. HERO SLIDER BANNER (TEMPORARILY HIDDEN) -->
-      <div class="slider relative rounded-[20px] overflow-hidden shadow-sm aspect-[21/9]"
-        slider-name="hero-slider" data-slides-to-show="BPD: 1" data-autoplay="true" data-transition="fade"
-        data-arrows="BPD: true, BP-576: false" data-dots="BPD: true, BP-768: false">
+      <div class="slider relative rounded-[20px] overflow-hidden shadow-sm aspect-[21/9]" slider-name="hero-slider"
+        data-slides-to-show="BPD: 1" data-autoplay="true" data-transition="fade" data-arrows="BPD: true, BP-576: false"
+        data-dots="BPD: true, BP-768: false">
 
         <!-- Arrow Controls -->
         <button
@@ -382,7 +393,7 @@
   </section>
 
   <!-- ============ FEATURES STRIP ============ -->
-  <section class="my-6">
+  <section class="mt-4 mb-4">
     <div class="container">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
         <!-- Feature Card 1 -->
@@ -608,25 +619,89 @@
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
       const mobileSearchBtn = document.getElementById('mobile-search-btn');
-      const mobileSearchDrawer = document.getElementById('mobile-search-drawer');
+      const mobileSearchCloseBtn = document.getElementById('mobile-search-close-btn');
+      const headerTopRow = document.getElementById('header-top-row');
+      const headerMobileSearchBar = document.getElementById('header-mobile-search-bar');
+      const mobileSearchInput = document.getElementById('mobile-search-input');
+      const mobileDrawerBackdrop = document.getElementById('mobile-drawer-backdrop');
 
-      if (mobileMenuBtn && mobileMenuDropdown) {
-        mobileMenuBtn.addEventListener('click', function () {
-          mobileMenuDropdown.classList.toggle('hidden');
-          if (mobileSearchDrawer) mobileSearchDrawer.classList.add('hidden');
+      function openMobileSearch() {
+        if (headerTopRow) headerTopRow.classList.add('hidden');
+        if (headerMobileSearchBar) {
+          headerMobileSearchBar.classList.remove('hidden');
+          headerMobileSearchBar.classList.add('flex');
+        }
+        if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
+        if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.remove('hidden');
+        if (mobileSearchInput) mobileSearchInput.focus();
+      }
+
+      function closeMobileSearch() {
+        if (headerMobileSearchBar) {
+          headerMobileSearchBar.classList.add('hidden');
+          headerMobileSearchBar.classList.remove('flex');
+        }
+        if (headerTopRow) headerTopRow.classList.remove('hidden');
+        if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.add('hidden');
+      }
+
+      function closeAllDrawers() {
+        closeMobileSearch();
+        if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
+        if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.add('hidden');
+      }
+
+      if (mobileSearchBtn) {
+        mobileSearchBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openMobileSearch();
         });
       }
 
-      if (mobileSearchBtn && mobileSearchDrawer) {
-        const mobileSearchInput = document.getElementById('mobile-search-input');
-        mobileSearchBtn.addEventListener('click', function () {
-          mobileSearchDrawer.classList.toggle('hidden');
-          if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
-          if (!mobileSearchDrawer.classList.contains('hidden') && mobileSearchInput) {
-            mobileSearchInput.focus();
+      if (mobileSearchCloseBtn) {
+        mobileSearchCloseBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeMobileSearch();
+        });
+      }
+
+      if (mobileMenuBtn && mobileMenuDropdown) {
+        mobileMenuBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeMobileSearch();
+          if (mobileMenuDropdown.classList.contains('hidden')) {
+            mobileMenuDropdown.classList.remove('hidden');
+            if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.remove('hidden');
+          } else {
+            closeAllDrawers();
           }
         });
       }
+
+      if (mobileDrawerBackdrop) {
+        mobileDrawerBackdrop.addEventListener('click', closeAllDrawers);
+      }
+
+      // Close mobile search or menu dropdown when clicking outside
+      document.addEventListener('click', function (e) {
+        if (headerMobileSearchBar && !headerMobileSearchBar.classList.contains('hidden')) {
+          if (!headerMobileSearchBar.contains(e.target) && !mobileSearchBtn.contains(e.target)) {
+            closeMobileSearch();
+          }
+        }
+        if (mobileMenuDropdown && !mobileMenuDropdown.classList.contains('hidden')) {
+          if (!mobileMenuDropdown.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeAllDrawers();
+          }
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeAllDrawers();
+        }
+      });
 
       // Automatic 50/50 Dynamic Header Centering & Auto-Close Drawer Engine
       const topBar = document.getElementById('top-bar');
@@ -648,10 +723,9 @@
           mainHeader.style.marginBottom = '12px';
         }
 
-        // Automatically hide mobile drawers when resizing to desktop (>= 768px)
+        // Automatically hide mobile search & drawers when resizing to desktop (>= 768px)
         if (window.innerWidth >= 768) {
-          if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
-          if (mobileSearchDrawer) mobileSearchDrawer.classList.add('hidden');
+          closeAllDrawers();
         }
       }
 

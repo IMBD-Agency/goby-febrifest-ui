@@ -120,7 +120,7 @@
 
 .slider_item {
     overflow: hidden;
-    cursor: pointer;
+    cursor: default;
     /* border-radius: 10px; */
     /* margin: 0 5px !important; */
 }

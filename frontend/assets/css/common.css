@@ -257,7 +257,7 @@ p {
     font-size: var(--FontSizeSmall);
     font-weight: 400;
     font-weight: normal;
-    line-height: 30px;
+    /* line-height: 30px; */
     margin: 0;
     font-family: var(--FontPrimary);
     color: var(--ColorDarkPrimary);
