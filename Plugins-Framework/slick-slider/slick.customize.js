@@ -280,8 +280,14 @@ $(document).ready(function () {
         // Gap styling
         if (innerGap && innerGap !== '0') {
             const gapValue = parseInt(innerGap);
-            $slider.find('.slick-list').attr('style', `margin: 0px -${(gapValue / 2)}px !important;`);
-            $slider.find('.slick-track').attr('style', `gap: ${gapValue}px !important; display: flex !important;`);
+            const halfGap = gapValue / 2;
+            $slider.find('.slick-list').attr('style', `margin: 0 -${halfGap}px !important; overflow: hidden;`);
+
+            // Add padding to individual slick slide items to distribute gap evenly without breaking track container widths
+            $slider.find('.slick-slide').attr('style', `padding: 0 ${halfGap}px !important; box-sizing: border-box;`);
+
+            // Remove CSS gap on track so flex dimensions do not overflow container boundaries on the right
+            $slider.find('.slick-track').attr('style', `display: flex !important;`);
 
             if (totalSlides <= SlidesToShow) {
                 $slider.find('.slick-track').css('justify-content', 'center');
