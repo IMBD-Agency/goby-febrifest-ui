@@ -1475,20 +1475,17 @@
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
 
-        <!-- Left Banner: Big Card (Crafted for Modern Men / Explore Collection) -->
+        <!-- Left Banner: Big Card (Aspect 16:9) -->
         <div
-          class="relative rounded-3xl overflow-hidden bg-[#18181b] min-h-[320px] flex items-center p-8 md:p-12 group shadow-sm border border-line z-0">
-          <!-- Background Image Mockup (Set to high opacity for clarity) -->
+          class="relative rounded-3xl overflow-hidden bg-[#18181b] aspect-[16/9] w-full flex items-center p-8 md:p-12 group shadow-sm border border-line z-0">
           <img src="frontend/assets/images/category/shirt (3).jpg" alt="Crafted for Modern Men Banner"
             class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
-          <!-- Left side dark overlay gradient (Image remains completely clear on the right side) -->
+          <!-- Left side dark overlay gradient -->
           <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent pointer-events-none rounded-3xl">
           </div>
 
           <div class="relative z-10 max-w-md text-white space-y-4 mt-auto">
-            <!-- <span class="text-[10px] text-brand font-black uppercase tracking-widest block">Trending Product</span> -->
-            <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight">Trending Product</h3>
-            <!-- <p class="text-xs text-white/70">Comfort. Style. Confidence.</p> -->
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-black tracking-tight leading-tight">Trending Product</h3>
             <a href="#"
               class="inline-block bg-brand hover:bg-black hover:text-white text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-full transition-all duration-300 transform group-hover:translate-y-[-2px] shadow-md">
               Explore Collection
@@ -1496,21 +1493,20 @@
           </div>
         </div>
 
-        <!-- Right Banners: Two Stacked Cards (Elegant Panjabi & Summer Vibes) -->
-        <div class="flex flex-col gap-6 justify-between">
-          <!-- Right Top: Elegant Panjabi -->
+        <!-- Right Banners: Two Stacked Cards (Aspect 16:9 equivalent vertical distribution) -->
+        <div class="flex flex-col gap-6 justify-between h-full">
+          <!-- Right Top: Offer Product -->
           <div
-            class="relative rounded-3xl overflow-hidden bg-[#fafafa] min-h-[148px] flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
+            class="relative rounded-3xl overflow-hidden bg-[#fafafa] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
             <img src="frontend/assets/images/category/shirt (1).jpg" alt="Elegant Panjabi Collection"
               class="absolute inset-0 w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
-            <!-- Left side solid white/gray fade overlay (using white as base gradient since layout background is white/light) -->
+            <!-- Left side solid white/gray fade overlay -->
             <div
               class="absolute inset-0 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/40 to-transparent pointer-events-none rounded-3xl">
             </div>
 
             <div class="relative z-10 text-ink space-y-2 mt-auto">
-              <!-- <span class="text-[9px] text-brand font-black uppercase tracking-widest block">Offer Product</span> -->
-              <h4 class="text-lg font-black tracking-tight leading-tight">Offer Product</h4>
+              <h4 class="text-base md:text-lg font-black tracking-tight leading-tight">Offer Product</h4>
               <a href="#"
                 class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider hover:text-brand transition-colors pt-1">
                 Shop Now <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -1518,9 +1514,9 @@
             </div>
           </div>
 
-          <!-- Right Bottom: Summer Vibes -->
+          <!-- Right Bottom: Discounted Product -->
           <div
-            class="relative rounded-3xl overflow-hidden bg-[#f0f4f8] min-h-[148px] flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
+            class="relative rounded-3xl overflow-hidden bg-[#f0f4f8] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
             <img src="frontend/assets/images/category/shirt (5).jpg" alt="Light Breezy Effortless"
               class="absolute inset-0 w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
             <!-- Left side soft white fade overlay -->
@@ -1529,8 +1525,7 @@
             </div>
 
             <div class="relative z-10 text-ink space-y-2 mt-auto">
-              <!-- <span class="text-[9px] text-brand font-black uppercase tracking-widest block">Discounted Product</span> -->
-              <h4 class="text-lg font-black tracking-tight leading-tight">Discounted Product</h4>
+              <h4 class="text-base md:text-lg font-black tracking-tight leading-tight">Discounted Product</h4>
               <a href="#"
                 class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider hover:text-brand transition-colors pt-1">
                 Shop Now <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
