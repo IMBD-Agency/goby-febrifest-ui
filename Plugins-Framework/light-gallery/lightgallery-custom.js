@@ -25,7 +25,13 @@ $(document).ready(function () {
             thumbWidth: 80,
             thumbHeight: "80px",
             animateThumb: false,
-            showThumbByDefault: true
+            showThumbByDefault: true,
+            // Force show all toolbar buttons on mobile (LightGallery hides them by default)
+            mobileSettings: {
+                controls: true,
+                showCloseIcon: true,
+                download: true,
+            }
         });
 
         // Attach instance to the element

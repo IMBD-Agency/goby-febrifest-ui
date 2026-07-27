@@ -362,6 +362,10 @@ body::after {
 #preloader {
     position: fixed;
     inset: 0;
+    /* dvh = dynamic viewport height: auto-adjusts when iOS Safari browser chrome shows/hides.
+       Prevents the empty gap that appears where the address bar/toolbar was. */
+    width: 100dvw;
+    height: 100dvh;
     z-index: 99999;
     display: flex;
     flex-direction: column;
