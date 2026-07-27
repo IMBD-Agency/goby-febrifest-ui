@@ -2,13 +2,13 @@
 // AOS Initilize Start
 //-----------------------------------------------
 
-$(document).ready(function() {
+$(document).ready(function () {
     AOS.init({
-        duration: 1000,
-        once: false, // Allow animations to repeat
-        offset: 100,
-        easing: 'ease-in-out',
-        delay: 100,
+        duration: 700,
+        once: false, // Only animate once as they enter the screen
+        offset: 80,
+        easing: 'ease-out-quad',
+        delay: 50,
         startEvent: 'DOMContentLoaded',
         initClassName: 'aos-init',
         animatedClassName: 'aos-animate',
@@ -24,19 +24,19 @@ $(document).ready(function() {
 //-----------------------------------------------
 
 // Refresh AOS when content changes or on window resize
-$(window).on('resize', function() {
+$(window).on('resize', function () {
     AOS.refresh();
 });
 
 // Refresh AOS after dynamic content loads
-$(document).on('contentLoaded', function() {
+$(document).on('contentLoaded', function () {
     AOS.refresh();
 });
 
 // Refresh AOS when elements become visible again
-$(document).on('visibilitychange', function() {
+$(document).on('visibilitychange', function () {
     if (!document.hidden) {
-        setTimeout(function() {
+        setTimeout(function () {
             AOS.refresh();
         }, 100);
     }
@@ -44,23 +44,23 @@ $(document).on('visibilitychange', function() {
 
 // Refresh AOS on scroll with throttling
 let scrollTimeout;
-$(window).on('scroll', function() {
+$(window).on('scroll', function () {
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(function() {
+    scrollTimeout = setTimeout(function () {
         AOS.refresh();
     }, 150);
 });
 
 // Refresh AOS when returning to page
-$(window).on('focus', function() {
-    setTimeout(function() {
+$(window).on('focus', function () {
+    setTimeout(function () {
         AOS.refresh();
     }, 100);
 });
 
 // Refresh AOS on orientation change
-$(window).on('orientationchange', function() {
-    setTimeout(function() {
+$(window).on('orientationchange', function () {
+    setTimeout(function () {
         AOS.refresh();
     }, 500);
 });
@@ -127,10 +127,10 @@ class AOSOptimizer {
             try {
                 // Remove existing animation classes to allow re-animation
                 $('[data-aos]').removeClass('aos-animate');
-                
+
                 // Refresh AOS
                 AOS.refresh();
-                
+
                 // Force re-initialization for better performance
                 setTimeout(() => {
                     AOS.refresh();
@@ -146,7 +146,7 @@ class AOSOptimizer {
         if (window.MutationObserver) {
             const observer = new MutationObserver((mutations) => {
                 let shouldRefresh = false;
-                
+
                 mutations.forEach((mutation) => {
                     if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                         // Check if any added nodes have AOS attributes
@@ -162,12 +162,12 @@ class AOSOptimizer {
                         });
                     }
                 });
-                
+
                 if (shouldRefresh) {
                     this.delayedRefresh(200);
                 }
             });
-            
+
             observer.observe(document.body, {
                 childList: true,
                 subtree: true
@@ -207,26 +207,26 @@ class AOSOptimizer {
 }
 
 // Initialize AOS Optimizer when document is ready
-$(document).ready(function() {
+$(document).ready(function () {
     window.aosOptimizer = new AOSOptimizer();
 });
 
 // Global function for manual refresh
-window.refreshAOSAnimations = function() {
+window.refreshAOSAnimations = function () {
     if (window.aosOptimizer) {
         window.aosOptimizer.refresh();
     }
 };
 
 // Global function for resetting animations
-window.resetAOSAnimations = function() {
+window.resetAOSAnimations = function () {
     if (window.aosOptimizer) {
         window.aosOptimizer.reset();
     }
 };
 
 // Global function for reinitialization
-window.reinitializeAOS = function() {
+window.reinitializeAOS = function () {
     if (window.aosOptimizer) {
         window.aosOptimizer.reinitialize();
     }

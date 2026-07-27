@@ -10,10 +10,10 @@ body {
     font-family: var(--FontPrimary, 'Poppins', 'Noto Sans Bengali', sans-serif);
     background-color: #f2f5f8 !important;
     /* Luxury twill/linen textile weave pattern */
-    background-image: 
-        linear-gradient(45deg, rgba(33, 43, 54, 0.015) 25%, transparent 25%), 
-        linear-gradient(-45deg, rgba(33, 43, 54, 0.015) 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, rgba(33, 43, 54, 0.015) 75%), 
+    background-image:
+        linear-gradient(45deg, rgba(33, 43, 54, 0.015) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(33, 43, 54, 0.015) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(33, 43, 54, 0.015) 75%),
         linear-gradient(-45deg, transparent 75%, rgba(33, 43, 54, 0.015) 75%) !important;
     background-size: 10px 10px !important;
     position: relative;
@@ -326,7 +326,34 @@ body::after {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card:hover {
+    border-color: rgba(var(--ColorPrimaryRGB), 0.45) !important;
+}
+
+/* Premium Rounded Inner Box for Product Images */
+.product-card .relative.aspect-square {
+    margin: 10px 10px 0 10px !important;
+    border-radius: 14px !important;
+    background-color: #f6f8fb !important;
+    overflow: hidden !important;
+}
+
+.product-card .relative.aspect-square img {
+    border-radius: 14px !important;
+}
+
+/* Category card hover transition enhancement */
+.category-slider .slider_item a {
+    transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.category-slider .slider_item a:hover {
+    border-color: rgba(var(--ColorPrimaryRGB), 0.45) !important;
 }
 
 /* ==========================================================================
@@ -363,6 +390,7 @@ body::after {
         transform: scale(0.85);
         opacity: 0.4;
     }
+
     100% {
         transform: scale(1.15);
         opacity: 0.9;
@@ -386,6 +414,7 @@ body::after {
     background: rgba(15, 23, 42, 0.45) !important;
     backdrop-filter: blur(2px) !important;
     -webkit-backdrop-filter: blur(2px) !important;
+    z-index: 2 !important;
     opacity: 0 !important;
     display: flex !important;
     align-items: center !important;
@@ -434,7 +463,7 @@ body::after {
     box-shadow: 0 10px 25px -5px rgba(var(--ColorPrimaryRGB), 0.45) !important;
 }
 
-/* Ensure wishlist/favourite button sits on top of the quick view hover layer */
-.product-card .wishlist-btn {
+/* Ensure wishlist/favourite button and badges with hover-z-index sit on top of the quick view hover layer */
+.hover-z-index {
     z-index: 10 !important;
 }

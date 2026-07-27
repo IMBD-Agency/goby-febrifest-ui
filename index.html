@@ -85,6 +85,9 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="Plugins-Framework/aos/aos.css">
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="frontend/assets/css/style.css">
 </head>
@@ -555,7 +558,7 @@
         </button>
 
         <!-- Slides Wrapper -->
-        <div class="slider_wrap  overflow-hidden rounded-[20px]">
+        <div class="slider_wrap overflow-hidden rounded-[20px]" style="overflow: hidden !important;">
 
           <!-- Slide 2 -->
           <div class="slider_item relative aspect-[21/9] overflow-hidden group">
@@ -668,7 +671,8 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
         <!-- Feature Card 1 -->
         <div
-          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+          data-aos="fade-up" data-aos-delay="0">
           <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
             <i data-lucide="truck" class="w-5 h-5 stroke-[1.75]"></i>
           </div>
@@ -680,7 +684,8 @@
 
         <!-- Feature Card 2 -->
         <div
-          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
             <i data-lucide="refresh-cw" class="w-5 h-5 stroke-[1.75]"></i>
           </div>
@@ -692,7 +697,8 @@
 
         <!-- Feature Card 3 -->
         <div
-          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
             <i data-lucide="shield-check" class="w-5 h-5 stroke-[1.75]"></i>
           </div>
@@ -704,7 +710,8 @@
 
         <!-- Feature Card 4 -->
         <div
-          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+          class="bg-white rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+          data-aos="fade-up" data-aos-delay="300">
           <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
             <i data-lucide="headphones" class="w-5 h-5 stroke-[1.75]"></i>
           </div>
@@ -721,7 +728,7 @@
   <section class="py-8">
     <div class="container">
       <!-- Section Header -->
-      <div class="flex items-center justify-between mb-5 pb-3">
+      <div class="flex items-center justify-between mb-5 pb-3" data-aos="fade-up">
         <div class="flex items-center gap-3">
           <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">NEW ARRIVAL</h2>
           <span class="w-10 h-[2px] bg-brand rounded-full inline-block"></span>
@@ -734,7 +741,7 @@
       <!-- Slick Product Slider -->
       <div class="slider relative group/slider" slider-name="new-arrival-slider"
         data-slides-to-show="BPD: 5, BP-1200: 4, BP-992: 3, BP-576: 2" data-autoplay="false" data-arrows="true"
-        data-dots="false" data-inner-gap="12">
+        data-dots="false" data-inner-gap="12" data-aos="fade-up" data-aos-delay="100">
 
         <!-- Navigation Arrow Controls -->
         <button
@@ -761,11 +768,11 @@
                 <img src="frontend/assets/images/products/shirt (2).jpg" alt="Half Shirt GO-296 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
                   -20%
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -812,7 +819,7 @@
                 <img src="frontend/assets/images/products/shirt (3).jpg" alt="Cuban Shirt GO-299 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -859,7 +866,7 @@
                 <img src="frontend/assets/images/products/shirt (1).jpg" alt="Full Sleeve Katua GO-297 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -906,11 +913,11 @@
                 <img src="frontend/assets/images/products/shirt (5).jpg" alt="Half Shirt GO-294 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 grayscale-[30%]">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
                   STOCK OUT
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -958,7 +965,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Cuban Shirt GO-298 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1003,7 +1010,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Half Shirt GO-300"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1048,7 +1055,7 @@
   <!-- ============ FEATURED CATEGORIES SECTION ============ -->
   <section class="py-8">
     <div class="container">
-      <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center justify-between mb-8" data-aos="fade-up">
         <div>
           <!-- <span class="text-[10px] text-brand font-black uppercase tracking-widest">Explore Categories</span> -->
           <h2 class="text-xl md:text-2xl font-black text-ink tracking-tight mt-0.5">Shop By Category</h2>
@@ -1062,7 +1069,8 @@
       <!-- Categories Container: Initializes as Slick Slider for dynamic count -->
       <div class="slider category-slider relative category-slider-wrap group/slider" slider-name="category-nav"
         data-slides-to-show="BPD: 4, BP-1200: 4, BP-992: 3, BP-768: 3, BP-576: 2" data-slides-to-scroll="BPD: 1"
-        data-arrows="true" data-dots="false" data-infinite="true" data-autoplay="false" data-inner-gap="16">
+        data-arrows="true" data-dots="false" data-infinite="true" data-autoplay="false" data-inner-gap="16"
+        data-aos="fade-up" data-aos-delay="100">
 
         <!-- Navigation Arrow Controls inside Slider container -->
         <button type="button"
@@ -1190,7 +1198,7 @@
   <section class="py-8">
     <div class="container">
       <!-- Section Header -->
-      <div class="flex items-center justify-between mb-5 pb-3">
+      <div class="flex items-center justify-between mb-5 pb-3" data-aos="fade-up">
         <div class="flex items-center gap-3">
           <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">FEATURED PRODUCTS</h2>
           <span class="w-10 h-[2px] bg-brand rounded-full inline-block"></span>
@@ -1201,9 +1209,9 @@
       </div>
 
       <!-- Slick Product Slider -->
-      <div class="slider relative group/slider" slider-name="featured-products-slider"
+      <div class="slider relative group/slider" slider-name="featured-slider"
         data-slides-to-show="BPD: 5, BP-1200: 4, BP-992: 3, BP-576: 2" data-autoplay="false" data-arrows="true"
-        data-dots="false" data-inner-gap="12">
+        data-dots="false" data-inner-gap="12" data-aos="fade-up" data-aos-delay="100">
 
         <!-- Navigation Arrow Controls -->
         <button
@@ -1230,11 +1238,11 @@
                 <img src="frontend/assets/images/products/shirt (2).jpg" alt="Half Shirt GO-296 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
                   -20%
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1281,7 +1289,7 @@
                 <img src="frontend/assets/images/products/shirt (3).jpg" alt="Cuban Shirt GO-299 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1328,7 +1336,7 @@
                 <img src="frontend/assets/images/products/shirt (1).jpg" alt="Full Sleeve Katua GO-297 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1375,11 +1383,11 @@
                 <img src="frontend/assets/images/products/shirt (5).jpg" alt="Half Shirt GO-294 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 grayscale-[30%]">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
                   STOCK OUT
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1427,7 +1435,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Cuban Shirt GO-298 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1472,7 +1480,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Half Shirt GO-300"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1521,7 +1529,8 @@
 
         <!-- Left Banner: Big Card (Aspect 16:9) -->
         <div
-          class="relative rounded-3xl overflow-hidden bg-[#18181b] aspect-[16/9] w-full flex items-center p-8 md:p-12 group shadow-sm border border-line z-0">
+          class="relative rounded-3xl overflow-hidden bg-[#18181b] aspect-[16/9] w-full flex items-center p-8 md:p-12 group shadow-sm border border-line z-0"
+          data-aos="fade-right">
           <img src="frontend/assets/images/category/shirt (3).jpg" alt="Crafted for Modern Men Banner"
             class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
           <!-- Left side dark overlay gradient -->
@@ -1542,7 +1551,8 @@
         <div class="flex flex-col gap-6 justify-between h-full">
           <!-- Right Top: Offer Product -->
           <div
-            class="relative rounded-3xl overflow-hidden bg-[#fafafa] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
+            class="relative rounded-3xl overflow-hidden bg-[#fafafa] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0"
+            data-aos="fade-left" data-aos-delay="0">
             <img src="frontend/assets/images/category/shirt (1).jpg" alt="Elegant Panjabi Collection"
               class="absolute inset-0 w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
             <!-- Left side solid white/gray fade overlay -->
@@ -1561,7 +1571,8 @@
 
           <!-- Right Bottom: Discounted Product -->
           <div
-            class="relative rounded-3xl overflow-hidden bg-[#f0f4f8] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0">
+            class="relative rounded-3xl overflow-hidden bg-[#f0f4f8] flex-1 flex items-center p-6 md:p-8 group shadow-sm border border-line z-0"
+            data-aos="fade-left" data-aos-delay="100">
             <img src="frontend/assets/images/category/shirt (5).jpg" alt="Light Breezy Effortless"
               class="absolute inset-0 w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
             <!-- Left side soft white fade overlay -->
@@ -1587,7 +1598,7 @@
   <section class="py-8">
     <div class="container">
       <!-- Section Header -->
-      <div class="flex items-center justify-between mb-5 pb-3">
+      <div class="flex items-center justify-between mb-5 pb-3" data-aos="fade-up">
         <div class="flex items-center gap-3">
           <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">BEST SELLER</h2>
           <span class="w-10 h-[2px] bg-brand rounded-full inline-block"></span>
@@ -1600,7 +1611,7 @@
       <!-- Slick Product Slider -->
       <div class="slider relative group/slider" slider-name="best-seller-slider"
         data-slides-to-show="BPD: 5, BP-1200: 4, BP-992: 3, BP-576: 2" data-autoplay="false" data-arrows="true"
-        data-dots="false" data-inner-gap="12">
+        data-dots="false" data-inner-gap="12" data-aos="fade-up" data-aos-delay="100">
 
         <!-- Navigation Arrow Controls -->
         <button
@@ -1627,11 +1638,11 @@
                 <img src="frontend/assets/images/products/shirt (2).jpg" alt="Half Shirt GO-296 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
                   -20%
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1678,7 +1689,7 @@
                 <img src="frontend/assets/images/products/shirt (3).jpg" alt="Cuban Shirt GO-299 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1725,7 +1736,7 @@
                 <img src="frontend/assets/images/products/shirt (1).jpg" alt="Full Sleeve Katua GO-297 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1772,11 +1783,11 @@
                 <img src="frontend/assets/images/products/shirt (5).jpg" alt="Half Shirt GO-294 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 grayscale-[30%]">
                 <span
-                  class="absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
+                  class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
                   STOCK OUT
                 </span>
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1824,7 +1835,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Cuban Shirt GO-298 Hover"
                   class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -1869,7 +1880,7 @@
                 <img src="frontend/assets/images/products/shirt (6).jpg" alt="Half Shirt GO-300"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <button
-                  class="wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="Add to wishlist">
                   <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                 </button>
@@ -2059,6 +2070,10 @@
 
   <!-- Slick Slider Customize Script (Local Workspace Path) -->
   <script src="Plugins-Framework/slick-slider/slick.customize.js"></script>
+
+  <!-- AOS Animation Library -->
+  <script src="Plugins-Framework/aos/aos.js"></script>
+  <script src="Plugins-Framework/aos/aos.customize.js"></script>
 
   <!-- LightGallery Core JS -->
   <script src="Plugins-Framework/light-gallery/lightgallery.min.js"></script>
@@ -2419,7 +2434,7 @@
 
               <!-- Quick View Wishlist Button positioned at top-right -->
               <button type="button" id="qv-wishlist-btn"
-                class="wishlist-btn action-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-md cursor-pointer z-10"
+                class="hover-z-index wishlist-btn action-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-md cursor-pointer z-10"
                 aria-label="Add to wishlist">
                 <i data-lucide="heart" class="w-4 h-4"></i>
               </button>

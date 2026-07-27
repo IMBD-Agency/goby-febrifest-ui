@@ -178,8 +178,38 @@ $(document).ready(function () {
             }
         }
 
+        function applySliderGaps() {
+            if (innerGap && innerGap !== '0') {
+                const gapValue = parseInt(innerGap);
+                const halfGap = gapValue / 2;
+                
+                // Safe native styling to keep Slick's dynamically calculated widths and transforms
+                $slider.find('.slick-list').each(function() {
+                    this.style.setProperty('margin-left', `-${halfGap}px`, 'important');
+                    this.style.setProperty('margin-right', `-${halfGap}px`, 'important');
+                });
+
+                $slider.find('.slick-slide').each(function() {
+                    this.style.setProperty('padding-left', `${halfGap}px`, 'important');
+                    this.style.setProperty('padding-right', `${halfGap}px`, 'important');
+                    this.style.setProperty('box-sizing', 'border-box', 'important');
+                });
+
+                $slider.find('.slick-track').each(function() {
+                    this.style.setProperty('display', 'flex', 'important');
+                    const currentSlidesToShow = resolveResponsiveVal(slidesToShowAttr, 1);
+                    if (totalSlides <= currentSlidesToShow) {
+                        this.style.setProperty('justify-content', 'center', 'important');
+                    } else {
+                        this.style.removeProperty('justify-content');
+                    }
+                });
+            }
+        }
+
         $wrap.on('init breakpoint setPosition reInit', function (event, slick) {
             updateControlVisibility(slick);
+            applySliderGaps();
         });
 
         // Safe helper to call slick methods without uncaught TypeError during initialization
@@ -261,6 +291,7 @@ $(document).ready(function () {
         // Apply slick
         $wrap.slick(slickOptions);
 
+
         // Run video check safely after initialization
         handleSlideVideoPlayback();
 
@@ -270,6 +301,7 @@ $(document).ready(function () {
         $(window).on('resize.slickCustom', function () {
             if ($wrap.hasClass('slick-initialized')) {
                 updateControlVisibility($wrap.slick('getSlick'));
+                applySliderGaps();
             }
         });
 
@@ -277,22 +309,8 @@ $(document).ready(function () {
             $slider.find('.left_btn, .right_btn').hide();
         }
 
-        // Gap styling
-        if (innerGap && innerGap !== '0') {
-            const gapValue = parseInt(innerGap);
-            const halfGap = gapValue / 2;
-            $slider.find('.slick-list').attr('style', `margin: 0 -${halfGap}px !important; overflow: hidden;`);
-
-            // Add padding to individual slick slide items to distribute gap evenly without breaking track container widths
-            $slider.find('.slick-slide').attr('style', `padding: 0 ${halfGap}px !important; box-sizing: border-box;`);
-
-            // Remove CSS gap on track so flex dimensions do not overflow container boundaries on the right
-            $slider.find('.slick-track').attr('style', `display: flex !important;`);
-
-            if (totalSlides <= SlidesToShow) {
-                $slider.find('.slick-track').css('justify-content', 'center');
-            }
-        }
+        // Init gaps
+        applySliderGaps();
     });
 
     // Sync handler

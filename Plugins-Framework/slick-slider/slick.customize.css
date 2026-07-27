@@ -118,6 +118,7 @@
     overflow: hidden;
 }
 
+
 /* Pre-initialization layout preservation (Universal 0% FOUC / 0% layout shift before Slick JS runs) */
 .slider_wrap:not(.slick-initialized) {
     display: flex !important;
@@ -162,7 +163,6 @@
 }
 
 .slider_item {
-    overflow: hidden;
     cursor: default;
 }
 
