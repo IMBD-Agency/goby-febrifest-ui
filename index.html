@@ -82,6 +82,9 @@
   <!-- Tailwind Output (For compiled builds) -->
   <link rel="stylesheet" href="frontend/assets/css/tailwind-built.css">
 
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="frontend/assets/css/style.css">
 </head>
@@ -554,44 +557,6 @@
         <!-- Slides Wrapper -->
         <div class="slider_wrap  overflow-hidden rounded-[20px]">
 
-          <!-- Slide 1: Demo Video Slide -->
-          <div class="slider_item relative aspect-[21/9] overflow-hidden group">
-            <!-- Background Video (Shutterstock WebM Preview) -->
-            <video autoplay muted playsinline preload="auto" poster="frontend/assets/images/banner/1725200046.jpg"
-              class="w-full h-full object-cover">
-              <source
-                src="https://www.shutterstock.com/shutterstock/videos/15292681/preview/stock-footage-aerial-viedo-of-the-resort-italian-town-with-small-houses-in-the-summer-on-a-cloudy-day.webm"
-                type="video/webm">
-              <img src="frontend/assets/images/banner/1725200046.jpg" alt="Go By Fabrifest Video Banner"
-                class="w-full h-full object-cover">
-            </video>
-
-            <!-- Smooth Gradient Overlay -->
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent flex items-center fluid-banner-padding">
-              <!-- Positioned Text Content -->
-              <div class="max-w-[60%] text-left z-10 text-white">
-                <span class="text-brand font-bold tracking-[0.2em] block uppercase fluid-badge">CINEMATIC
-                  COLLECTION 2025</span>
-                <div>
-                  <h1 class="font-black text-white tracking-tight uppercase leading-none fluid-h1">
-                    FASHION IN MOTION
-                  </h1>
-                  <span class="font-accent text-brand block pl-1 fluid-accent">
-                    Redefined
-                  </span>
-                </div>
-                <p class="text-white/85 max-w-xs leading-relaxed fluid-desc">
-                  Premium Fabrics. Modern Designs.<br>Made for the Best Version of You.
-                </p>
-                <a href="#"
-                  class="btn-primary-custom bg-brand text-white inline-flex items-center gap-1.5 font-bold uppercase tracking-wider rounded-full shadow-lg hover:bg-black transition-all duration-300 fluid-btn">
-                  WATCH & SHOP <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
           <!-- Slide 2 -->
           <div class="slider_item relative aspect-[21/9] overflow-hidden group">
             <!-- Background Image -->
@@ -653,6 +618,45 @@
               </div>
             </div>
           </div>
+
+          <!-- Slide 1: Demo Video Slide -->
+          <div class="slider_item relative aspect-[21/9] overflow-hidden group">
+            <!-- Background Video (Shutterstock WebM Preview) -->
+            <video autoplay muted playsinline preload="auto" poster="frontend/assets/images/banner/1725200046.jpg"
+              class="w-full h-full object-cover">
+              <source
+                src="https://www.shutterstock.com/shutterstock/videos/15292681/preview/stock-footage-aerial-viedo-of-the-resort-italian-town-with-small-houses-in-the-summer-on-a-cloudy-day.webm"
+                type="video/webm">
+              <img src="frontend/assets/images/banner/1725200046.jpg" alt="Go By Fabrifest Video Banner"
+                class="w-full h-full object-cover">
+            </video>
+
+            <!-- Smooth Gradient Overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent flex items-center fluid-banner-padding">
+              <!-- Positioned Text Content -->
+              <div class="max-w-[60%] text-left z-10 text-white">
+                <span class="text-brand font-bold tracking-[0.2em] block uppercase fluid-badge">CINEMATIC
+                  COLLECTION 2025</span>
+                <div>
+                  <h1 class="font-black text-white tracking-tight uppercase leading-none fluid-h1">
+                    FASHION IN MOTION
+                  </h1>
+                  <span class="font-accent text-brand block pl-1 fluid-accent">
+                    Redefined
+                  </span>
+                </div>
+                <p class="text-white/85 max-w-xs leading-relaxed fluid-desc">
+                  Premium Fabrics. Modern Designs.<br>Made for the Best Version of You.
+                </p>
+                <a href="#"
+                  class="btn-primary-custom bg-brand text-white inline-flex items-center gap-1.5 font-bold uppercase tracking-wider rounded-full shadow-lg hover:bg-black transition-all duration-300 fluid-btn">
+                  WATCH & SHOP <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -714,7 +718,7 @@
   </section>
 
   <!-- ============ NEW ARRIVAL PRODUCT SLIDER SECTION ============ -->
-  <section class="py-6">
+  <section class="py-8">
     <div class="container">
       <!-- Section Header -->
       <div class="flex items-center justify-between mb-5 pb-3">
@@ -1042,7 +1046,7 @@
   </section>
 
   <!-- ============ FEATURED CATEGORIES SECTION ============ -->
-  <section class="py-12">
+  <section class="py-8">
     <div class="container">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -1183,7 +1187,7 @@
   </section>
 
   <!-- ============ FEATURED PRODUCT SLIDER SECTION ============ -->
-  <section class="py-6">
+  <section class="py-8">
     <div class="container">
       <!-- Section Header -->
       <div class="flex items-center justify-between mb-5 pb-3">
@@ -1511,7 +1515,7 @@
   </section>
 
   <!-- ============ PROMOTION BANNERS GRID SECTION ============ -->
-  <section class="py-12">
+  <section class="py-8">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
 
@@ -1580,7 +1584,7 @@
   </section>
 
   <!-- ============ TRENDING PRODUCT SLIDER SECTION ============ -->
-  <section class="py-6">
+  <section class="py-8">
     <div class="container">
       <!-- Section Header -->
       <div class="flex items-center justify-between mb-5 pb-3">
@@ -1908,41 +1912,140 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="bg-ink text-white/90 py-12 border-t border-line mt-12">
-    <div class="container grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
-        <h3 class="text-lg font-bold text-white mb-4 tracking-wider">MANFARE</h3>
-        <p class="text-xs text-white/60 leading-relaxed mb-4">Crafting high-quality menswear with contemporary design
-          standards. Established since 2017.</p>
-        <span class="text-xs font-semibold text-brand">&copy; 2026 Manfare. All rights reserved.</span>
+  <footer class="bg-[#0b0e14] text-[#a0aec0] pt-16 pb-8 border-t border-brand/20 relative overflow-hidden mt-16">
+    <!-- Subtle glow background details -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="container relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/[0.06]">
+
+        <!-- Column 1: Brand Info (col-span-3) -->
+        <div class="lg:col-span-3 space-y-5">
+          <a href="#" class="flex items-center gap-2.5">
+            <div
+              class="w-10 h-10 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-md">
+              <span class="text-brand font-black text-lg tracking-tighter">G</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-lg font-black tracking-wider text-white leading-tight">GO BY FABRIFEST</span>
+              <span class="text-[8px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S FASHION</span>
+            </div>
+          </a>
+          <p class="text-xs leading-relaxed text-gray-400">
+            Go By Fabrifest is the ultimate solution for Fashions & Exclusive collections of Unique Designed Printed
+            T-shirts, Men's wear & Lifestyle Products store in online market for the youngsters.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#"
+              class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+              aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+              aria-label="Instagram">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+              aria-label="Youtube">
+              <i class="fa-brands fa-youtube text-xs"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+              aria-label="Twitter">
+              <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact Info (col-span-3) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">Contact Info
+          </h4>
+          <ul class="space-y-3.5 text-xs text-gray-400">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-brand mt-0.5 text-sm shrink-0"></i>
+              <span class="leading-relaxed">128/1/A, Senpara Parbata, Mirpur-10, Dhaka-1218, Dhaka, Bangladesh</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-brand text-xs shrink-0"></i>
+              <a href="tel:+8801775810098" class="hover:text-brand transition-colors">+8801775-810098</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-brand text-xs shrink-0"></i>
+              <a href="mailto:gobyfabrifest@gmail.com"
+                class="hover:text-brand transition-colors">gobyfabrifest@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: About (col-span-2) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">About</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>About Us</a></li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Contact Us</a></li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Privacy Policy</a>
+            </li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Cancellation &
+                Refund Policy</a></li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Terms &
+                Condition</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Useful Link (col-span-2) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">Useful Link
+          </h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Track My Order</a>
+            </li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Shopping Cart</a>
+            </li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Login</a></li>
+            <li><a href="#" class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                  class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Register</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Google Map Embed (col-span-2) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">Our Location
+          </h4>
+          <div
+            class="w-full h-32 rounded-2xl overflow-hidden border border-white/[0.08] shadow-md hover:border-brand/40 transition-all duration-300">
+            <iframe src="https://maps.google.com/maps?q=23.803406,90.369892&z=15&output=embed"
+              class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
       </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Shop</h4>
-        <ul class="space-y-2 text-xs text-white/70">
-          <li><a href="#" class="hover:text-brand transition-colors">Shirts</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Pants</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Panjabi</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Accessories</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Information</h4>
-        <ul class="space-y-2 text-xs text-white/70">
-          <li><a href="#" class="hover:text-brand transition-colors">About Us</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Shipping Policy</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Returns & Exchange</a></li>
-          <li><a href="#" class="hover:text-brand transition-colors">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Newsletter</h4>
-        <p class="text-xs text-white/60 mb-3">Subscribe to get special offers and collection launches.</p>
-        <form class="flex gap-2">
-          <input type="email" placeholder="Your email..."
-            class="bg-charcoal text-white text-xs px-3 py-2 rounded outline-none border border-white/10 focus:border-brand w-full">
-          <button type="submit"
-            class="btn-primary-custom text-xs px-4 py-2 rounded font-semibold uppercase">Join</button>
-        </form>
+
+      <!-- Footer Bottom Row -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/[0.06]">
+        <!-- Copyright -->
+        <div class="text-xs text-gray-500 font-medium">
+          &copy; Go By Fabrifest. All rights reserved | 2026
+        </div>
+        <!-- Credits -->
+        <div class="text-xs text-gray-500 font-medium">
+          Designed & Developed by <a href="https://imbdagency.com" target="_blank"
+            class="text-brand font-semibold hover:underline">IMBD Agency Ltd.</a>
+        </div>
       </div>
     </div>
   </footer>

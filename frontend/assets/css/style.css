@@ -331,3 +331,68 @@ body {
         opacity: 0.9;
     }
 }
+
+/* ==========================================================================
+   09. PREMIUM QUICK VIEW OVERLAY
+   ========================================================================== */
+.product-card .quick-view-btn {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(15, 23, 42, 0.45) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    opacity: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    letter-spacing: 0 !important;
+}
+
+.product-card .relative:hover .quick-view-btn,
+.product-card:hover .quick-view-btn {
+    opacity: 1 !important;
+}
+
+/* Icon Centering & Circular Card Styling */
+.product-card .quick-view-btn i,
+.product-card .quick-view-btn svg {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px !important;
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: scale(0.8) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.product-card .relative:hover .quick-view-btn i,
+.product-card .relative:hover .quick-view-btn svg,
+.product-card:hover .quick-view-btn i,
+.product-card:hover .quick-view-btn svg {
+    transform: scale(1) !important;
+}
+
+.product-card .quick-view-btn:hover i,
+.product-card .quick-view-btn:hover svg {
+    background-color: var(--ColorPrimary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 25px -5px rgba(var(--ColorPrimaryRGB), 0.45) !important;
+}
