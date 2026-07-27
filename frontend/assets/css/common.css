@@ -209,6 +209,24 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ── Mobile Input Auto-Zoom Fix ────────────────────────────────────────────
+   iOS Safari & Android Chrome auto-zoom into inputs with font-size < 16px.
+   Forcing 16px on mobile prevents the zoom without disabling user scaling.
+   ─────────────────────────────────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
+    input,
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* Prevent horizontal AOS animations (fade-left, fade-right etc.) from
+   causing a temporary horizontal scrollbar on any section */
+section {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--FontPrimary);
     font-weight: normal;
