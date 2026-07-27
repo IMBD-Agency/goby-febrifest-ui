@@ -88,6 +88,46 @@
 
 <body class="bg-[#F4F6F8] text-ink antialiased">
 
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader">
+    <div class="preloader-glow"></div>
+    <div class="relative flex flex-col items-center">
+      <div class="w-24 h-24 rounded-full border border-brand/20 flex items-center justify-center relative">
+        <div
+          class="absolute inset-0 rounded-full border-2 border-t-brand border-r-transparent border-b-transparent border-l-transparent animate-spin"
+          style="animation-duration: 1.2s;"></div>
+        <div class="absolute w-20 h-20 rounded-full border border-brand/10 animate-ping"
+          style="animation-duration: 2s;"></div>
+        <div
+          class="w-12 h-12 rounded-full border-2 border-brand flex items-center justify-center bg-[#161c24] shadow-[0_0_20px_rgba(247,147,30,0.3)]">
+          <span class="text-brand font-black text-xl tracking-tighter">G</span>
+        </div>
+      </div>
+      <div class="mt-8 text-center space-y-1">
+        <h2 class="text-white text-sm font-black tracking-[0.25em] uppercase">Goby Febrifest</h2>
+        <p class="text-[8px] text-brand tracking-[0.4em] font-black uppercase">Premium Men's Fashion</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('loaded');
+        }, 350);
+      }
+    });
+    // Fallback: load state should trigger in 3 seconds maximum
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      if (preloader && !preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+      }
+    }, 3000);
+  </script>
+
   <!-- Mobile Overlay Backdrop (Top-level viewport overlay) -->
   <div id="mobile-drawer-backdrop"
     class="hidden fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 cursor-default transition-opacity duration-300">
@@ -1481,7 +1521,8 @@
           <img src="frontend/assets/images/category/shirt (3).jpg" alt="Crafted for Modern Men Banner"
             class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-700 ease-out group-hover:scale-105 rounded-3xl">
           <!-- Left side dark overlay gradient -->
-          <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent pointer-events-none rounded-3xl">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent pointer-events-none rounded-3xl">
           </div>
 
           <div class="relative z-10 max-w-md text-white space-y-4 mt-auto">
@@ -1544,19 +1585,19 @@
       <!-- Section Header -->
       <div class="flex items-center justify-between mb-5 pb-3">
         <div class="flex items-center gap-3">
-          <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">TRENDING PRODUCTS</h2>
+          <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">BEST SELLER</h2>
           <span class="w-10 h-[2px] bg-brand rounded-full inline-block"></span>
         </div>
         <a href="#" class="text-xs font-bold text-ink hover:text-brand transition-colors flex items-center gap-1">
           View All <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </a>
       </div>
-  
+
       <!-- Slick Product Slider -->
-      <div class="slider relative group/slider" slider-name="trending-products-slider"
+      <div class="slider relative group/slider" slider-name="best-seller-slider"
         data-slides-to-show="BPD: 5, BP-1200: 4, BP-992: 3, BP-576: 2" data-autoplay="false" data-arrows="true"
         data-dots="false" data-inner-gap="12">
-  
+
         <!-- Navigation Arrow Controls -->
         <button
           class="left_btn flex items-center justify-center w-10 h-10 rounded-full bg-white text-ink shadow-md border border-line hover:bg-brand hover:text-white hover:border-brand transition-all duration-200"
@@ -1568,10 +1609,10 @@
           aria-label="Next">
           <i data-lucide="chevron-right" class="w-5 h-5"></i>
         </button>
-  
+
         <!-- Slides Wrapper -->
         <div class="slider_wrap overflow-hidden rounded-[20px]">
-  
+
           <!-- Product Card 1 -->
           <div class="slider_item">
             <div
@@ -1622,7 +1663,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Product Card 2 -->
           <div class="slider_item">
             <div
@@ -1669,7 +1710,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Product Card 3 -->
           <div class="slider_item">
             <div
@@ -1716,7 +1757,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Product Card 4 (DEMO OUT OF STOCK) -->
           <div class="slider_item">
             <div
@@ -1768,7 +1809,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Product Card 5 -->
           <div class="slider_item">
             <div
@@ -1815,7 +1856,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Product Card 6 -->
           <div class="slider_item">
             <div
@@ -1860,7 +1901,7 @@
               </div>
             </div>
           </div>
-  
+
         </div>
       </div>
     </div>

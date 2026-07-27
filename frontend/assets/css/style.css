@@ -291,3 +291,43 @@ body {
     justify-content: space-between;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ==========================================================================
+   08. PREMIUM PRELOADER SYSTEM
+   ========================================================================== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #161c24 0%, #0d1117 100%);
+    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-glow {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--ColorPrimaryRGB), 0.2) 0%, transparent 70%);
+    animation: preloader-pulse 2s infinite alternate;
+}
+
+@keyframes preloader-pulse {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+}
