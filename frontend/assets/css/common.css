@@ -214,6 +214,7 @@ html {
    Forcing 16px on mobile prevents the zoom without disabling user scaling.
    ─────────────────────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
+
     input,
     textarea,
     select {
