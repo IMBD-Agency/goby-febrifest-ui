@@ -90,6 +90,91 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="frontend/assets/css/style.css">
+
+  <style>
+    /* Clean custom scrollbar for the sidebar filter container */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 99px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: var(--ColorPrimary, #f68c22);
+    }
+
+    /* Premium Hover Double Image Transition */
+    .product-image-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image-secondary {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.02);
+    }
+
+    .product-card:hover .product-image-secondary {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .product-card:hover .product-image-primary {
+      transform: scale(1.05);
+    }
+
+    .product-image-primary {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Filter Active Button State */
+    .size-filter-btn.active {
+      background-color: var(--ColorPrimary) !important;
+      color: white !important;
+      border-color: var(--ColorPrimary) !important;
+    }
+
+    /* Dual Range Slider styling overrides */
+    .relative input[type="range"] {
+      pointer-events: none;
+    }
+
+    .relative input[type="range"]::-webkit-slider-thumb {
+      pointer-events: auto;
+      width: 14px;
+      height: 14px;
+      border-radius: 9999px;
+      background: var(--ColorPrimary);
+      border: 2px solid white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      appearance: none;
+      position: relative;
+      z-index: 30;
+    }
+
+    .relative input[type="range"]::-moz-range-thumb {
+      pointer-events: auto;
+      width: 14px;
+      height: 14px;
+      border-radius: 9999px;
+      background: var(--ColorPrimary);
+      border: 2px solid white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      z-index: 30;
+    }
+  </style>
 </head>
 
 <body class="text-ink antialiased">
@@ -493,847 +578,301 @@
                 <a href="#" class="block py-1 hover:text-brand transition-colors">Careers</a>
               </div>
             </div>
-          </nav>
         </div>
-
       </div>
-    </div>
-  </header>
-
-  <!-- ============ BREADCRUMBS ============ -->
+  </header> <!-- ============ BREADCRUMBS ============ -->
   <nav class="py-4 mt-4 select-none" data-aos="fade-down" data-aos-duration="600">
     <div class="container">
       <div class="flex items-center gap-1.5 text-xs text-charcoal/60 font-medium">
         <a href="index.html" class="hover:text-brand transition-colors flex items-center gap-1"><i data-lucide="home"
             class="w-3 h-3"></i> Home</a>
         <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
-        <a href="#" class="hover:text-brand transition-colors">Shirt</a>
-        <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
-        <span class="text-ink font-semibold">Half Shirt GO-296</span>
+        <span class="text-ink font-semibold">Products</span>
       </div>
     </div>
   </nav>
 
-  <!-- ============ PRODUCT DETAIL CONTAINER ============ -->
+  <!-- ============ SHOP HERO BANNER ============ -->
+  <section class="mb-4">
+    <div class="container">
+      <div class="bg-gray-50/50 border border-line rounded-3xl p-6 sm:p-8 flex flex-col gap-2 max-w-none shadow-2xs"
+        data-aos="fade-up">
+        <span class="text-[9px] font-black text-brand uppercase tracking-widest block">Explore Goby</span>
+        <h1 class="text-2xl font-black text-ink uppercase tracking-tight leading-none">Products Collection</h1>
+        <p class="text-xs text-charcoal/60 max-w-xl leading-relaxed mt-1">
+          Discover premium menswear crafted for lifestyle comfort. Filter by category, price range, sizing, and colors
+          to find your perfect fit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAIN CATALOG LAYOUT ============ -->
   <main class="pb-8">
     <div class="container">
-      <!-- 2-Column Split Grid -->
-      <div
-        class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-4 items-start bg-white/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-line shadow-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <!-- SIDEBAR FILTERS (col-span-3) -->
+        <aside id="unified-sidebar-filter"
+          class="fixed top-0 left-0 h-full w-full max-w-[290px] bg-[#f8fafc] z-[10001] overflow-hidden transition-transform duration-300 -translate-x-full flex flex-col lg:static lg:flex lg:flex-col lg:col-span-3 lg:w-auto lg:max-w-none lg:bg-[#f8fafc] lg:rounded-3xl lg:border lg:border-line lg:shadow-xs lg:z-0 lg:translate-x-0 lg:sticky lg:top-[100px]">
 
-        <!-- Left Column: Synced Sliders & Thumbnails (col-span-6) -->
-        <div class="lg:col-span-6 flex flex-col gap-4" data-aos="fade-right" data-aos-duration="800">
-          <!-- Main Carousel (Uses slick synced data-slider-for) -->
-          <div
-            class="slider qv-main-slider product-main-container relative group border border-line rounded-2xl overflow-hidden shadow-xs"
-            slider-name="product-main" data-slides-to-show="BPD: 1" data-slides-to-scroll="BPD: 1" data-arrows="true"
-            data-dots="false" data-infinite="true" data-autoplay="false" data-inner-gap="0"
-            data-slider-for="product-thumb">
-
-            <button type="button"
-              class="left_btn action-btn absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 z-10 bg-white/90 backdrop-blur-xs text-ink hover:bg-brand hover:text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
-              aria-label="Previous slide">
-              <i data-lucide="chevron-left" class="w-4 h-4"></i>
-            </button>
-            <button type="button"
-              class="right_btn action-btn absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 z-10 bg-white/90 backdrop-blur-xs text-ink hover:bg-brand hover:text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
-              aria-label="Next slide">
-              <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </button>
-
-            <!-- Wishlist Trigger button overlaid at top-right -->
-            <button type="button"
-              class="hover-z-index wishlist-btn action-btn absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-md cursor-pointer z-10"
-              aria-label="Add to wishlist">
-              <i data-lucide="heart" class="w-4 h-4"></i>
-            </button>
-
-            <!-- Hidden gallery links for lightgallery dynamic load -->
-            <div class="hidden">
-              <div class="lightgallery" id="lightgallery-detail">
-                <a href="frontend/assets/images/products/shirt (1).jpg"><img
-                    src="frontend/assets/images/products/shirt (1).jpg" alt="Img 1"></a>
-                <a href="frontend/assets/images/products/shirt (2).jpg"><img
-                    src="frontend/assets/images/products/shirt (2).jpg" alt="Img 2"></a>
-                <a href="frontend/assets/images/products/shirt (3).jpg"><img
-                    src="frontend/assets/images/products/shirt (3).jpg" alt="Img 3"></a>
-                <a href="frontend/assets/images/products/shirt (4).jpg"><img
-                    src="frontend/assets/images/products/shirt (4).jpg" alt="Img 4"></a>
-              </div>
-            </div>
-
-            <!-- Slides Wrapper (Overflow hidden to keep rounded corners) -->
-            <div class="slider_wrap overflow-hidden rounded-[20px]" style="overflow: hidden !important;">
-              <!-- Slide 1 -->
-              <div class="slider_item lightgallery-selector cursor-pointer"
-                data-lightgallery-selector="#lightgallery-detail" data-lightgallery-id="0">
-                <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
-                  <img src="frontend/assets/images/products/shirt (1).jpg" alt="Product Image 1"
-                    class="w-full h-full object-cover">
-                  <span
-                    class="hover-z-index absolute top-3.5 left-3.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">-20%</span>
-                </div>
-              </div>
-              <!-- Slide 2 -->
-              <div class="slider_item lightgallery-selector cursor-pointer"
-                data-lightgallery-selector="#lightgallery-detail" data-lightgallery-id="1">
-                <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
-                  <img src="frontend/assets/images/products/shirt (2).jpg" alt="Product Image 2"
-                    class="w-full h-full object-cover">
-                </div>
-              </div>
-              <!-- Slide 3 -->
-              <div class="slider_item lightgallery-selector cursor-pointer"
-                data-lightgallery-selector="#lightgallery-detail" data-lightgallery-id="2">
-                <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
-                  <img src="frontend/assets/images/products/shirt (3).jpg" alt="Product Image 3"
-                    class="w-full h-full object-cover">
-                </div>
-              </div>
-              <!-- Slide 4 -->
-              <div class="slider_item lightgallery-selector cursor-pointer"
-                data-lightgallery-selector="#lightgallery-detail" data-lightgallery-id="3">
-                <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
-                  <img src="frontend/assets/images/products/shirt (4).jpg" alt="Product Image 4"
-                    class="w-full h-full object-cover">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Synced Thumbnail Navigation Slider -->
-          <div class="relative group my-1">
-            <div class="slider qv-thumb-slider" slider-name="product-thumb" data-slider-nav="product-main"
-              data-slides-to-show="BPD: 3, BP-992: 3, BP-576: 3" data-slides-to-scroll="BPD: 1" data-autoplay="false"
-              data-arrows="true" data-dots="false" data-infinite="true" data-center-mode="true" data-inner-gap="8">
-
-              <button type="button"
-                class="left_btn action-btn flex items-center justify-center !w-7 !h-7 !left-1 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
-                aria-label="Previous thumbnail">
-                <i data-lucide="chevron-left" class="w-4 h-4"></i>
-              </button>
-
-              <button type="button"
-                class="right_btn action-btn flex items-center justify-center !w-7 !h-7 !right-1 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
-                aria-label="Next thumbnail">
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-              </button>
-
-              <div class="slider_wrap overflow-hidden rounded-xl">
-                <div class="slider_item p-0.5">
-                  <div class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
-                    <img src="frontend/assets/images/products/shirt (1).jpg" alt="Thumb 1"
-                      class="w-full h-full object-cover">
-                  </div>
-                </div>
-                <div class="slider_item p-0.5">
-                  <div class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
-                    <img src="frontend/assets/images/products/shirt (2).jpg" alt="Thumb 2"
-                      class="w-full h-full object-cover">
-                  </div>
-                </div>
-                <div class="slider_item p-0.5">
-                  <div class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
-                    <img src="frontend/assets/images/products/shirt (3).jpg" alt="Thumb 3"
-                      class="w-full h-full object-cover">
-                  </div>
-                </div>
-                <div class="slider_item p-0.5">
-                  <div class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
-                    <img src="frontend/assets/images/products/shirt (4).jpg" alt="Thumb 4"
-                      class="w-full h-full object-cover">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Product Specs & Actions (col-span-6) -->
-        <div class="lg:col-span-6 space-y-6 lg:pl-4" data-aos="fade-left" data-aos-duration="800">
-          <div class="space-y-2">
-            <span
-              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand/10 text-brand text-[10px] font-black uppercase tracking-wider">
-              <i data-lucide="sparkles" class="w-3 h-3"></i> Exclusive Edition
-            </span>
-            <h1 id="product-title"
-              class="text-2xl sm:text-3xl font-black tracking-tight text-ink uppercase leading-none">Half Shirt GO-296
-            </h1>
-
+          <!-- Sidebar Header Row (Visible on both Mobile and Desktop) -->
+          <div class="h-[68px] flex items-center justify-between px-5 border-b border-line shrink-0 bg-white z-10">
             <div class="flex items-center gap-2">
-              <div class="flex items-center text-amber-400 gap-0.5">
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 stroke-none"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 stroke-none"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 stroke-none"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 stroke-none"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 stroke-none"></i>
-              </div>
-              <span class="text-xs text-charcoal/60 font-semibold">(30 Customer Reviews)</span>
+              <i data-lucide="sliders-horizontal" class="w-4 h-4 text-brand"></i>
+              <span class="font-extrabold text-xs text-ink uppercase tracking-wider">Filters</span>
             </div>
-          </div>
-
-          <div class="flex items-baseline gap-3 pb-4 border-b border-line">
-            <span id="product-price" class="text-3xl font-black text-brand">৳850</span>
-            <span class="text-lg text-charcoal/40 line-through">৳1,090</span>
-            <span
-              class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">Save
-              ৳240</span>
-          </div>
-
-          <p class="text-xs leading-relaxed text-charcoal/80">
-            Elevate your everyday wardrobe with our custom-designed Premium Half Shirt. Crafted from light, breathable
-            linen-blend fabric and styled with a modern tailored cut, this piece delivers ultimate comfort and sharp
-            aesthetics for any warm weather outing.
-          </p>
-
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-ink">Select Size:</h4>
-            </div>
-            <div class="flex items-center gap-2 select-none">
-              <button type="button"
-                class="size-select-btn px-4 py-2 border border-line bg-white text-ink hover:border-brand/50 text-xs font-bold rounded-xl transition-all duration-200 focus:outline-none"
-                data-size="S">S</button>
-              <button type="button"
-                class="size-select-btn px-4 py-2 border border-transparent bg-brand text-white text-xs font-bold rounded-xl transition-all duration-200 focus:outline-none"
-                data-size="M">M</button>
-              <button type="button"
-                class="size-select-btn px-4 py-2 border border-line bg-white text-ink hover:border-brand/50 text-xs font-bold rounded-xl transition-all duration-200 focus:outline-none"
-                data-size="L">L</button>
-              <button type="button"
-                class="size-select-btn px-4 py-2 border border-line bg-white text-ink hover:border-brand/50 text-xs font-bold rounded-xl transition-all duration-200 focus:outline-none"
-                data-size="XL">XL</button>
-              <button type="button"
-                class="size-select-btn px-4 py-2 border border-line bg-white text-ink hover:border-brand/50 text-xs font-bold rounded-xl transition-all duration-200 focus:outline-none"
-                data-size="XXL">XXL</button>
-            </div>
-          </div>
-
-          <div class="space-y-4 pt-2">
-            <div class="flex flex-col sm:flex-row gap-4 items-stretch select-none">
-              <div
-                class="flex items-center border border-line rounded-xl bg-gray-50 px-2.5 h-12 shrink-0 justify-between sm:justify-start">
-                <button type="button" id="detail-qty-minus"
-                  class="w-8 h-8 rounded-lg hover:bg-gray-200 text-ink flex items-center justify-center font-bold focus:outline-none transition-colors cursor-pointer">
-                  <i data-lucide="minus" class="w-3.5 h-3.5"></i>
-                </button>
-                <input type="number" id="detail-qty-input" value="1" min="1" max="99"
-                  class="w-12 text-center text-xs font-bold bg-transparent text-ink border-none outline-none focus:ring-0">
-                <button type="button" id="detail-qty-plus"
-                  class="w-8 h-8 rounded-lg hover:bg-gray-200 text-ink flex items-center justify-center font-bold focus:outline-none transition-colors cursor-pointer">
-                  <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                </button>
-              </div>
-
-              <button type="button" id="detail-add-to-cart-btn"
-                class="flex-1 h-12 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
-                <i data-lucide="shopping-bag" class="w-4 h-4"></i> ADD TO CART
-              </button>
-            </div>
-
-            <button type="button" id="detail-buy-it-now-btn"
-              class="w-full h-12 border border-brand bg-white hover:bg-brand hover:text-white text-brand font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-sm flex items-center justify-center gap-2 cursor-pointer">
-              <i data-lucide="credit-card" class="w-4 h-4"></i> BUY IT NOW
+            <button id="filter-close-btn" type="button"
+              class="w-8 h-8 rounded-full bg-gray-50 hover:bg-brand hover:text-white text-ink flex items-center justify-center transition-all cursor-pointer lg:hidden">
+              <i data-lucide="x" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <!-- Size Guide Image with Lightbox -->
-          <div class="pt-4 border-t border-line">
-            <p class="text-[10px] font-bold uppercase tracking-wider text-charcoal/50 mb-2 flex items-center gap-1">
-              <i data-lucide="ruler" class="w-3 h-3"></i> Size Guide
-            </p>
+          <!-- Scrolling Content (Scrolls on Mobile, and optionally on Desktop when filters exceed height) -->
+          <div class="flex-1 overflow-y-auto p-4 space-y-4 lg:pr-1.5 scrollbar-thin">
 
-            <!-- Hidden lightgallery for size guide -->
-            <div class="hidden">
-              <div class="lightgallery" id="lightgallery-size-guide">
-                <a href="frontend/assets/images/size-guide/image.png">
-                  <img src="frontend/assets/images/size-guide/image.png" alt="Men's Shirt Size Guide">
-                </a>
+            <!-- Categories -->
+            <div class="bg-white rounded-2xl border border-line p-5 space-y-4 shadow-2xs">
+              <h3 class="text-xs font-bold text-ink uppercase tracking-wider border-b border-gray-50 pb-2">Categories
+              </h3>
+              <div class="space-y-2.5">
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="category" value="Panjabi"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Panjabi
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="category" value="Polo T-Shirt"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Polo T-Shirt
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="category" value="Katua Shirt"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Katua Shirt
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="category" value="Hoodie"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Hoodie
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="category" value="Sweat Shirt"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Sweat Shirt
+                </label>
               </div>
             </div>
 
-            <!-- Clickable size guide thumbnail -->
-            <div
-              class="slider_item lightgallery-selector cursor-zoom-in rounded-2xl overflow-hidden border border-line group relative"
-              data-lightgallery-selector="#lightgallery-size-guide" data-lightgallery-id="0">
-              <img src="frontend/assets/images/size-guide/image.png" alt="Men's Shirt Size Guide"
-                class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] rounded-2xl">
-              <div
-                class="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 flex items-center justify-center transition-all duration-300">
-                <span
-                  class="opacity-0 group-hover:opacity-100 bg-brand text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1 transition-all duration-200">
-                  <i data-lucide="zoom-in" class="w-3 h-3"></i> View Full Size
-                </span>
+            <!-- Price Range -->
+            <div class="bg-white rounded-2xl border border-line p-5 space-y-4 shadow-2xs">
+              <h3 class="text-xs font-bold text-ink uppercase tracking-wider border-b border-gray-50 pb-2">Price Range
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between text-xs font-bold text-ink">
+                  <span>Price:</span>
+                  <span class="text-brand font-black"><span id="price-min-val">৳0</span> - <span
+                      id="price-max-val">৳3,000</span></span>
+                </div>
+
+                <!-- Dual Range Slider Widget -->
+                <div class="relative w-full h-5 flex items-center select-none">
+                  <!-- Slider Track Background line -->
+                  <div class="absolute inset-x-0 h-1 bg-gray-200 rounded-lg"></div>
+                  <!-- Colored Selected Range highlights line -->
+                  <div id="price-slider-track-highlight" class="absolute h-1 bg-brand rounded-lg"
+                    style="left: 0%; right: 0%;"></div>
+
+                  <!-- Range Handle Inputs stacked on top -->
+                  <input type="range" id="price-slider-min" min="0" max="3000" step="50" value="0"
+                    class="absolute w-full appearance-none pointer-events-none bg-transparent outline-none z-20 cursor-pointer accent-brand"
+                    style="margin: 0;">
+                  <input type="range" id="price-slider-max" min="0" max="3000" step="50" value="3000"
+                    class="absolute w-full appearance-none pointer-events-none bg-transparent outline-none z-20 cursor-pointer accent-brand"
+                    style="margin: 0;">
+                </div>
               </div>
+            </div>
+
+            <!-- Sizes -->
+            <div class="bg-white rounded-2xl border border-line p-5 space-y-4 shadow-2xs">
+              <h3 class="text-xs font-bold text-ink uppercase tracking-wider border-b border-gray-50 pb-2">Sizes</h3>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="size-filter-btn px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white hover:border-brand transition-all cursor-pointer"
+                  data-size="S">S</button>
+                <button
+                  class="size-filter-btn px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white hover:border-brand transition-all cursor-pointer"
+                  data-size="M">M</button>
+                <button
+                  class="size-filter-btn px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white hover:border-brand transition-all cursor-pointer"
+                  data-size="L">L</button>
+                <button
+                  class="size-filter-btn px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white hover:border-brand transition-all cursor-pointer"
+                  data-size="XL">XL</button>
+                <button
+                  class="size-filter-btn px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white hover:border-brand transition-all cursor-pointer"
+                  data-size="XXL">XXL</button>
+              </div>
+            </div>
+
+            <!-- Brands -->
+            <div class="bg-white rounded-2xl border border-line p-5 space-y-4 shadow-2xs">
+              <h3 class="text-xs font-bold text-ink uppercase tracking-wider border-b border-gray-50 pb-2">Brands</h3>
+              <div class="space-y-2.5">
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="brand" value="Goby Fashion"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Goby Fashion
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="brand" value="Febrifest Wear"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Febrifest Wear
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="brand" value="IMBD Premium"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  IMBD Premium
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="brand" value="Outfitter Co."
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  Outfitter Co.
+                </label>
+              </div>
+            </div>
+
+            <!-- Deals -->
+            <div class="bg-white rounded-2xl border border-line p-5 space-y-4 shadow-2xs">
+              <h3 class="text-xs font-bold text-ink uppercase tracking-wider border-b border-gray-50 pb-2">Deals</h3>
+              <div class="space-y-2.5">
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="filter-deal" value="Sale"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  On Sale
+                </label>
+                <label
+                  class="flex items-center gap-3 text-xs font-semibold text-charcoal cursor-pointer hover:text-brand transition-colors">
+                  <input type="checkbox" name="filter-deal" value="New"
+                    class="w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand accent-brand">
+                  New Arrivals
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Action Buttons (Sticky/Fixed at bottom on Mobile, separate card on Desktop) -->
+          <div class="h-[68px] flex items-center px-5 border-t border-line bg-white shrink-0">
+            <div class="flex items-center gap-2.5 w-full">
+              <button id="apply-filters-btn"
+                class="flex-1 py-2.5 bg-brand hover:bg-black text-white font-extrabold text-xs rounded-xl tracking-wide uppercase transition-all shadow-md cursor-pointer flex items-center justify-center">
+                Apply
+              </button>
+              <button id="clear-filters-btn"
+                class="flex-1 py-2.5 bg-black hover:bg-brand text-white font-extrabold text-xs rounded-xl tracking-wide uppercase transition-all shadow-md cursor-pointer flex items-center justify-center">
+                Clear
+              </button>
             </div>
           </div>
+        </aside>
+
+        <!-- CATALOG RIGHT COLUMN -->
+        <div class="lg:col-span-9 space-y-5">
+
+          <!-- Toolbar (Translucent Blur Container) -->
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between bg-white/40 backdrop-blur-md border border-line rounded-3xl p-4 md:px-6 md:py-4 shadow-sm gap-4">
+
+            <!-- Left Side: Product Counter & Mobile Toggle -->
+            <div class="text-xs font-semibold text-charcoal flex items-center justify-between md:justify-start gap-4">
+              <span>Showing <span id="showing-count" class="font-extrabold text-brand text-sm">0</span> of <span
+                  id="total-count" class="font-extrabold text-ink">0</span> products</span>
+
+              <!-- Mobile Toggle Filter (only visible on mobile next to counter) -->
+              <button id="mobile-filter-open-btn"
+                class="lg:hidden px-3 py-1.5 border border-line rounded-xl text-xs font-bold text-ink bg-white flex items-center gap-1.5 hover:border-brand transition-all cursor-pointer">
+                <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-brand"></i> Filters
+              </button>
+            </div>
+
+            <!-- Right Side: Layout Grid Controls & Sorts -->
+            <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto">
+
+              <!-- Sort By Dropdown -->
+              <div class="flex items-center gap-2 text-xs font-semibold text-charcoal">
+                <span class="shrink-0">Sort By:</span>
+                <select id="sort-select"
+                  class="border border-line bg-white rounded-xl pl-2.5 pr-8 py-1.5 outline-none focus:border-brand cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234a5568%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:10px] bg-[right_10px_center] bg-no-repeat"
+                  style="font-size: 14px !important; font-weight: 400 !important; color: #4a5568 !important;">
+                  <option value="featured"
+                    style="font-size: 14px !important; font-weight: 600 !important; color: #4a5568 !important;">Featured
+                  </option>
+                  <option value="price-asc"
+                    style="font-size: 14px !important; font-weight: 600 !important; color: #4a5568 !important;">Price:
+                    Low to High</option>
+                  <option value="price-desc"
+                    style="font-size: 14px !important; font-weight: 600 !important; color: #4a5568 !important;">Price:
+                    High to Low</option>
+                  <option value="newest"
+                    style="font-size: 14px !important; font-weight: 600 !important; color: #4a5568 !important;">New
+                    Arrivals</option>
+                </select>
+              </div>
+
+              <!-- Layout Toggle Buttons (Always visible on all screens!) -->
+              <div class="flex items-center border border-line rounded-xl overflow-hidden bg-white shrink-0">
+                <button id="grid-layout-btn"
+                  class="w-8 h-8 flex items-center justify-center border-r border-line text-brand bg-gray-50/50 cursor-pointer"
+                  aria-label="Grid View">
+                  <i data-lucide="grid" class="w-3.5 h-3.5"></i>
+                </button>
+                <button id="list-layout-btn"
+                  class="w-8 h-8 flex items-center justify-center text-charcoal/40 hover:text-brand cursor-pointer"
+                  aria-label="List View">
+                  <i data-lucide="list" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Products Grid Catalog Box (matching theme grid layout with blur panel) -->
+          <div class="bg-white/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-line shadow-sm">
+            <div id="products-catalog-grid"
+              class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5 transition-all duration-300">
+              <!-- Populated dynamically via Script -->
+            </div>
+
+            <!-- Pagination -->
+            <div id="catalog-pagination"
+              class="flex items-center justify-center gap-2 pt-8 mt-4 border-t border-black/[0.05]">
+              <!-- Generated dynamically -->
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
-      <!-- ============ DESCRIPTION & REVIEWS TABS CARD ============ -->
-      <div class="mt-8 bg-white/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-line shadow-sm"
-        data-aos="fade-up">
-        <!-- Tabs Navigation -->
-        <div class="flex items-center gap-2 border-b border-line pb-4 overflow-x-auto no-scrollbar select-none">
-          <button type="button"
-            class="tab-trigger-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider bg-brand text-white shadow-md transition-all duration-200 cursor-pointer"
-            data-tab-target="tab-desc">
-            Description
-          </button>
-          <button type="button"
-            class="tab-trigger-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-charcoal/60 hover:text-brand hover:bg-brand/5 transition-all duration-200 cursor-pointer"
-            data-tab-target="tab-specs">
-            Specifications
-          </button>
-          <button type="button"
-            class="tab-trigger-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-charcoal/60 hover:text-brand hover:bg-brand/5 transition-all duration-200 cursor-pointer"
-            data-tab-target="tab-reviews">
-            Reviews (2)
-          </button>
-        </div>
-
-        <!-- Tab Content Panels -->
-        <div class="mt-6">
-          <!-- Tab: Description -->
-          <div id="tab-desc" class="tab-panel-content space-y-6">
-            <div class="prose max-w-none text-xs sm:text-sm text-charcoal/80 leading-relaxed space-y-4">
-              <p>
-                Our Premium Half Shirt GO-296 is the culmination of style, comfort, and heritage. Each print is
-                carefully designed and block-printed on a premium blend of high-grade cotton and natural linen, giving
-                the fabric its distinctive texture and unmatched breathability for hot and humid climates.
-              </p>
-              <p>
-                Whether paired with tailored trousers for an upscale semi-formal event or thrown over lightweight linen
-                shorts for a casual beachside brunch, this shirt adapts instantly to your styling needs. The modern
-                tailored cut provides a sharp silhouette without restricting movement.
-              </p>
-            </div>
-
-            <!-- Features Highlight Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-line">
-              <div class="flex items-start gap-3 bg-white/50 p-4 rounded-2xl border border-line">
-                <div class="w-8 h-8 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
-                  <i data-lucide="leaf" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h5 class="text-xs font-extrabold text-ink uppercase mb-1">Eco-Conscious Blend</h5>
-                  <p class="text-[11px] text-charcoal/70 leading-normal">Made from sustainably sourced cotton and
-                    natural flax linen fibers.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 bg-white/50 p-4 rounded-2xl border border-line">
-                <div
-                  class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="scissors" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h5 class="text-xs font-extrabold text-ink uppercase mb-1">Reinforced Stitching</h5>
-                  <p class="text-[11px] text-charcoal/70 leading-normal">Double-lock stitching at side seams and cuffs
-                    for maximum durability.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 bg-white/50 p-4 rounded-2xl border border-line">
-                <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="palette" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h5 class="text-xs font-extrabold text-ink uppercase mb-1">Resistant Dyes</h5>
-                  <p class="text-[11px] text-charcoal/70 leading-normal">Advanced color-locking process protects pattern
-                    vibrancy from fading.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tab: Specifications -->
-          <div id="tab-specs" class="tab-panel-content hidden space-y-4">
-            <div class="overflow-hidden border border-line rounded-2xl bg-white/30">
-              <table class="w-full text-left border-collapse text-xs sm:text-sm">
-                <thead>
-                  <tr
-                    class="bg-gray-50/50 border-b border-line text-[10px] font-black uppercase tracking-wider text-charcoal/60">
-                    <th class="px-6 py-3">Property</th>
-                    <th class="px-6 py-3">Details</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-line">
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px] w-1/3">Fabric</td>
-                    <td class="px-6 py-3 text-charcoal/80">70% Premium Cotton, 30% Pure Linen</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px]">Fit Style</td>
-                    <td class="px-6 py-3 text-charcoal/80">Slim/Tailored Fit (Modern Cut)</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px]">Design Pattern
-                    </td>
-                    <td class="px-6 py-3 text-charcoal/80">Ethnic Block Geometric Pattern</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px]">Collar Design
-                    </td>
-                    <td class="px-6 py-3 text-charcoal/80">Mandarin Band Collar</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px]">Sleeve Type</td>
-                    <td class="px-6 py-3 text-charcoal/80">Relaxed Half Sleeves</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-3 font-extrabold text-ink uppercase tracking-wider text-[10px]">Washing Care</td>
-                    <td class="px-6 py-3 text-charcoal/80">Machine wash cold with similar colors, tumble dry low, warm
-                      iron if needed</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Tab: Reviews -->
-          <div id="tab-reviews" class="tab-panel-content hidden space-y-6">
-            <!-- Review Stats Header -->
-            <div
-              class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-gray-50/50 p-6 rounded-2xl border border-line">
-              <div class="md:col-span-4 text-center space-y-2 border-r border-line md:pr-6">
-                <h3 class="text-4xl font-black text-ink">4.9</h3>
-                <div class="flex items-center justify-center text-amber-400 gap-0.5">
-                  <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
-                  <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
-                  <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
-                  <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
-                  <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
-                </div>
-                <p class="text-[11px] font-semibold text-charcoal/60 uppercase tracking-wider">Based on 2 Reviews</p>
-              </div>
-
-              <!-- Rating Progress Bars -->
-              <div class="md:col-span-8 space-y-2">
-                <div class="flex items-center gap-3 text-xs">
-                  <span class="w-12 font-bold text-ink text-right">5 Stars</span>
-                  <div class="flex-1 h-2 bg-gray-200/60 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 90%;"></div>
-                  </div>
-                  <span class="w-8 text-charcoal/60 font-semibold text-right">90%</span>
-                </div>
-                <div class="flex items-center gap-3 text-xs">
-                  <span class="w-12 font-bold text-ink text-right">4 Stars</span>
-                  <div class="flex-1 h-2 bg-gray-200/60 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 10%;"></div>
-                  </div>
-                  <span class="w-8 text-charcoal/60 font-semibold text-right">10%</span>
-                </div>
-                <div class="flex items-center gap-3 text-xs">
-                  <span class="w-12 font-bold text-ink text-right">3 Stars</span>
-                  <div class="flex-1 h-2 bg-gray-200/60 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 0%;"></div>
-                  </div>
-                  <span class="w-8 text-charcoal/60 font-semibold text-right">0%</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Customer Review Comments -->
-            <div class="space-y-4">
-              <!-- Review 1 -->
-              <div class="bg-white/50 p-5 rounded-2xl border border-line space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center font-black uppercase text-xs">
-                      AH
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-1.5">
-                        <span class="text-xs font-bold text-ink">Adnan Habib</span>
-                        <span
-                          class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase tracking-wider">
-                          <i data-lucide="check-circle-2" class="w-2.5 h-2.5"></i> Verified Purchase
-                        </span>
-                      </div>
-                      <span class="text-[10px] text-charcoal/50">2 days ago</span>
-                    </div>
-                  </div>
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                </div>
-                <p class="text-xs text-charcoal/80 leading-relaxed">
-                  The fabric quality is exceptionally good! The linen-cotton blend is lightweight, which makes it
-                  perfect for Dhaka summer days. The print is crisp and the fitting is exactly as described. Best deal!
-                </p>
-              </div>
-
-              <!-- Review 2 -->
-              <div class="bg-white/50 p-5 rounded-2xl border border-line space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center font-black uppercase text-xs">
-                      MS
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-1.5">
-                        <span class="text-xs font-bold text-ink">Mahanaz S.</span>
-                        <span
-                          class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase tracking-wider">
-                          <i data-lucide="check-circle-2" class="w-2.5 h-2.5"></i> Verified Purchase
-                        </span>
-                      </div>
-                      <span class="text-[10px] text-charcoal/50">1 week ago</span>
-                    </div>
-                  </div>
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                </div>
-                <p class="text-xs text-charcoal/80 leading-relaxed">
-                  Gifted this shirt to my brother and he absolutely loved it. Color stays vibrant even after machine
-                  washing. Highly recommended!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </main>
 
-  <!-- ============ TRENDING PRODUCT SLIDER SECTION ============ -->
-  <section class="py-8">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="flex items-center justify-between mb-5 pb-3" data-aos="fade-up">
-        <div class="flex items-center gap-3">
-          <h2 class="text-xl md:text-2xl font-black tracking-tight text-ink uppercase">RELATED PRODUCTS</h2>
-          <span class="w-10 h-[2px] bg-brand rounded-full inline-block"></span>
-        </div>
-        <a href="#" class="text-xs font-bold text-ink hover:text-brand transition-colors flex items-center gap-1">
-          View All <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </a>
-      </div>
+  <!-- Mobile drawer filters setup -->
+  <div id="filter-backdrop"
+    class="fixed inset-0 z-[10000] bg-ink/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+  </div>
 
-      <!-- Slick Product Slider -->
-      <div class="slider relative group/slider" slider-name="related-product-slider"
-        data-slides-to-show="BPD: 5, BP-1200: 4, BP-992: 3, BP-576: 2" data-autoplay="false" data-arrows="true"
-        data-dots="false" data-inner-gap="12" data-aos="fade-up" data-aos-delay="100">
 
-        <!-- Navigation Arrow Controls -->
-        <button
-          class="left_btn flex items-center justify-center w-10 h-10 rounded-full bg-white text-ink shadow-md border border-line hover:bg-brand hover:text-white hover:border-brand transition-all duration-200"
-          aria-label="Previous">
-          <i data-lucide="chevron-left" class="w-5 h-5"></i>
-        </button>
-        <button
-          class="right_btn flex items-center justify-center w-10 h-10 rounded-full bg-white text-ink shadow-md border border-line hover:bg-brand hover:text-white hover:border-brand transition-all duration-200"
-          aria-label="Next">
-          <i data-lucide="chevron-right" class="w-5 h-5"></i>
-        </button>
-
-        <!-- Slides Wrapper -->
-        <div class="slider_wrap overflow-hidden rounded-[20px]">
-
-          <!-- Product Card 1 -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50">
-                <img src="frontend/assets/images/products/shirt (1).jpg" alt="Half Shirt GO-296"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
-                <img src="frontend/assets/images/products/shirt (2).jpg" alt="Half Shirt GO-296 Hover"
-                  class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                <span
-                  class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
-                  -20%
-                </span>
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Half Shirt GO-296
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(10)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-ink">৳850</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,090</span>
-                </div>
-                <!-- Add to Cart Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 2 -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50">
-                <img src="frontend/assets/images/products/shirt (2).jpg" alt="Cuban Shirt GO-299"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
-                <img src="frontend/assets/images/products/shirt (3).jpg" alt="Cuban Shirt GO-299 Hover"
-                  class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Cuban Shirt GO-299
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(23)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-ink">৳850</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,090</span>
-                </div>
-                <!-- Add to Cart Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 3 -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50">
-                <img src="frontend/assets/images/products/shirt (3).jpg" alt="Full Sleeve Katua GO-297"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
-                <img src="frontend/assets/images/products/shirt (1).jpg" alt="Full Sleeve Katua GO-297 Hover"
-                  class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Full Sleeve Katua GO-297
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(16)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-ink">৳990</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,250</span>
-                </div>
-                <!-- Add to Cart Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 4 (DEMO OUT OF STOCK) -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50 opacity-90">
-                <img src="frontend/assets/images/products/shirt (4).jpg" alt="Half Shirt GO-294"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0 grayscale-[30%]">
-                <img src="frontend/assets/images/products/shirt (5).jpg" alt="Half Shirt GO-294 Hover"
-                  class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 grayscale-[30%]">
-                <span
-                  class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
-                  STOCK OUT
-                </span>
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Half Shirt GO-294
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(30)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-charcoal/70">৳850</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,090</span>
-                </div>
-                <!-- Disabled Out of Stock Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-gray-50 text-gray-400 font-extrabold text-[11px] uppercase tracking-wider rounded-xl cursor-not-allowed flex items-center justify-center gap-1.5 border border-black/[0.08]"
-                  disabled>
-                  OUT OF STOCK
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 5 -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50">
-                <img src="frontend/assets/images/products/shirt (5).jpg" alt="Cuban Shirt GO-298"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
-                <img src="frontend/assets/images/products/shirt (6).jpg" alt="Cuban Shirt GO-298 Hover"
-                  class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Cuban Shirt GO-298
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(11)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-ink">৳850</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,090</span>
-                </div>
-                <!-- Add to Cart Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 6 -->
-          <div class="slider_item">
-            <div
-              class="product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300">
-              <div class="relative aspect-square overflow-hidden bg-gray-50">
-                <img src="frontend/assets/images/products/shirt (6).jpg" alt="Half Shirt GO-300"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <button
-                  class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
-                  aria-label="Add to wishlist">
-                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                </button>
-                <!-- Quick View Button -->
-                <button
-                  class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
-                </button>
-              </div>
-              <div class="p-3">
-                <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
-                  Half Shirt GO-300
-                </h3>
-                <div class="flex items-center gap-1 mb-1.5">
-                  <div class="flex items-center text-amber-400 gap-0.5">
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-amber-400 stroke-none"></i>
-                  </div>
-                  <span class="text-[10px] text-charcoal/50 font-medium">(17)</span>
-                </div>
-                <div class="flex items-baseline gap-1.5 mb-3">
-                  <span class="font-black text-sm text-ink">৳850</span>
-                  <span class="text-xs text-charcoal/40 line-through">৳1,090</span>
-                </div>
-                <!-- Add to Cart Button -->
-                <button
-                  class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="bg-[#0b0e14] text-[#a0aec0] pt-16 border-t border-brand/20 relative overflow-hidden mt-16">
@@ -1507,109 +1046,799 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      // Size Selection on Details Page (No Jerk - updates background color and keeps 1px border)
-      document.querySelectorAll('.size-select-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.size-select-btn').forEach(b => {
-            b.classList.remove('border-transparent', 'bg-brand', 'text-white');
-            b.classList.add('border-line', 'bg-white', 'text-ink');
+      // ==========================================
+      // DATABASE AND FILTERING LOGIC
+      // ==========================================
+      const PRODUCTS = [
+        {
+          id: 1,
+          name: "Half Shirt GO-296",
+          category: "Katua Shirt",
+          brand: "Goby Fashion",
+          price: 850,
+          oldPrice: 1090,
+          image: "frontend/assets/images/products/shirt (1).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (2).jpg",
+          rating: 5,
+          reviewsCount: 30,
+          sizes: ["S", "M", "L", "XL"],
+          colors: ["White", "Blue"],
+          isSale: true,
+          isNew: true
+        },
+        {
+          id: 2,
+          name: "Cuban Shirt GO-299",
+          category: "Katua Shirt",
+          brand: "Febrifest Wear",
+          price: 850,
+          oldPrice: 1090,
+          image: "frontend/assets/images/products/shirt (2).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (3).jpg",
+          rating: 4,
+          reviewsCount: 23,
+          sizes: ["M", "L", "XL"],
+          colors: ["Blue", "Black"],
+          isSale: false,
+          isNew: true
+        },
+        {
+          id: 3,
+          name: "Full Sleeve Katua GO-297",
+          category: "Katua Shirt",
+          brand: "Goby Fashion",
+          price: 990,
+          oldPrice: 1250,
+          image: "frontend/assets/images/products/shirt (3).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (1).jpg",
+          rating: 5,
+          reviewsCount: 16,
+          sizes: ["S", "M", "L", "XL", "XXL"],
+          colors: ["Brown", "White"],
+          isSale: true,
+          isNew: false
+        },
+        {
+          id: 4,
+          name: "Half Shirt GO-294",
+          category: "Katua Shirt",
+          brand: "IMBD Premium",
+          price: 850,
+          oldPrice: 1090,
+          image: "frontend/assets/images/products/shirt (4).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (5).jpg",
+          rating: 5,
+          reviewsCount: 30,
+          sizes: ["M", "L", "XL"],
+          colors: ["Orange", "Black"],
+          isSale: true,
+          isNew: false,
+          isOutOfStock: true
+        },
+        {
+          id: 5,
+          name: "Cuban Shirt GO-298",
+          category: "Katua Shirt",
+          brand: "Outfitter Co.",
+          price: 850,
+          oldPrice: 1090,
+          image: "frontend/assets/images/products/shirt (5).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (6).jpg",
+          rating: 4,
+          reviewsCount: 11,
+          sizes: ["S", "M", "L"],
+          colors: ["Orange", "Blue"],
+          isSale: false,
+          isNew: true
+        },
+        {
+          id: 6,
+          name: "Half Shirt GO-300",
+          category: "Katua Shirt",
+          brand: "Goby Fashion",
+          price: 850,
+          oldPrice: 1090,
+          image: "frontend/assets/images/products/shirt (6).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (2).jpg",
+          rating: 5,
+          reviewsCount: 17,
+          sizes: ["M", "L", "XL", "XXL"],
+          colors: ["White", "Black"],
+          isSale: true,
+          isNew: true
+        },
+        {
+          id: 7,
+          name: "Premium Punjabi Premium-01",
+          category: "Panjabi",
+          brand: "IMBD Premium",
+          price: 1850,
+          oldPrice: 2200,
+          image: "frontend/assets/images/products/shirt (1).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (2).jpg",
+          rating: 5,
+          reviewsCount: 42,
+          sizes: ["M", "L", "XL"],
+          colors: ["Black", "White"],
+          isSale: true,
+          isNew: true
+        },
+        {
+          id: 8,
+          name: "Premium Punjabi Premium-02",
+          category: "Panjabi",
+          brand: "Febrifest Wear",
+          price: 1950,
+          oldPrice: 2400,
+          image: "frontend/assets/images/products/shirt (3).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (4).jpg",
+          rating: 5,
+          reviewsCount: 35,
+          sizes: ["L", "XL", "XXL"],
+          colors: ["Brown", "Blue"],
+          isSale: false,
+          isNew: true
+        },
+        {
+          id: 9,
+          name: "Classic Polo Shirt Polo-10",
+          category: "Polo T-Shirt",
+          brand: "Outfitter Co.",
+          price: 650,
+          oldPrice: 850,
+          image: "frontend/assets/images/products/shirt (2).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (5).jpg",
+          rating: 4,
+          reviewsCount: 19,
+          sizes: ["S", "M", "L", "XL"],
+          colors: ["Blue", "White"],
+          isSale: true,
+          isNew: false
+        },
+        {
+          id: 10,
+          name: "Signature Polo Shirt Polo-12",
+          category: "Polo T-Shirt",
+          brand: "Goby Fashion",
+          price: 690,
+          oldPrice: 900,
+          image: "frontend/assets/images/products/shirt (4).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (6).jpg",
+          rating: 5,
+          reviewsCount: 14,
+          sizes: ["M", "L", "XL"],
+          colors: ["Black", "Orange"],
+          isSale: false,
+          isNew: true
+        },
+        {
+          id: 11,
+          name: "Premium Winter Hoodie HD-04",
+          category: "Hoodie",
+          brand: "Febrifest Wear",
+          price: 1250,
+          oldPrice: 1600,
+          image: "frontend/assets/images/products/shirt (5).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (1).jpg",
+          rating: 5,
+          reviewsCount: 28,
+          sizes: ["M", "L", "XL", "XXL"],
+          colors: ["Black", "Brown"],
+          isSale: true,
+          isNew: true
+        },
+        {
+          id: 12,
+          name: "Cozy Cotton Sweat Shirt SS-09",
+          category: "Sweat Shirt",
+          brand: "IMBD Premium",
+          price: 1100,
+          oldPrice: 1450,
+          image: "frontend/assets/images/products/shirt (6).jpg",
+          hoverImage: "frontend/assets/images/products/shirt (3).jpg",
+          rating: 4,
+          reviewsCount: 22,
+          sizes: ["S", "M", "L", "XL"],
+          colors: ["Blue", "Brown"],
+          isSale: true,
+          isNew: false
+        }
+      ];
+
+      // Filters State
+      let filterCategory = [];
+      let filterSize = [];
+      let filterBrand = [];
+      let filterMinPrice = 0;
+      let filterMaxPrice = 3000;
+      let filterDeals = [];
+      let sortOption = "featured";
+      let gridCols = 3;
+      let currentLayout = "grid";
+      let currentPage = 1;
+      const itemsPerPage = 6;
+
+      // URL parameters processing
+      function parseUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+
+        // Category
+        const cat = params.get('category');
+        if (cat) {
+          filterCategory = [cat];
+          // Pre-check filter category inputs
+          document.querySelectorAll('input[name="category"]').forEach(input => {
+            if (input.value === cat) input.checked = true;
           });
-          btn.classList.remove('border-line', 'bg-white', 'text-ink');
-          btn.classList.add('border-transparent', 'bg-brand', 'text-white');
+        }
+
+        // Deal / Type
+        const deal = params.get('deal');
+        if (deal) {
+          filterDeals = [deal];
+          // Pre-check filter deals inputs
+          document.querySelectorAll('input[name="filter-deal"]').forEach(input => {
+            if (input.value === deal) input.checked = true;
+          });
+        }
+      }
+
+      // Filter and Sort function
+      function getFilteredProducts() {
+        let list = [...PRODUCTS];
+
+        // Filter: Category
+        if (filterCategory.length > 0) {
+          list = list.filter(p => filterCategory.includes(p.category));
+        }
+
+        // Filter: Size
+        if (filterSize.length > 0) {
+          list = list.filter(p => p.sizes.some(s => filterSize.includes(s)));
+        }
+
+        // Filter: Brand
+        if (filterBrand.length > 0) {
+          list = list.filter(p => filterBrand.includes(p.brand));
+        }
+
+        // Filter: Price Range
+        list = list.filter(p => p.price >= filterMinPrice && p.price <= filterMaxPrice);
+
+        // Filter: Deals
+        if (filterDeals.length > 0) {
+          list = list.filter(p => {
+            let matches = false;
+            if (filterDeals.includes('Sale') && p.isSale) matches = true;
+            if (filterDeals.includes('New') && p.isNew) matches = true;
+            return matches;
+          });
+        }
+
+        // Sorting
+        if (sortOption === "price-asc") {
+          list.sort((a, b) => a.price - b.price);
+        } else if (sortOption === "price-desc") {
+          list.sort((a, b) => b.price - a.price);
+        } else if (sortOption === "newest") {
+          list.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+        }
+
+        return list;
+      }
+
+      // Render Dynamic Grid Cards
+      function renderCatalog() {
+        const grid = document.getElementById('products-catalog-grid');
+        if (!grid) return;
+
+        const filtered = getFilteredProducts();
+
+        // Counter labels
+        const showingCountEl = document.getElementById('showing-count');
+        const totalCountEl = document.getElementById('total-count');
+        if (showingCountEl) showingCountEl.textContent = Math.min(filtered.length, currentPage * itemsPerPage);
+        if (totalCountEl) totalCountEl.textContent = filtered.length;
+
+        // Pagination slice
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paged = filtered.slice(startIndex, endIndex);
+
+        grid.innerHTML = "";
+
+        if (paged.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full py-16 text-center space-y-3">
+              <div class="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mx-auto border border-line">
+                <i data-lucide="package-x" class="w-7 h-7 text-charcoal/40"></i>
+              </div>
+              <h4 class="font-bold text-sm text-ink">No products found</h4>
+              <p class="text-xs text-charcoal/50">Try broadening your active filters or clear them to start over.</p>
+            </div>
+          `;
+          if (window.lucide) lucide.createIcons();
+          renderPagination(filtered.length);
+          return;
+        }
+
+        // Apply layout configuration classes to container
+        if (currentLayout === 'list') {
+          grid.className = "grid grid-cols-1 gap-4 transition-all duration-300";
+        } else {
+          grid.className = gridCols === 4
+            ? "grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 transition-all duration-300"
+            : "grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5 transition-all duration-300";
+        }
+
+        paged.forEach(p => {
+          const saveAmount = p.oldPrice - p.price;
+          const discountPercentage = Math.round((saveAmount / p.oldPrice) * 100);
+
+          const card = document.createElement('div');
+
+          let actionButtonHtml = "";
+          if (p.isOutOfStock) {
+            actionButtonHtml = `
+              <button class="action-btn w-full py-2 px-3 bg-gray-50 text-gray-400 font-extrabold text-[11px] uppercase tracking-wider rounded-xl cursor-not-allowed flex items-center justify-center gap-1.5 border border-black/[0.08]" disabled>
+                OUT OF STOCK
+              </button>
+            `;
+          } else {
+            actionButtonHtml = `
+              <button class="action-btn w-full py-2 px-3 bg-brand text-white font-extrabold text-[11px] uppercase tracking-wider rounded-xl hover:bg-ink transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
+                <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> ADD TO CART
+              </button>
+            `;
+          }
+
+          if (currentLayout === 'list') {
+            card.className = "product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300 relative flex flex-row items-center p-3.5 gap-4";
+            card.innerHTML = `
+              <!-- Left Side: Moderately Larger Image -->
+              <div class="relative w-28 h-28 sm:w-36 sm:h-36 overflow-hidden rounded-xl bg-gray-50 shrink-0">
+                <img src="${p.image}" alt="${p.name}" class="product-image-primary w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
+                <img src="${p.hoverImage}" alt="${p.name} Hover" class="product-image-secondary absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                
+                ${p.isSale ? `
+                  <span class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                    -${discountPercentage}%
+                  </span>
+                ` : p.isNew ? `
+                  <span class="hover-z-index absolute top-2.5 left-2.5 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                    NEW
+                  </span>
+                ` : ""}
+
+                ${p.isOutOfStock ? `
+                  <span class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
+                    STOCK OUT
+                  </span>
+                ` : ""}
+
+                <button class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer" aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                </button>
+
+                <!-- Quick View Button -->
+                <button class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
+                </button>
+              </div>
+
+              <!-- Right Side: Details & Actions in Same Flow -->
+              <div class="flex-1 min-w-0 flex flex-col justify-between py-1 self-stretch">
+                <div>
+                  <span class="text-[9px] font-black uppercase tracking-widest text-brand block mb-1">${p.category}</span>
+                  <h3 class="font-bold text-sm sm:text-base text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
+                    ${p.name}
+                  </h3>
+                  <div class="flex items-center gap-1 mb-1.5">
+                    <div class="flex items-center text-amber-400 gap-0.5">
+                      ${Array.from({ length: 5 }).map((_, i) => `<i data-lucide="star" class="w-3 h-3 ${i < p.rating ? "fill-amber-400 stroke-none" : "text-gray-300"}"></i>`).join("")}
+                    </div>
+                    <span class="text-[10px] text-charcoal/50 font-medium">(${p.reviewsCount})</span>
+                  </div>
+                </div>
+
+                <!-- Price and Add to Cart in the same row, justified-between -->
+                <div class="flex items-center justify-between gap-4 mt-2 border-t border-gray-50 pt-2">
+                  <div class="flex items-baseline gap-1.5 shrink-0">
+                    <span class="font-black text-sm sm:text-base text-ink">৳${p.price}</span>
+                    ${p.oldPrice ? `<span class="text-xs text-charcoal/40 line-through">৳${p.oldPrice}</span>` : ""}
+                  </div>
+                  <div class="w-32 sm:w-40 shrink-0">
+                    ${actionButtonHtml}
+                  </div>
+                </div>
+              </div>
+            `;
+          } else {
+            card.className = "product-card bg-white rounded-2xl border border-line overflow-hidden group transition-all duration-300 relative flex flex-col justify-between";
+            card.innerHTML = `
+              <div>
+                <div class="relative aspect-square overflow-hidden bg-gray-50">
+                  <img src="${p.image}" alt="${p.name}" class="product-image-primary w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-0">
+                  <img src="${p.hoverImage}" alt="${p.name} Hover" class="product-image-secondary absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                  
+                  ${p.isSale ? `
+                    <span class="hover-z-index absolute top-2.5 left-2.5 bg-brand text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                      -${discountPercentage}%
+                    </span>
+                  ` : p.isNew ? `
+                    <span class="hover-z-index absolute top-2.5 left-2.5 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm">
+                      NEW
+                    </span>
+                  ` : ""}
+
+                  ${p.isOutOfStock ? `
+                    <span class="hover-z-index absolute top-2.5 left-2.5 bg-gray-900/90 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">
+                      STOCK OUT
+                    </span>
+                  ` : ""}
+
+                  <button class="hover-z-index wishlist-btn action-btn absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer" aria-label="Add to wishlist">
+                    <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                  </button>
+
+                  <!-- Quick View Button -->
+                  <button class="quick-view-btn action-btn absolute inset-x-2.5 bottom-2.5 py-2 px-3 bg-white/90 backdrop-blur-md text-ink text-[11px] font-extrabold uppercase tracking-wider rounded-xl shadow-md hover:bg-brand hover:text-white transition-all duration-300 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i data-lucide="eye" class="w-3.5 h-3.5"></i> QUICK VIEW
+                  </button>
+                </div>
+
+                <div class="p-3">
+                  <h3 class="font-bold text-xs text-ink truncate hover:text-brand transition-colors cursor-pointer mb-1">
+                    ${p.name}
+                  </h3>
+                  <div class="flex items-center gap-1 mb-1.5">
+                    <div class="flex items-center text-amber-400 gap-0.5">
+                      ${Array.from({ length: 5 }).map((_, i) => `<i data-lucide="star" class="w-3 h-3 ${i < p.rating ? "fill-amber-400 stroke-none" : "text-gray-300"}"></i>`).join("")}
+                    </div>
+                    <span class="text-[10px] text-charcoal/50 font-medium">(${p.reviewsCount})</span>
+                  </div>
+                  <div class="flex items-baseline gap-1.5 mb-3">
+                    <span class="font-black text-sm text-ink">৳${p.price}</span>
+                    ${p.oldPrice ? `<span class="text-xs text-charcoal/40 line-through">৳${p.oldPrice}</span>` : ""}
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 pt-0">
+                ${actionButtonHtml}
+              </div>
+            `;
+          }
+
+          grid.appendChild(card);
         });
-      });
 
-      // Tab Switching Logic for Description & Reviews Card
-      document.querySelectorAll('.tab-trigger-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-tab-target');
+        if (window.lucide) lucide.createIcons();
+        renderPagination(filtered.length);
+      }
 
-          // Toggle Active/Inactive Classes on Buttons
-          document.querySelectorAll('.tab-trigger-btn').forEach(b => {
-            b.className = 'tab-trigger-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-charcoal/60 hover:text-brand hover:bg-brand/5 transition-all duration-200 cursor-pointer';
+      // Render Pagination Buttons
+      function renderPagination(totalItems) {
+        const container = document.getElementById('catalog-pagination');
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        if (totalPages <= 1) return;
+
+        // Previous button
+        const prev = document.createElement('button');
+        prev.className = `w-8 h-8 rounded-full border border-line flex items-center justify-center text-charcoal hover:border-brand hover:text-brand transition-all cursor-pointer ${currentPage === 1 ? "opacity-40 cursor-not-allowed" : ""}`;
+        prev.innerHTML = `<i data-lucide="chevron-left" class="w-4 h-4"></i>`;
+        if (currentPage > 1) {
+          prev.addEventListener('click', () => {
+            currentPage--;
+            renderCatalog();
+            window.scrollTo({ top: 120, behavior: 'smooth' });
           });
-          btn.className = 'tab-trigger-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider bg-brand text-white shadow-md transition-all duration-200 cursor-pointer';
+        }
+        container.appendChild(prev);
 
-          // Toggle Active/Inactive Classes on Content Panels
-          document.querySelectorAll('.tab-panel-content').forEach(panel => {
-            panel.classList.add('hidden');
+        // Page Numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageBtn = document.createElement('button');
+          pageBtn.className = `w-8 h-8 rounded-full border text-xs font-bold transition-all cursor-pointer ${i === currentPage ? "border-brand bg-brand text-white" : "border-line text-charcoal hover:border-brand hover:text-brand"}`;
+          pageBtn.textContent = i;
+          pageBtn.addEventListener('click', () => {
+            currentPage = i;
+            renderCatalog();
+            window.scrollTo({ top: 120, behavior: 'smooth' });
           });
-          const activePanel = document.getElementById(targetId);
-          if (activePanel) activePanel.classList.remove('hidden');
+          container.appendChild(pageBtn);
+        }
+
+        // Next button
+        const next = document.createElement('button');
+        next.className = `w-8 h-8 rounded-full border border-line flex items-center justify-center text-charcoal hover:border-brand hover:text-brand transition-all cursor-pointer ${currentPage === totalPages ? "opacity-40 cursor-not-allowed" : ""}`;
+        next.innerHTML = `<i data-lucide="chevron-right" class="w-4 h-4"></i>`;
+        if (currentPage < totalPages) {
+          next.addEventListener('click', () => {
+            currentPage++;
+            renderCatalog();
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+          });
+        }
+        container.appendChild(next);
+
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Handle checkbox change events (reads active inputs in desktop or mobile and syncs variables)
+      function handleFiltersChange() {
+        // Categories
+        filterCategory = [];
+        document.querySelectorAll('input[name="category"]:checked').forEach(c => {
+          if (!filterCategory.includes(c.value)) filterCategory.push(c.value);
         });
-      });
 
-      // Detail Quantity Control
-      const detailQtyInput = document.getElementById('detail-qty-input');
-      const detailQtyMinus = document.getElementById('detail-qty-minus');
-      const detailQtyPlus = document.getElementById('detail-qty-plus');
+        // Brands
+        filterBrand = [];
+        document.querySelectorAll('input[name="brand"]:checked').forEach(b => {
+          if (!filterBrand.includes(b.value)) filterBrand.push(b.value);
+        });
 
-      if (detailQtyMinus && detailQtyInput) {
-        detailQtyMinus.addEventListener('click', () => {
-          detailQtyInput.value = Math.max(1, parseInt(detailQtyInput.value || 1) - 1);
+        // Deals
+        filterDeals = [];
+        document.querySelectorAll('input[name="filter-deal"]:checked').forEach(d => {
+          if (!filterDeals.includes(d.value)) filterDeals.push(d.value);
         });
       }
-      if (detailQtyPlus && detailQtyInput) {
-        detailQtyPlus.addEventListener('click', () => {
-          detailQtyInput.value = Math.min(99, parseInt(detailQtyInput.value || 1) + 1);
+
+      // Initialize filter events
+      function initFilterControls() {
+        // Checkboxes
+        document.querySelectorAll('input[name="category"], input[name="brand"], input[name="filter-deal"]').forEach(input => {
+          input.addEventListener('change', () => {
+            // Sync checkbox checked state to cloned equivalents
+            const name = input.name;
+            const val = input.value;
+            const checked = input.checked;
+            document.querySelectorAll(`input[name="${name}"][value="${val}"]`).forEach(sibling => {
+              sibling.checked = checked;
+            });
+            handleFiltersChange();
+          });
         });
-      }
 
-      // Specs Accordion Toggle on Details Page
-      document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', () => {
-          const item = header.parentElement;
-          const content = item.querySelector('.accordion-content');
-          const icon = header.querySelector('[data-lucide="chevron-down"]');
+        // Setup Dual Range Slider Track & Values
+        function setupDualPriceSlider(container) {
+          const sliderMin = container.querySelector('#price-slider-min');
+          const sliderMax = container.querySelector('#price-slider-max');
+          const valMinEl = container.querySelector('#price-min-val') || document.getElementById('price-min-val');
+          const valMaxEl = container.querySelector('#price-max-val') || document.getElementById('price-max-val');
+          const trackHighlight = container.querySelector('#price-slider-track-highlight') || document.getElementById('price-slider-track-highlight');
 
-          if (content) {
-            content.classList.toggle('hidden');
-            if (icon) {
-              const isHidden = content.classList.contains('hidden');
-              icon.style.transform = isHidden ? 'rotate(0)' : 'rotate(180deg)';
+          if (!sliderMin || !sliderMax) return;
+
+          const maxLimit = 3000;
+
+          function updateSliderTrack() {
+            let minVal = parseInt(sliderMin.value);
+            let maxVal = parseInt(sliderMax.value);
+
+            // Prevent overlapping handles (keep min at least 100 below max)
+            if (maxVal - minVal < 100) {
+              if (this === sliderMin) {
+                sliderMin.value = maxVal - 100;
+                minVal = maxVal - 100;
+              } else {
+                sliderMax.value = minVal + 100;
+                maxVal = minVal + 100;
+              }
+            }
+
+            // Sync visual labels
+            if (valMinEl) valMinEl.textContent = '৳' + minVal.toLocaleString('en-IN');
+            if (valMaxEl) valMaxEl.textContent = '৳' + maxVal.toLocaleString('en-IN');
+
+            // Sync visual track highlights
+            const pctMin = (minVal / maxLimit) * 100;
+            const pctMax = (maxVal / maxLimit) * 100;
+            if (trackHighlight) {
+              trackHighlight.style.left = pctMin + "%";
+              trackHighlight.style.right = (100 - pctMax) + "%";
             }
           }
+
+          sliderMin.addEventListener('input', updateSliderTrack);
+          sliderMax.addEventListener('input', updateSliderTrack);
+
+          // Trigger initial setup
+          updateSliderTrack.call(sliderMin);
+        }
+
+        // Initialize desktop dual price slider
+        const desktopSidebar = document.querySelector('aside');
+        if (desktopSidebar) {
+          setupDualPriceSlider(desktopSidebar);
+        }
+
+        // Apply Filters Button Click Handler
+        const applyBtn = document.getElementById('apply-filters-btn');
+        if (applyBtn) {
+          applyBtn.addEventListener('click', () => {
+            const sliderMin = document.getElementById('price-slider-min');
+            const sliderMax = document.getElementById('price-slider-max');
+
+            if (sliderMin && sliderMax) {
+              filterMinPrice = parseFloat(sliderMin.value);
+              filterMaxPrice = parseFloat(sliderMax.value);
+            }
+
+            handleFiltersChange();
+            currentPage = 1;
+            renderCatalog();
+          });
+        }
+
+        // Size pill filters click handler
+        document.querySelectorAll('.size-filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const size = btn.getAttribute('data-size');
+
+            // Toggle active selection and state variable
+            if (filterSize.includes(size)) {
+              filterSize = filterSize.filter(s => s !== size);
+              document.querySelectorAll(`.size-filter-btn[data-size="${size}"]`).forEach(b => b.classList.remove('active'));
+            } else {
+              filterSize.push(size);
+              document.querySelectorAll(`.size-filter-btn[data-size="${size}"]`).forEach(b => b.classList.add('active'));
+            }
+          });
         });
-      });
 
+        // Clear all filters handler
+        const clearBtn = document.getElementById('clear-filters-btn');
+        if (clearBtn) {
+          clearBtn.addEventListener('click', () => {
+            filterCategory = [];
+            filterSize = [];
+            filterBrand = [];
+            filterMinPrice = 0;
+            filterMaxPrice = 3000;
+            filterDeals = [];
 
-      // Add to Cart and Buy It Now Buttons on Details Page
-      const detailAddToCartBtn = document.getElementById('detail-add-to-cart-btn');
-      const detailBuyItNowBtn = document.getElementById('detail-buy-it-now-btn');
+            // Reset desktop range sliders
+            const sliderMin = document.getElementById('price-slider-min');
+            const sliderMax = document.getElementById('price-slider-max');
+            if (sliderMin) sliderMin.value = 0;
+            if (sliderMax) sliderMax.value = 3000;
 
-      if (detailAddToCartBtn) {
-        detailAddToCartBtn.addEventListener('click', () => {
-          const titleEl = document.getElementById('product-title');
-          const priceEl = document.getElementById('product-price');
-          const qtyVal = parseInt(detailQtyInput ? detailQtyInput.value : 1) || 1;
-          const activeImg = document.querySelector('.product-main-container .slider_wrap .slick-current img, .product-main-container .slider_wrap img');
+            // Reset desktop labels
+            const valMinEl = document.getElementById('price-min-val');
+            const valMaxEl = document.getElementById('price-max-val');
+            if (valMinEl) valMinEl.textContent = "৳0";
+            if (valMaxEl) valMaxEl.textContent = "৳3,000";
 
-          const name = titleEl ? titleEl.textContent.trim() : 'Product';
-          const price = priceEl ? priceEl.textContent.trim() : '0';
-          const image = activeImg ? activeImg.src : '';
+            const trackHighlight = document.getElementById('price-slider-track-highlight');
+            if (trackHighlight) {
+              trackHighlight.style.left = "0%";
+              trackHighlight.style.right = "0%";
+            }
 
-          if (window.addToCart) {
-            window.addToCart({ name, price, image, qty: qtyVal });
+            // Uncheck checkboxes
+            document.querySelectorAll('input[name="category"], input[name="brand"], input[name="filter-deal"]').forEach(i => i.checked = false);
+            document.querySelectorAll('.size-filter-btn').forEach(b => b.classList.remove('active'));
+
+            currentPage = 1;
+            renderCatalog();
+          });
+        }
+
+        // Sort Select
+        const sortSelect = document.getElementById('sort-select');
+        if (sortSelect) {
+          sortSelect.addEventListener('change', (e) => {
+            sortOption = e.target.value;
+            currentPage = 1;
+            renderCatalog();
+          });
+        }
+
+        // Layout controls
+        const gridLayoutBtn = document.getElementById('grid-layout-btn');
+        const listLayoutBtn = document.getElementById('list-layout-btn');
+
+        if (gridLayoutBtn && listLayoutBtn) {
+          function updateLayoutButtons(activeBtn) {
+            [gridLayoutBtn, listLayoutBtn].forEach(btn => {
+              if (btn === activeBtn) {
+                btn.classList.add('text-brand', 'bg-gray-50/50');
+                btn.classList.remove('text-charcoal/40');
+              } else {
+                btn.classList.remove('text-brand', 'bg-gray-50/50');
+                btn.classList.add('text-charcoal/40');
+              }
+            });
           }
-        });
+
+          gridLayoutBtn.addEventListener('click', () => {
+            currentLayout = 'grid';
+            updateLayoutButtons(gridLayoutBtn);
+            renderCatalog();
+          });
+
+          listLayoutBtn.addEventListener('click', () => {
+            currentLayout = 'list';
+            updateLayoutButtons(listLayoutBtn);
+            renderCatalog();
+          });
+        }
+
+        // Mobile drawer filters toggle using unified sidebar
+        const openMobileFiltersBtn = document.getElementById('mobile-filter-open-btn');
+        const mobileBackdrop = document.getElementById('filter-backdrop');
+        const unifiedSidebar = document.getElementById('unified-sidebar-filter');
+
+        if (openMobileFiltersBtn && unifiedSidebar && mobileBackdrop) {
+          function openDrawer() {
+            unifiedSidebar.classList.remove('-translate-x-full');
+            unifiedSidebar.classList.add('translate-x-0');
+            mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+            mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = "hidden";
+          }
+
+          function closeDrawer() {
+            unifiedSidebar.classList.add('-translate-x-full');
+            unifiedSidebar.classList.remove('translate-x-0');
+            mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = "";
+          }
+
+          openMobileFiltersBtn.addEventListener('click', openDrawer);
+          mobileBackdrop.addEventListener('click', closeDrawer);
+
+          // Close mobile drawer when close icon is clicked inside sidebar
+          document.addEventListener('click', function (e) {
+            if (e.target.closest('#filter-close-btn')) {
+              closeDrawer();
+            }
+          });
+
+          // Close mobile drawer when Apply Filters button is clicked inside sidebar
+          const applyBtn = document.getElementById('apply-filters-btn');
+          if (applyBtn) {
+            applyBtn.addEventListener('click', () => {
+              // Only close drawer if sidebar is currently in offcanvas mode (which we check via translate class)
+              if (unifiedSidebar.classList.contains('translate-x-0')) {
+                closeDrawer();
+              }
+            });
+          }
+
+          // Close mobile drawer when Clear Filters button is clicked inside sidebar
+          const clearBtn = document.getElementById('clear-filters-btn');
+          if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+              if (unifiedSidebar.classList.contains('translate-x-0')) {
+                closeDrawer();
+              }
+            });
+          }
+
+          // If screen resizes to desktop width, automatically close offcanvas drawer and restore scroll
+          window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+              if (unifiedSidebar.classList.contains('translate-x-0')) {
+                closeDrawer();
+              }
+            }
+          });
+        }
       }
 
-      if (detailBuyItNowBtn) {
-        detailBuyItNowBtn.addEventListener('click', () => {
-          const titleEl = document.getElementById('product-title');
-          const priceEl = document.getElementById('product-price');
-          const qtyVal = parseInt(detailQtyInput ? detailQtyInput.value : 1) || 1;
-          const activeImg = document.querySelector('.product-main-container .slider_wrap .slick-current img, .product-main-container .slider_wrap img');
-
-          const name = titleEl ? titleEl.textContent.trim() : 'Product';
-          const price = priceEl ? priceEl.textContent.trim() : '0';
-          const image = activeImg ? activeImg.src : '';
-
-          if (window.addToCart) {
-            window.addToCart({ name, price, image, qty: qtyVal });
-          }
-        });
-      }
+      // Initialize
+      parseUrlParams();
+      initFilterControls();
+      renderCatalog();
 
       // Product Size Selection Pill & Wishlist Toggle System
       document.addEventListener('click', function (e) {
@@ -1816,6 +2045,27 @@
           topBar.style.paddingBottom = (halfHeight + 14) + 'px';
           mainHeader.style.marginTop = '-' + halfHeight + 'px';
           mainHeader.style.marginBottom = '12px';
+        }
+
+        // Calculate sticky top position and height for unified sidebar filter dynamically
+        const unifiedSidebar = document.getElementById('unified-sidebar-filter');
+        if (unifiedSidebar) {
+          if (window.innerWidth >= 1024) {
+            const headerCardEl = document.getElementById('header-card');
+            if (headerCardEl) {
+              // Sticky top = header card height + top-2 offset (8px) + gap spacing (16px)
+              const stickyTopValue = headerCardEl.offsetHeight + 24;
+              unifiedSidebar.style.top = stickyTopValue + 'px';
+
+              // Set container height dynamically to fit remaining viewport height
+              const remainingHeight = window.innerHeight - stickyTopValue - 20;
+              unifiedSidebar.style.height = remainingHeight + 'px';
+            }
+          } else {
+            // Reset styles on mobile drawer viewports
+            unifiedSidebar.style.top = '';
+            unifiedSidebar.style.height = '';
+          }
         }
 
         if (window.innerWidth >= 768) {
