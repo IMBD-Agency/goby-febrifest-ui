@@ -1972,13 +1972,16 @@
         <span class="text-xs font-semibold text-charcoal/60">OUR CAMPAIGNS</span>
       </div>
 
-      <!-- Asymmetrical Video Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Asymmetrical Video Grid: LightGallery container for all 3 videos -->
+      <div id="video-lg-gallery" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Main Featured Video (Col-span 2) -->
-        <a onclick="playVideoLightbox('tgbNymZ7vqY')"
-          class="video-lightbox-trigger lg:col-span-2 relative aspect-video rounded-[24px] overflow-hidden shadow-lg border border-line hover:shadow-xl hover:border-brand/20 transition-all duration-300 group block cursor-pointer"
+        <a
+          data-video='{"source": [{"src":"https://www.youtube.com/watch?v=wLGL61iwo7k", "type":"video/youtube"}], "attributes": {"preload": false, "controls": true}}'
+          data-poster="https://img.youtube.com/vi/wLGL61iwo7k/maxresdefault.jpg"
+          data-thumb="https://img.youtube.com/vi/wLGL61iwo7k/mqdefault.jpg"
+          class="lg:col-span-2 relative aspect-video rounded-[24px] overflow-hidden shadow-lg border border-line hover:shadow-xl hover:border-brand/20 transition-all duration-300 group block cursor-pointer"
           data-aos="fade-right">
-          <img src="https://img.youtube.com/vi/tgbNymZ7vqY/maxresdefault.jpg"
+          <img src="https://img.youtube.com/vi/wLGL61iwo7k/maxresdefault.jpg"
             class="w-full h-full object-cover group-hover:scale-102 transition-all duration-500"
             alt="Featured Video Thumbnail">
           <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
@@ -1992,8 +1995,11 @@
         <!-- Side Videos Stack (Col-span 1) -->
         <div class="flex flex-col gap-6" data-aos="fade-left">
           <!-- Video 2 -->
-          <a onclick="playVideoLightbox('mjVQL_jy5qw')"
-            class="video-lightbox-trigger relative aspect-video rounded-3xl overflow-hidden shadow-md border border-line hover:shadow-lg hover:border-brand/20 transition-all duration-300 group block cursor-pointer">
+          <a
+            data-video='{"source": [{"src":"https://www.youtube.com/watch?v=mjVQL_jy5qw", "type":"video/youtube"}], "attributes": {"preload": false, "controls": true}}'
+            data-poster="https://img.youtube.com/vi/mjVQL_jy5qw/maxresdefault.jpg"
+            data-thumb="https://img.youtube.com/vi/mjVQL_jy5qw/mqdefault.jpg"
+            class="relative aspect-video rounded-3xl overflow-hidden shadow-md border border-line hover:shadow-lg hover:border-brand/20 transition-all duration-300 group block cursor-pointer">
             <img src="https://img.youtube.com/vi/mjVQL_jy5qw/maxresdefault.jpg"
               class="w-full h-full object-cover group-hover:scale-102 transition-all duration-500"
               alt="Video Thumbnail">
@@ -2006,8 +2012,11 @@
           </a>
 
           <!-- Video 3 -->
-          <a onclick="playVideoLightbox('3s0HhCCjBIM')"
-            class="video-lightbox-trigger relative aspect-video rounded-3xl overflow-hidden shadow-md border border-line hover:shadow-lg hover:border-brand/20 transition-all duration-300 group block cursor-pointer">
+          <a
+            data-video='{"source": [{"src":"https://www.youtube.com/watch?v=3s0HhCCjBIM", "type":"video/youtube"}], "attributes": {"preload": false, "controls": true}}'
+            data-poster="https://img.youtube.com/vi/3s0HhCCjBIM/maxresdefault.jpg"
+            data-thumb="https://img.youtube.com/vi/3s0HhCCjBIM/mqdefault.jpg"
+            class="relative aspect-video rounded-3xl overflow-hidden shadow-md border border-line hover:shadow-lg hover:border-brand/20 transition-all duration-300 group block cursor-pointer">
             <img src="https://img.youtube.com/vi/3s0HhCCjBIM/maxresdefault.jpg"
               class="w-full h-full object-cover group-hover:scale-102 transition-all duration-500"
               alt="Video Thumbnail">
@@ -2023,10 +2032,6 @@
     </div>
   </section>
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/GQYxiTsBe6E?si=F4MFJMWMmdlrtHsP"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
   <!-- ============ FOOTER ============ -->
   <footer class="bg-[#0b0e14] text-[#a0aec0] pt-16 border-t border-brand/20 relative overflow-hidden mt-16">
@@ -2187,6 +2192,8 @@
   <!-- LightGallery Plugins -->
   <script src="Plugins-Framework/light-gallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
   <script src="Plugins-Framework/light-gallery/plugins/zoom/lg-zoom.min.js"></script>
+  <!-- LightGallery Video Plugin CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/video/lg-video.min.js"></script>
   <!-- LightGallery Custom Integration -->
   <script src="Plugins-Framework/light-gallery/lightgallery-custom.js"></script>
 
@@ -2229,6 +2236,26 @@
     };
 
     document.addEventListener('DOMContentLoaded', function () {
+      // Initialize LightGallery Video for Video Gallery Section
+      const videoGalleryEl = document.getElementById('video-lg-gallery');
+      if (videoGalleryEl && window.lightGallery && window.lgVideo) {
+        lightGallery(videoGalleryEl, {
+          plugins: [lgVideo, lgThumbnail],
+          selector: 'a',
+          speed: 500,
+          thumbnail: true,
+          thumbWidth: 80,
+          thumbHeight: '60px',
+          animateThumb: false,
+          showThumbByDefault: true,
+          youTubePlayerParams: {
+            modestbranding: 1,
+            showinfo: 0,
+            rel: 0,
+            autoplay: 1
+          }
+        });
+      }
       // Product Size Selection Pill & Wishlist Toggle System
       document.addEventListener('click', function (e) {
         const sizeBtn = e.target.closest('.size-pill');
