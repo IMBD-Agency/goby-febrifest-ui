@@ -2374,9 +2374,14 @@
           var n = items.length;
           if (n === 0) return;
 
-          // Clear any dynamic classes first
-          items.forEach(function (item) {
+          // Clear dynamic classes, set up AOS dynamically
+          items.forEach(function (item, index) {
             item.classList.remove('span-4', 'span-2', 'span-1', 'span-2-row-2', 'span-2-unset-ratio', 'span-1-unset-ratio', 'span-hero-middle');
+
+            // Stagger animation delay (0ms, 100ms, 200ms, 300ms) based on column index
+            item.setAttribute('data-aos', 'fade-up');
+            var delay = (index % 4) * 100;
+            item.setAttribute('data-aos-delay', delay);
           });
 
           // Helper function to safely add class
@@ -2457,9 +2462,253 @@
               addClass(startIndex + 2, 'span-1');
             }
           }
+
+          // Refresh AOS to calculate new element positions after dynamic layouts are applied
+          if (window.AOS) {
+            setTimeout(function () {
+              AOS.refresh();
+            }, 100);
+          }
         })();
       </script>
     </div>
+  </section>
+
+
+  <!-- ============ TESTIMONIALS SECTION ============ -->
+  <section class="py-8">
+    <div class="container relative">
+      <!-- Section Header -->
+      <div class="flex flex-col items-center text-center mb-6" data-aos="fade-up">
+        <span class="text-xs font-bold text-brand tracking-widest uppercase mb-2">WHAT OUR CLIENTS SAY</span>
+        <h2 class="text-2xl md:text-3xl font-black tracking-tight text-ink uppercase">CUSTOMER TESTIMONIALS</h2>
+        <span class="w-12 h-[3px] bg-brand rounded-full mt-3"></span>
+      </div>
+
+      <style>
+        #testimonials-slider-container .slider_wrap .slick-dots {
+          bottom: 3px;
+        }
+      </style>
+
+      <!-- Testimonials Slider Container -->
+      <div id="testimonials-slider-container" class="slider relative group" slider-name="testimonials"
+        data-slides-to-show="BPD: 3, BP-1024: 2, BP-768: 1" data-slides-to-scroll="BPD: 1" data-arrows="true"
+        data-dots="true" data-autoplay="true" data-inner-gap="24" data-aos="fade-up">
+
+        <div class="slider_wrap">
+
+          <!-- Testimonial 1 -->
+          <div class="h-full py-4">
+            <div
+              class="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-[0_12px_40px_rgba(234,88,12,0.06)] hover:border-brand/30 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden group/card mt-1">
+              <div
+                class="absolute top-0 left-0 right-0 h-[4px] bg-gray-100 group-hover/card:bg-brand transition-all duration-300">
+              </div>
+              <div
+                class="absolute -top-3 -right-1 text-brand/5 group-hover/card:text-brand/10 transition-all duration-300 text-8xl font-serif leading-none select-none font-black pointer-events-none">
+                &ldquo;</div>
+
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex gap-0.5 text-amber-400">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">5.0</span>
+                </div>
+                <p class="text-charcoal/80 text-sm leading-relaxed mb-6 font-medium text-gray-600 italic">
+                  "Absolutely love the quality of the T-shirts! The prints are unique, vibrant, and don't fade after
+                  washing. The fabric is extremely soft and premium. Will definitely buy more."
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-auto border-t border-gray-50 pt-4">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop"
+                  alt="Sarah K."
+                  class="w-11 h-11 rounded-full object-cover border-2 border-gray-100 group-hover/card:border-brand/30 group-hover/card:scale-105 transition-all duration-300">
+                <div>
+                  <h4 class="text-sm font-black text-ink tracking-tight">Sarah K.</h4>
+                  <span class="text-[10px] text-gray-400 flex items-center gap-1 font-semibold mt-0.5">
+                    <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-500 fill-emerald-500/10"></i> Verified
+                    Purchase
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="h-full py-4">
+            <div
+              class="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-[0_12px_40px_rgba(234,88,12,0.06)] hover:border-brand/30 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden group/card mt-1">
+              <div
+                class="absolute top-0 left-0 right-0 h-[4px] bg-gray-100 group-hover/card:bg-brand transition-all duration-300">
+              </div>
+              <div
+                class="absolute -top-3 -right-1 text-brand/5 group-hover/card:text-brand/10 transition-all duration-300 text-8xl font-serif leading-none select-none font-black pointer-events-none">
+                &ldquo;</div>
+
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex gap-0.5 text-amber-400">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">5.0</span>
+                </div>
+                <p class="text-charcoal/80 text-sm leading-relaxed mb-6 font-medium text-gray-600 italic">
+                  "Highly impressed by their customer service and fast shipping. The sizing is spot-on, and the fit is
+                  incredibly flattering. It has easily become my go-to lifestyle brand."
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-auto border-t border-gray-50 pt-4">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+                  alt="Rahat A."
+                  class="w-11 h-11 rounded-full object-cover border-2 border-gray-100 group-hover/card:border-brand/30 group-hover/card:scale-105 transition-all duration-300">
+                <div>
+                  <h4 class="text-sm font-black text-ink tracking-tight">Rahat A.</h4>
+                  <span class="text-[10px] text-gray-400 flex items-center gap-1 font-semibold mt-0.5">
+                    <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-500 fill-emerald-500/10"></i> Verified
+                    Purchase
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="h-full py-4">
+            <div
+              class="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-[0_12px_40px_rgba(234,88,12,0.06)] hover:border-brand/30 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden group/card mt-1">
+              <div
+                class="absolute top-0 left-0 right-0 h-[4px] bg-gray-100 group-hover/card:bg-brand transition-all duration-300">
+              </div>
+              <div
+                class="absolute -top-3 -right-1 text-brand/5 group-hover/card:text-brand/10 transition-all duration-300 text-8xl font-serif leading-none select-none font-black pointer-events-none">
+                &ldquo;</div>
+
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex gap-0.5 text-amber-400">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">5.0</span>
+                </div>
+                <p class="text-charcoal/80 text-sm leading-relaxed mb-6 font-medium text-gray-600 italic">
+                  "The fabric quality stands out compared to other stores online. Stretches perfectly, feels premium,
+                  and keeps you comfortable all day long. Highly recommended for youngsters!"
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-auto border-t border-gray-50 pt-4">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
+                  alt="Nisha R."
+                  class="w-11 h-11 rounded-full object-cover border-2 border-gray-100 group-hover/card:border-brand/30 group-hover/card:scale-105 transition-all duration-300">
+                <div>
+                  <h4 class="text-sm font-black text-ink tracking-tight">Nisha R.</h4>
+                  <span class="text-[10px] text-gray-400 flex items-center gap-1 font-semibold mt-0.5">
+                    <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-500 fill-emerald-500/10"></i> Verified
+                    Purchase
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="h-full py-4">
+            <div
+              class="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-[0_12px_40px_rgba(234,88,12,0.06)] hover:border-brand/30 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden group/card mt-1">
+              <div
+                class="absolute top-0 left-0 right-0 h-[4px] bg-gray-100 group-hover/card:bg-brand transition-all duration-300">
+              </div>
+              <div
+                class="absolute -top-3 -right-1 text-brand/5 group-hover/card:text-brand/10 transition-all duration-300 text-8xl font-serif leading-none select-none font-black pointer-events-none">
+                &ldquo;</div>
+
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex gap-0.5 text-amber-400">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                  </div>
+                  <span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded">5.0</span>
+                </div>
+                <p class="text-charcoal/80 text-sm leading-relaxed mb-6 font-medium text-gray-600 italic">
+                  "Fantastic design collections! They are unique, trendy, and represent modern youth style perfectly.
+                  The packaging was neat, and the delivery was fast. Five stars!"
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-auto border-t border-gray-50 pt-4">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
+                  alt="Tanvir H."
+                  class="w-11 h-11 rounded-full object-cover border-2 border-gray-100 group-hover/card:border-brand/30 group-hover/card:scale-105 transition-all duration-300">
+                <div>
+                  <h4 class="text-sm font-black text-ink tracking-tight">Tanvir H.</h4>
+                  <span class="text-[10px] text-gray-400 flex items-center gap-1 font-semibold mt-0.5">
+                    <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-500 fill-emerald-500/10"></i> Verified
+                    Purchase
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Custom Slider Arrows (Slide in on hover) -->
+        <button
+          class="left_btn absolute top-1/2 left-0 md:left-2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-ink border border-gray-100 shadow-md flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all duration-300 z-10 md:opacity-0 md:-translate-x-2 md:group-hover:opacity-100 md:group-hover:translate-x-0 cursor-pointer">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button
+          class="right_btn absolute top-1/2 right-0 md:right-2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-ink border border-gray-100 shadow-md flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all duration-300 z-10 md:opacity-0 md:translate-x-2 md:group-hover:opacity-100 md:group-hover:translate-x-0 cursor-pointer">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        function equalizeHeights() {
+          var maxH = 0;
+          var $cards = $('#testimonials-slider-container .group\\/card');
+          $cards.css('height', 'auto');
+          $cards.each(function () {
+            var h = $(this).outerHeight();
+            if (h > maxH) {
+              maxH = h;
+            }
+          });
+          if (maxH > 0) {
+            $cards.css('height', maxH + 'px');
+          }
+        }
+
+        // Equalize on window load and resize
+        $(window).on('load resize', equalizeHeights);
+
+        // Listen to slick setPosition to adjust heights dynamically after slider layout calculations
+        $('#testimonials-slider-container .slider_wrap').on('setPosition', function () {
+          equalizeHeights();
+        });
+
+        // Run initial equalization
+        setTimeout(equalizeHeights, 200);
+      });
+    </script>
   </section>
 
 
