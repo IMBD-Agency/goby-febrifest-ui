@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Go By Fabrifest</title>
+    <meta name="description" content="Privacy Policy for Go By Fabrifest — premium menswear store.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "var(--ColorPrimary)",
+                        "brand-alpha": "var(--ColorPrimaryAlpha)",
+                        "brand-banner": "var(--ColorPrimaryBanner)",
+                        "light-primary": "var(--ColorLightPrimary)",
+                        "dark-primary": "var(--ColorDarkPrimary)",
+                        "dark-secondary": "var(--ColorDarkSecondary)",
+                        line: "rgb(var(--ColorLightSecondaryRGB))",
+                        ink: "var(--ColorInk, #1a1a2e)",
+                        charcoal: "var(--ColorCharcoal, #4a4a6a)",
+                    },
+                    fontFamily: { sans: ["var(--FontPrimary)", "sans-serif"] },
+                    boxShadow: { card: "var(--BoxShadow)", "card-hover": "var(--BoxShadowHover)" },
+                },
+                container: {
+                    center: true,
+                    padding: "0.75rem",
+                    screens: { sm: "540px", md: "720px", lg: "960px", xl: "1140px", "2xl": "1320px" }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.css">
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.customize.css">
+    <link rel="stylesheet" href="frontend/assets/css/fonts.css">
+    <link rel="stylesheet" href="frontend/assets/css/common.css">
+    <link rel="stylesheet" href="frontend/assets/css/tailwind-built.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Plugins-Framework/aos/aos.css">
+    <link rel="stylesheet" href="frontend/assets/css/style.css">
+</head>
+
+<body class="text-ink antialiased bg-gray-50/50">
+
+    <!-- ============ PRELOADER ============ -->
+    <div id="preloader">
+        <div class="preloader-glow"></div>
+        <div class="relative flex flex-col items-center">
+            <div class="w-24 h-24 rounded-full border border-brand/20 flex items-center justify-center relative">
+                <div class="absolute inset-0 rounded-full border-2 border-t-brand border-r-transparent border-b-transparent border-l-transparent animate-spin" style="animation-duration:1.2s"></div>
+                <div class="absolute w-20 h-20 rounded-full border border-brand/10 animate-ping" style="animation-duration:2s"></div>
+                <div class="w-12 h-12 rounded-full border-2 border-brand flex items-center justify-center bg-[#161c24] shadow-[0_0_20px_rgba(247,147,30,0.3)]">
+                    <span class="text-brand font-black text-xl tracking-tighter">G</span>
+                </div>
+            </div>
+            <div class="mt-8 text-center space-y-1">
+                <h2 class="text-white text-sm font-black tracking-[0.25em] uppercase">Goby Febrifest</h2>
+                <p class="text-[8px] text-brand tracking-[0.4em] font-black uppercase">Premium Men's Fashion</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => { const p = document.getElementById('preloader'); if (p) setTimeout(() => p.classList.add('loaded'), 350); });
+        setTimeout(() => { const p = document.getElementById('preloader'); if (p && !p.classList.contains('loaded')) p.classList.add('loaded'); }, 3000);
+    </script>
+
+    <div id="mobile-drawer-backdrop" class="hidden fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 cursor-default transition-opacity duration-300"></div>
+
+    <!-- ============ TOP BAR ============ -->
+    <div id="top-bar" class="bg-brand text-white text-[11px] py-2 px-4 font-semibold tracking-wide flex items-center justify-between gap-1.5 relative z-30 transition-all duration-300">
+        <a href="tel:+8801775810098" class="flex items-center gap-1.5 hover:text-ink transition-colors">
+            <i data-lucide="phone" class="w-3.5 h-3.5"></i> +8801775-810098
+        </a>
+        <a href="#" class="hover:text-ink transition-colors">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header id="main-header" class="sticky top-2 z-50 bg-transparent transition-all duration-300">
+        <div class="container relative z-50">
+            <div id="header-card" class="w-full bg-white rounded-[20px] border border-line px-3 py-3 transition-all duration-300 relative z-50">
+
+                <div id="header-top-row" class="flex items-center justify-between gap-3 sm:gap-4 h-9">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="mobile-menu-btn" class="md:hidden p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer" aria-label="Toggle Navigation Menu">
+                            <i data-lucide="menu" class="w-5 h-5"></i>
+                        </button>
+                        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+                            <div class="w-9 h-9 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-xs">
+                                <span class="text-brand font-bold text-base tracking-tighter">G</span>
+                            </div>
+                            <div class="flex flex-col logo-text max-[576px]:hidden">
+                                <span class="text-base font-extrabold tracking-wider text-ink leading-tight">GO BY FABRIFEST</span>
+                                <span class="text-[7.5px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S FASHION</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                        <div class="relative header-desktop-search w-44 md:w-64 lg:w-80">
+                            <input type="text" placeholder="Search for products..." class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors placeholder:text-dark-secondary cursor-text">
+                            <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand transition-colors cursor-pointer z-10" aria-label="Submit Search">
+                                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-ink">
+                            <button id="mobile-search-btn" aria-label="Search" class="md:hidden hover:text-brand transition-colors p-1 text-ink focus:outline-none cursor-pointer">
+                                <i data-lucide="search" class="w-4 h-4 stroke-[1.75]"></i>
+                            </button>
+                            <a href="#" aria-label="Wishlist" class="hover:text-brand transition-colors p-1">
+                                <i data-lucide="heart" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <a href="account.html" aria-label="Account" class="hover:text-brand transition-colors p-1">
+                                <i data-lucide="user" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <button id="cart-toggle-btn" aria-label="Cart" class="hover:text-brand transition-colors p-1 relative cursor-pointer">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 stroke-[1.75]"></i>
+                                <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand text-white text-[8px] leading-none w-3.5 h-3.5 rounded-full items-center justify-center font-bold hidden">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Search -->
+                <div id="header-mobile-search-bar" class="hidden flex items-center gap-2 w-full h-9">
+                    <button id="mobile-search-close-btn" aria-label="Close Search" class="p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer shrink-0">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    </button>
+                    <div class="relative flex-1 h-9 flex items-center">
+                        <input type="text" id="mobile-search-input" placeholder="Search for products..." class="w-full h-9 bg-[#f4f4f4] text-xs text-ink px-4 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors cursor-text">
+                        <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand cursor-pointer z-10" aria-label="Submit Search">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="header-desktop-nav pt-2.5 mt-2 border-t border-gray-100 relative">
+                    <nav id="desktop-nav-menu" class="flex items-center justify-center gap-6 lg:gap-8 text-[13px] font-semibold tracking-wide text-ink whitespace-nowrap py-1">
+                        <a href="index.html" class="nav-item-link hover:text-brand transition-colors py-0.5">Home</a>
+                        <a href="products.html" class="nav-item-link hover:text-brand transition-colors py-0.5">Products</a>
+                        <a href="products.html?deal=Sale" class="nav-item-link hover:text-brand transition-colors py-0.5">Discounted Product</a>
+                        <a href="products.html?deal=New" class="nav-item-link hover:text-brand transition-colors py-0.5">Hot Deals</a>
+                        <div class="nav-item-dropdown group">
+                            <button id="categories-mega-btn" class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
+                                Categories <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                            </button>
+                            <div id="categories-mega-panel" class="hidden absolute -left-[13px] -right-[13px] w-[calc(100%+26px)] top-full mt-[18px] mega-menu-panel p-6 z-50 transition-all duration-300 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
+                                <div class="grid grid-cols-4 gap-6 text-left">
+                                    <div class="space-y-4">
+                                        <div><h4 class="mega-category-title">Katua Shirt</h4><ul class="space-y-1"><li><a href="products.html?category=Katua Shirt" class="mega-subitem">Half Sleeve</a></li><li><a href="products.html?category=Katua Shirt" class="mega-subitem">Full Sleeve</a></li></ul></div>
+                                        <div><h4 class="mega-category-title">Panjabi</h4><ul class="space-y-1"><li><a href="products.html?category=Panjabi" class="mega-subitem">Kabli Set</a></li></ul></div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div><h4 class="mega-category-title">Winter Collection</h4><ul class="space-y-1"><li><a href="products.html?category=Hoodie" class="mega-subitem">Hoodie</a></li><li><a href="products.html?category=Hoodie" class="mega-subitem">Jacket</a></li><li><a href="products.html?category=Sweat Shirt" class="mega-subitem">Sweat Shirt</a></li></ul></div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div><h4 class="mega-category-title">Polo / T-Shirt</h4><ul class="space-y-1"><li><a href="products.html?category=Polo T-Shirt" class="mega-subitem">Polo T-Shirt</a></li><li><a href="products.html?category=Polo T-Shirt" class="mega-subitem">Printed Tees</a></li></ul></div>
+                                        <div><h4 class="mega-category-title">Pant</h4><ul class="space-y-1"><li><a href="products.html" class="mega-subitem">Joggers</a></li></ul></div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div><h4 class="mega-category-title">Shirt</h4><ul class="space-y-1"><li><a href="products.html" class="mega-subitem">Half Sleeve</a></li><li><a href="products.html" class="mega-subitem">Full Sleeve</a></li></ul></div>
+                                        <div><h4 class="mega-category-title">Kurta</h4><ul class="space-y-1"><li><a href="products.html?category=Panjabi" class="mega-subitem">Short Kurta</a></li></ul></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-item-dropdown relative group">
+                            <button class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
+                                About <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                            </button>
+                            <div class="hidden absolute left-0 top-full mt-[22px] w-48 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-line p-2 z-50 nav-dropdown-panel before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
+                                <a href="about.html" class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Our Story</a>
+                                <a href="contact.html" class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Contact Us</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Mobile Drawer -->
+                <div id="mobile-menu-dropdown" class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-4 z-50 max-h-[80vh] overflow-y-auto">
+                    <nav class="flex flex-col space-y-1.5 text-xs font-semibold text-ink">
+                        <a href="index.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Home</a>
+                        <a href="products.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Products</a>
+                        <a href="products.html?deal=Sale" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Discounted Product</a>
+                        <a href="products.html?deal=New" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Hot Deals</a>
+                        <a href="about.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Our Story</a>
+                        <a href="contact.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Contact Us</a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <nav class="py-4 mt-4 select-none">
+        <div class="container">
+            <div class="flex items-center gap-1.5 text-xs text-charcoal/60 font-medium">
+                <a href="index.html" class="hover:text-brand transition-colors flex items-center gap-1">
+                    <i data-lucide="home" class="w-3 h-3"></i> Home
+                </a>
+                <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
+                <span class="text-ink font-semibold">Privacy & Policy</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ PAGE HERO BANNER ============ -->
+    <section class="mb-8">
+        <div class="container">
+            <div class="bg-gray-50/50 border border-line rounded-3xl p-6 sm:p-8 shadow-2xs">
+                <span class="text-[9px] font-black text-brand uppercase tracking-widest block mb-1">Legal Agreements</span>
+                <h1 class="text-2xl font-black text-ink uppercase tracking-tight leading-none">Privacy & Policy</h1>
+                <p class="text-xs text-charcoal/60 max-w-xl leading-relaxed mt-1">Your privacy is important to us. Learn how we handle your user data and security details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="pb-20">
+        <div class="container">
+            <div class="bg-white border border-line rounded-[32px] p-6 sm:p-10 shadow-xs space-y-6 text-xs text-charcoal leading-relaxed">
+                <div>
+                    <h2 class="text-sm font-black text-ink uppercase tracking-wider mb-2">1. Data Collection</h2>
+                    <p>We collect essential personal data when you create an account, purchase products, or contact customer support. This includes name, delivery address, phone number, and email. We do not store sensitive payment details directly on our servers.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-sm font-black text-ink uppercase tracking-wider mb-2">2. How We Use Your Data</h2>
+                    <p>Your details are processed to manage order fullfillment, logistics shipping, process payments, and occasionally send updates regarding seasonal hot offers or promotions. We do not sell your personal data to third parties.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-sm font-black text-ink uppercase tracking-wider mb-2">3. Security</h2>
+                    <p>We employ standard secure encryption methods (SSL) to guard transmission transactions during your checkout phase. All account credentials are stored in hashed formats to prevent unauthorized profile leaks.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-sm font-black text-ink uppercase tracking-wider mb-2">4. Cookies Policy</h2>
+                    <p>Our website utilizes local storage cookies to retain login sessions, user carts, and filter preferences. You can configure your browser to disable cookies, but certain navigation items might fail to run correctly.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-[#0b0e14] text-[#a0aec0] py-8 border-t border-brand/10 relative overflow-hidden">
+        <div class="container text-center">
+            <p class="text-xs text-gray-500">&copy; Go By Fabrifest. All rights reserved | 2026</p>
+        </div>
+    </footer>
+
+    <!-- Custom Spacing scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+
+            const topBar = document.getElementById('top-bar');
+            const headerCard = document.getElementById('header-card');
+            const mainHeader = document.getElementById('main-header');
+
+            function updateDynamicHeaderSpacing() {
+                if (topBar && headerCard && mainHeader) {
+                    const cardHeight = headerCard.offsetHeight;
+                    const halfHeight = Math.round(cardHeight / 2);
+
+                    topBar.style.paddingBottom = (halfHeight + 14) + 'px';
+                    mainHeader.style.marginTop = '-' + halfHeight + 'px';
+                    mainHeader.style.marginBottom = '12px';
+                }
+            }
+
+            window.addEventListener('resize', updateDynamicHeaderSpacing);
+            updateDynamicHeaderSpacing();
+            setTimeout(updateDynamicHeaderSpacing, 150);
+        });
+    </script>
+
+</body>
+
+</html>

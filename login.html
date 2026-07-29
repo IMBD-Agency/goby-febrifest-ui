@@ -226,20 +226,20 @@
                         <!-- Form -->
                         <form id="login-form" class="space-y-5">
                             <div class="relative">
-                                <label
+                                <label for="login-email"
                                     class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5 flex items-center gap-1">
                                     <i data-lucide="mail" class="w-3 h-3 text-brand"></i> Email Address / Phone
                                 </label>
-                                <input type="text" placeholder="Enter your email or phone number" required
+                                <input type="text" id="login-email" placeholder="Enter your email or phone number" required
                                     class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3.5 rounded-xl outline-none transition-all">
                             </div>
 
                             <div>
                                 <div class="flex justify-between items-center mb-1.5">
-                                    <label
-                                        class="block text-[9px] font-black text-ink uppercase tracking-wider flex items-center gap-1">
-                                        <i data-lucide="lock" class="w-3 h-3 text-brand"></i> Password
-                                    </label>
+                                <label for="login-pass"
+                                    class="block text-[9px] font-black text-ink uppercase tracking-wider flex items-center gap-1">
+                                    <i data-lucide="lock" class="w-3 h-3 text-brand"></i> Password
+                                </label>
                                     <a href="#"
                                         class="text-[9px] font-black text-brand hover:underline uppercase tracking-wider">Forgot
                                         password?</a>
