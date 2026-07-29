@@ -8,7 +8,7 @@ Reference: https://manfarebd.com/
 5. product detail page - heavy - (done)
 6. login/register
 7. cart page - (done)
-8. checkout - heavy
+8. checkout - heavy - (done)
 9. thank you page
 10. about page
 11. contact page

@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goby Febrifest</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "var(--ColorPrimary)",
+                        "brand-alpha": "var(--ColorPrimaryAlpha)",
+                        "brand-banner": "var(--ColorPrimaryBanner)",
+                        "light-primary": "var(--ColorLightPrimary)",
+                        "dark-primary": "var(--ColorDarkPrimary)",
+                        "dark-secondary": "var(--ColorDarkSecondary)",
+                        line: "rgb(var(--ColorLightSecondaryRGB))",
+                    },
+                    fontFamily: {
+                        sans: ["var(--FontPrimary)", "sans-serif"],
+                        accent: ["'Great Vibes'", "cursive"],
+                    },
+                    boxShadow: {
+                        card: "var(--BoxShadow)",
+                        "card-hover": "var(--BoxShadowHover)",
+                    },
+                    fontSize: {
+                        "ultra-small": "var(--FontSizeUltraSmall)",
+                        "extra-small": "var(--FontSizeExtraSmall)",
+                        small: "var(--FontSizeSmall)",
+                        normal: "var(--FontSizeNormal)",
+                        large: "var(--FontSizeLarge)",
+                        "extra-large": "var(--FontSizeExtraLarge)",
+                        "ultra-large": "var(--FontSizeUltraLarge)",
+                    }
+                },
+                container: {
+                    center: true,
+                    padding: "0.75rem",
+                    screens: {
+                        sm: "540px",
+                        md: "720px",
+                        lg: "960px",
+                        xl: "1140px",
+                        "2xl": "1320px",
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Slick Slider CSS (Local Workspace Paths) -->
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.css">
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.customize.css">
+
+    <!-- LightGallery CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="Plugins-Framework/light-gallery/lightgallery-custom.css">
+
+    <!-- Fonts CSS -->
+    <link rel="stylesheet" href="frontend/assets/css/fonts.css">
+
+    <!-- Common CSS (Variables and Basic settings) -->
+    <link rel="stylesheet" href="frontend/assets/css/common.css">
+
+    <!-- Tailwind Output (For compiled builds) -->
+    <link rel="stylesheet" href="frontend/assets/css/tailwind-built.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="Plugins-Framework/aos/aos.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="frontend/assets/css/style.css">
+
+    <style>
+        /* Clean custom scrollbar for the sidebar filter container */
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 99px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: var(--ColorPrimary, #f68c22);
+        }
+
+        /* Premium Hover Double Image Transition */
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-secondary {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(1.02);
+        }
+
+        .product-card:hover .product-image-secondary {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .product-card:hover .product-image-primary {
+            transform: scale(1.05);
+        }
+
+        .product-image-primary {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Filter Active Button State */
+        .size-filter-btn.active {
+            background-color: var(--ColorPrimary) !important;
+            color: white !important;
+            border-color: var(--ColorPrimary) !important;
+        }
+
+        /* Dual Range Slider styling overrides */
+        .relative input[type="range"] {
+            pointer-events: none;
+        }
+
+        .relative input[type="range"]::-webkit-slider-thumb {
+            pointer-events: auto;
+            width: 14px;
+            height: 14px;
+            border-radius: 9999px;
+            background: var(--ColorPrimary);
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            appearance: none;
+            position: relative;
+            z-index: 30;
+        }
+
+        .relative input[type="range"]::-moz-range-thumb {
+            pointer-events: auto;
+            width: 14px;
+            height: 14px;
+            border-radius: 9999px;
+            background: var(--ColorPrimary);
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            z-index: 30;
+        }
+    </style>
+</head>
+
+<body class="text-ink antialiased">
+
+    <!-- ============ PRELOADER ============ -->
+    <div id="preloader">
+        <div class="preloader-glow"></div>
+        <div class="relative flex flex-col items-center">
+            <div class="w-24 h-24 rounded-full border border-brand/20 flex items-center justify-center relative">
+                <div class="absolute inset-0 rounded-full border-2 border-t-brand border-r-transparent border-b-transparent border-l-transparent animate-spin"
+                    style="animation-duration: 1.2s;"></div>
+                <div class="absolute w-20 h-20 rounded-full border border-brand/10 animate-ping"
+                    style="animation-duration: 2s;"></div>
+                <div
+                    class="w-12 h-12 rounded-full border-2 border-brand flex items-center justify-center bg-[#161c24] shadow-[0_0_20px_rgba(247,147,30,0.3)]">
+                    <span class="text-brand font-black text-xl tracking-tighter">G</span>
+                </div>
+            </div>
+            <div class="mt-8 text-center space-y-1">
+                <h2 class="text-white text-sm font-black tracking-[0.25em] uppercase">Goby Febrifest</h2>
+                <p class="text-[8px] text-brand tracking-[0.4em] font-black uppercase">Premium Men's Fashion</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                }, 350);
+            }
+        });
+        // Fallback: load state should trigger in 3 seconds maximum
+        setTimeout(() => {
+            const preloader = document.getElementById('preloader');
+            if (preloader && !preloader.classList.contains('loaded')) {
+                preloader.classList.add('loaded');
+            }
+        }, 3000);
+    </script>
+
+    <!-- Mobile Overlay Backdrop (Top-level viewport overlay) -->
+    <div id="mobile-drawer-backdrop"
+        class="hidden fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 cursor-default transition-opacity duration-300">
+    </div>
+
+    <!-- ============ TOP BAR ============ -->
+    <div id="top-bar"
+        class="bg-black text-white text-[11px] pt-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-30 transition-all duration-300">
+        <span>Free Shipping on <span class="text-brand font-semibold">orders over ৳1999</span></span>
+        <i data-lucide="truck" class="w-3.5 h-3.5 text-white ml-0.5"></i>
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header id="main-header" class="sticky top-2 z-50 bg-transparent transition-all duration-300">
+        <div class="container relative z-50">
+            <!-- Single Floating Rounded Header Card -->
+            <div id="header-card"
+                class="w-full bg-white rounded-[20px] border border-line px-3 py-3 transition-all duration-300 relative z-50">
+
+                <!-- Top Row: Logo + Search + Utility Icons -->
+                <div id="header-top-row" class="flex items-center justify-between gap-3 sm:gap-4 h-9">
+                    <!-- Left: Mobile Menu Toggler + Logo -->
+                    <div class="flex items-center gap-2 shrink-0">
+                        <!-- Mobile Hamburger Toggle Button (Left side next to logo) -->
+                        <button id="mobile-menu-btn"
+                            class="md:hidden p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer"
+                            aria-label="Toggle Navigation Menu">
+                            <i data-lucide="menu" class="w-5 h-5"></i>
+                        </button>
+
+                        <!-- Logo -->
+                        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+                            <div
+                                class="w-9 h-9 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-xs">
+                                <span class="text-brand font-bold text-base tracking-tighter">G</span>
+                            </div>
+                            <div class="flex flex-col logo-text max-[576px]:hidden">
+                                <span class="text-base font-extrabold tracking-wider text-ink leading-tight">GO BY
+                                    FABRIFEST</span>
+                                <span class="text-[7.5px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S
+                                    FASHION</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Right Utility Actions (Search + Always Visible Icons) -->
+                    <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                        <!-- Search Input (Desktop/Tablet) -->
+                        <div class="relative header-desktop-search w-44 md:w-64 lg:w-80">
+                            <input type="text" placeholder="Search for products..."
+                                class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors placeholder:text-dark-secondary cursor-text">
+                            <button
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand transition-colors cursor-pointer z-10"
+                                aria-label="Submit Search">
+                                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Utility Icons (ALWAYS VISIBLE on all screens) -->
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-ink">
+                            <!-- Mobile Search Icon Button (visible on screens < md) -->
+                            <button id="mobile-search-btn" aria-label="Search"
+                                class="md:hidden hover:text-brand transition-colors p-1 text-ink focus:outline-none cursor-pointer">
+                                <i data-lucide="search" class="w-4 h-4 stroke-[1.75]"></i>
+                            </button>
+
+                            <a href="#" aria-label="Wishlist" class="hover:text-brand transition-colors p-1">
+                                <i data-lucide="heart" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <a href="#" aria-label="Account" class="hover:text-brand transition-colors p-1">
+                                <i data-lucide="user" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <button id="cart-toggle-btn" aria-label="Cart"
+                                class="hover:text-brand transition-colors p-1 relative cursor-pointer">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 stroke-[1.75]"></i>
+                                <span id="cart-badge"
+                                    class="absolute -top-1 -right-1 bg-brand text-white text-[8px] leading-none w-3.5 h-3.5 rounded-full items-center justify-center font-bold hidden">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Inline Full Search Bar (Replaces Top Row directly inside header card when search is active) -->
+                <div id="header-mobile-search-bar" class="hidden flex items-center gap-2 w-full h-9">
+                    <!-- Back Button to Exit Search -->
+                    <button id="mobile-search-close-btn" aria-label="Close Search"
+                        class="p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer shrink-0">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Full Width Mobile Search Input -->
+                    <div class="relative flex-1 h-9 flex items-center">
+                        <input type="text" id="mobile-search-input" placeholder="Search for products..."
+                            class="w-full h-9 bg-[#f4f4f4] text-xs text-ink px-4 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors cursor-text">
+                        <button
+                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand cursor-pointer z-10"
+                            aria-label="Submit Search">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Desktop Navigation Links (Dedicated Smart Menu Row) -->
+                <div class="header-desktop-nav pt-2.5 mt-2 border-t border-gray-100 relative">
+                    <nav id="desktop-nav-menu"
+                        class="flex items-center justify-center gap-6 lg:gap-8 text-[13px] font-semibold tracking-wide text-ink whitespace-nowrap py-1">
+                        <a href="index.html" class="nav-item-link hover:text-brand transition-colors py-0.5">Home</a>
+                        <a href="products.html"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Products</a>
+                        <a href="products.html?deal=Sale"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Discounted
+                            Product</a>
+                        <a href="products.html?deal=New"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Hot
+                            Deals</a>
+
+                        <!-- CATEGORIES MEGA MENU TRIGGER & PANEL -->
+                        <div class="nav-item-dropdown group">
+                            <button id="categories-mega-btn"
+                                class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
+                                Categories <i data-lucide="chevron-down"
+                                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                            </button>
+
+                            <!-- Mega Menu Dropdown Panel (Full Category Grid matching header width) -->
+                            <div id="categories-mega-panel"
+                                class="hidden absolute -left-[13px] -right-[13px] w-[calc(100%+26px)] top-full mt-[18px] mega-menu-panel p-6 z-50 transition-all duration-300 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
+                                <div
+                                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 text-left">
+
+                                    <!-- Column 1 -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="mega-category-title">Katua Shirt</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Katua Shirt"
+                                                        class="mega-subitem">Half Sleeve</a></li>
+                                                <li><a href="products.html?category=Katua Shirt"
+                                                        class="mega-subitem">Full Sleeve</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="mega-category-title">PANJABI</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Panjabi" class="mega-subitem">Kabli
+                                                        Set</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="mega-category-title">Polo Shirt</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Polo T-Shirt"
+                                                        class="mega-subitem">Polo T-Shirt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Column 2 -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="mega-category-title">Winter Collection</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Hoodie"
+                                                        class="mega-subitem">Hoodie</a></li>
+                                                <li><a href="products.html?category=Hoodie"
+                                                        class="mega-subitem">Jacket</a></li>
+                                                <li><a href="products.html?category=Hoodie" class="mega-subitem">Hoodie
+                                                        Shirt</a></li>
+                                                <li><a href="products.html?category=Sweat Shirt"
+                                                        class="mega-subitem">SWEAT SHIRT</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="mega-category-title">Shirt</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html" class="mega-subitem">Half Sleeve</a></li>
+                                                <li><a href="products.html" class="mega-subitem">Full Sleeve</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Column 3 -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="mega-category-title">Kid's Fashion</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html" class="mega-subitem">Boys</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="mega-category-title">Pant</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html" class="mega-subitem">joggers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Column 4 -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="mega-category-title">T-Shirt</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Polo T-Shirt"
+                                                        class="mega-subitem">Printed Tees</a></li>
+                                                <li><a href="products.html?category=Polo T-Shirt"
+                                                        class="mega-subitem">Basic Tees</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="mega-category-title">Kurta</h4>
+                                            <ul class="space-y-1">
+                                                <li><a href="products.html?category=Panjabi" class="mega-subitem">Short
+                                                        Kurta</a></li>
+                                                <li><a href="products.html?category=Panjabi" class="mega-subitem">Long
+                                                        Kurta</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABOUT US WITH SUBMENU -->
+                        <div class="nav-item-dropdown relative group">
+                            <button
+                                class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
+                                About <i data-lucide="chevron-down"
+                                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="hidden absolute left-0 top-full mt-[22px] w-52 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-line p-2 z-50 transition-all duration-300 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6 nav-dropdown-panel">
+                                <a href="#"
+                                    class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Our
+                                    Story</a>
+                                <a href="#"
+                                    class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Outlets
+                                    & Stores</a>
+                                <a href="#"
+                                    class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Careers</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Mobile Dropdown Navigation Drawer (Positioned relative to header-card) -->
+                <div id="mobile-menu-dropdown"
+                    class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-4 z-50 transition-all duration-300 max-h-[80vh] overflow-y-auto">
+                    <!-- Mobile Links & Accordion Grid -->
+                    <nav class="flex flex-col space-y-1.5 text-xs font-semibold text-ink">
+                        <a href="#"
+                            class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Home</a>
+                        <a href="#"
+                            class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Products</a>
+                        <a href="#"
+                            class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Discounted
+                            Product</a>
+                        <a href="#"
+                            class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between">
+                            <span>Hot Deals</span>
+                            <span
+                                class="bg-brand/10 text-brand text-[9px] font-bold px-2 py-0.5 rounded-full">HOT</span>
+                        </a>
+
+                        <!-- Mobile Category Accordion Parent (Level 1) -->
+                        <div class="mobile-accordion-item">
+                            <button type="button"
+                                class="mobile-accordion-btn w-full p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between text-left font-bold text-ink cursor-pointer">
+                                <span>Categories</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"></i>
+                            </button>
+                            <div class="mobile-accordion-content hidden pl-2 pr-1 pt-1 pb-2 space-y-1">
+
+                                <!-- Katua Shirt (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Katua Shirt</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Half
+                                            Sleeve</a>
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Full
+                                            Sleeve</a>
+                                    </div>
+                                </div>
+
+                                <!-- Winter Collection (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Winter Collection</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Hoodie</a>
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Jacket</a>
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Hoodie
+                                            Shirt</a>
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Sweat
+                                            Shirt</a>
+                                    </div>
+                                </div>
+
+                                <!-- Panjabi (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Panjabi</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Kabli Set</a>
+                                    </div>
+                                </div>
+
+                                <!-- Shirt (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Shirt</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Half
+                                            Sleeve</a>
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Full
+                                            Sleeve</a>
+                                    </div>
+                                </div>
+
+                                <!-- Polo Shirt (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Polo Shirt</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Polo
+                                            T-Shirt</a>
+                                    </div>
+                                </div>
+
+                                <!-- Pant (Level 2 Accordion) -->
+                                <div class="mobile-subaccordion-item">
+                                    <button type="button"
+                                        class="mobile-subaccordion-btn w-full p-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between text-left text-xs font-semibold text-ink cursor-pointer">
+                                        <span class="hover:text-brand">Pant</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-3.5 h-3.5 text-charcoal/60 transition-transform duration-200"></i>
+                                    </button>
+                                    <div
+                                        class="mobile-subaccordion-content hidden pl-3 py-1 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2">
+                                        <a href="#" class="block py-1 hover:text-brand transition-colors">Joggers</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Mobile About Us Accordion Parent (Level 1) -->
+                        <div class="mobile-accordion-item">
+                            <button type="button"
+                                class="mobile-accordion-btn w-full p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between text-left font-bold text-ink cursor-pointer">
+                                <span>About Us</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"></i>
+                            </button>
+                            <div
+                                class="mobile-accordion-content hidden pl-3 pr-1 pt-1 pb-2 space-y-1 text-xs text-charcoal font-medium border-l-2 border-[#F7931E] ml-2 mt-1">
+                                <a href="#" class="block py-1 hover:text-brand transition-colors">Our Story</a>
+                                <a href="#" class="block py-1 hover:text-brand transition-colors">Outlets & Stores</a>
+                                <a href="#" class="block py-1 hover:text-brand transition-colors">Careers</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </header> <!-- ============ BREADCRUMBS ============ --> <!-- ============ BREADCRUMBS ============ -->
+    <nav class="py-4 mt-4 select-none" data-aos="fade-down" data-aos-duration="600">
+        <div class="container">
+            <div class="flex items-center gap-1.5 text-xs text-charcoal/60 font-medium">
+                <a href="index.html" class="hover:text-brand transition-colors flex items-center gap-1">
+                    <i data-lucide="home" class="w-3 h-3"></i> Home
+                </a>
+                <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
+                <span class="text-ink font-semibold">Checkout</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ CHECKOUT HERO BANNER ============ -->
+    <section class="mb-6">
+        <div class="container">
+            <div class="bg-gray-50/50 border border-line rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-2xs"
+                data-aos="fade-up">
+                <div class="flex flex-col gap-1.5">
+                    <span class="text-[9px] font-black text-brand uppercase tracking-widest block">Goby Febrifest</span>
+                    <h1 class="text-2xl font-black text-ink uppercase tracking-tight leading-none">Checkout</h1>
+                    <p class="text-xs text-charcoal/60 max-w-xl leading-relaxed mt-1">
+                        Enter your billing details and complete your purchase securely.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MAIN CHECKOUT LAYOUT ============ -->
+    <main class="pb-16" id="checkout-page-main">
+        <div class="container">
+
+            <!-- ---- EMPTY STATE ---- -->
+            <div id="checkout-empty-state"
+                class="hidden py-20 flex flex-col items-center justify-center text-center gap-5" data-aos="fade-up">
+                <div class="w-24 h-24 rounded-full bg-gray-50 border border-line flex items-center justify-center">
+                    <i data-lucide="shopping-bag" class="w-10 h-10 text-charcoal/20"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-black text-ink mb-1">Your cart is empty</h2>
+                    <p class="text-xs text-charcoal/50 max-w-xs mx-auto leading-relaxed">Please add products to your
+                        cart before proceeding to checkout.</p>
+                </div>
+                <a href="products.html"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-extrabold text-xs uppercase tracking-wider rounded-2xl hover:bg-ink transition-all shadow-md">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    Go to Shop
+                </a>
+            </div>
+            <!-- ---- CHECKOUT CONTENT ---- -->
+            <form id="checkout-page-form" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Left: Billing + Notes (7 cols — same as modal) -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <!-- Billing Details -->
+                    <div>
+                        <h3 class="text-xs font-black text-ink uppercase tracking-wider mb-4 pb-1.5 border-b border-line flex items-center gap-2">
+                            <i data-lucide="user" class="w-3.5 h-3.5 text-brand"></i> Billing Details
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="billing-name" required placeholder="John Doe"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="billing-phone" required placeholder="017xxxxxxxx"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="billing-email" required placeholder="john@example.com"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">District <span class="text-red-500">*</span></label>
+                                <select id="billing-district" required
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-bold">
+                                    <option value="" disabled selected>Select District</option>
+                                    <option value="Dhaka">Dhaka</option>
+                                    <option value="Chittagong">Chittagong</option>
+                                    <option value="Sylhet">Sylhet</option>
+                                    <option value="Rajshahi">Rajshahi</option>
+                                    <option value="Khulna">Khulna</option>
+                                    <option value="Barisal">Barisal</option>
+                                    <option value="Rangpur">Rangpur</option>
+                                    <option value="Mymensingh">Mymensingh</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Area <span class="text-red-500">*</span></label>
+                                <select id="billing-area" required disabled
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-bold">
+                                    <option value="" disabled selected>Select Area</option>
+                                </select>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Street Address <span class="text-red-500">*</span></label>
+                                <input type="text" id="billing-address" required placeholder="House number, street name, apartment"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div>
+                        <h3 class="text-xs font-black text-ink uppercase tracking-wider mb-4 pb-1.5 border-b border-line flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand"></i> Additional Information
+                        </h3>
+                        <div>
+                            <label class="block text-[10px] font-bold text-charcoal uppercase tracking-wider mb-1.5">Order Notes (Optional)</label>
+                            <textarea id="order-notes" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."
+                                class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium resize-none"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Summary & Payment (5 cols — same as modal) -->
+                <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-[100px]">
+
+                    <!-- Order Summary Card (bg-gray-50, same as modal) -->
+                    <div class="bg-gray-50 rounded-2xl p-5 border border-line">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xs font-black text-ink uppercase tracking-wider flex items-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-brand"></i> Your Order
+                            </h3>
+                            <a href="cart.html" class="text-[10px] font-bold text-brand hover:underline flex items-center gap-1">
+                                View Cart <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+
+                        <!-- Items list -->
+                        <div id="checkout-page-items" class="max-h-[160px] overflow-y-auto divide-y divide-gray-200 mb-4 pr-1">
+                            <!-- Dynamically populated -->
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="space-y-2.5 text-xs border-t border-line pt-3">
+                            <div class="flex items-center justify-between text-charcoal/70 font-semibold">
+                                <span>Subtotal</span>
+                                <span class="text-ink font-bold">৳<span id="checkout-subtotal">0</span></span>
+                            </div>
+                            <div class="flex items-center justify-between text-charcoal/70 font-semibold">
+                                <span>Shipping Charge</span>
+                                <span id="checkout-shipping" class="text-ink font-bold">৳0</span>
+                            </div>
+                            <div id="checkout-discount-row" class="hidden flex items-center justify-between text-charcoal/70 font-semibold">
+                                <span>Discount</span>
+                                <span class="text-red-500 font-black">-৳<span id="checkout-discount">0</span></span>
+                            </div>
+                            <div class="flex items-center justify-between text-ink font-black border-t border-dashed border-line pt-2.5 text-sm">
+                                <span>Total</span>
+                                <span class="text-brand text-base">৳<span id="checkout-total">0</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods (same as modal's inline section) -->
+                    <div class="space-y-4">
+                        <h3 class="text-xs font-black text-ink uppercase tracking-wider flex items-center gap-2">
+                            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brand"></i> Payment Method
+                        </h3>
+
+                        <!-- Payment Grid Cards -->
+                        <div class="grid grid-cols-2 gap-3" id="payment-methods-grid">
+                            <!-- Cash on Delivery -->
+                            <button type="button" data-method="cod"
+                                class="payment-card-btn relative p-3 border-2 border-brand bg-brand/5 hover:border-brand rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none">
+                                <span class="block text-xs font-extrabold text-ink">Cash on Delivery</span>
+                                <div class="flex items-center justify-between w-full">
+                                    <span class="text-[9px] text-charcoal/50 font-bold">Pay with Cash</span>
+                                    <i data-lucide="truck" class="w-4 h-4 text-brand"></i>
+                                </div>
+                                <div class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand text-white rounded-full flex items-center justify-center border-2 border-white shadow-sm" id="cod-check">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 stroke-[3]"></i>
+                                </div>
+                            </button>
+
+                            <!-- bKash -->
+                            <button type="button" data-method="bkash"
+                                class="payment-card-btn relative p-3 border-2 border-line bg-white hover:border-brand/40 rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none">
+                                <span class="block text-xs font-extrabold text-ink">bKash</span>
+                                <div class="flex items-center justify-between w-full">
+                                    <span class="text-[9px] text-charcoal/50 font-bold">Pay via bKash</span>
+                                    <span class="px-1.5 py-0.5 bg-pink-500 text-[8px] font-black text-white rounded uppercase">bKash</span>
+                                </div>
+                                <div class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand text-white rounded-full flex items-center justify-center border-2 border-white shadow-sm hidden">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 stroke-[3]"></i>
+                                </div>
+                            </button>
+
+                            <!-- Nagad -->
+                            <button type="button" data-method="nagad"
+                                class="payment-card-btn relative p-3 border-2 border-line bg-white hover:border-brand/40 rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none">
+                                <span class="block text-xs font-extrabold text-ink">Nagad</span>
+                                <div class="flex items-center justify-between w-full">
+                                    <span class="text-[9px] text-charcoal/50 font-bold">Pay via Nagad</span>
+                                    <span class="px-1.5 py-0.5 bg-orange-500 text-[8px] font-black text-white rounded uppercase">Nagad</span>
+                                </div>
+                                <div class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand text-white rounded-full flex items-center justify-center border-2 border-white shadow-sm hidden">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 stroke-[3]"></i>
+                                </div>
+                            </button>
+
+                            <!-- Rocket -->
+                            <button type="button" data-method="rocket"
+                                class="payment-card-btn relative p-3 border-2 border-line bg-white hover:border-brand/40 rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none">
+                                <span class="block text-xs font-extrabold text-ink">Rocket</span>
+                                <div class="flex items-center justify-between w-full">
+                                    <span class="text-[9px] text-charcoal/50 font-bold">Pay via Rocket</span>
+                                    <span class="px-1.5 py-0.5 bg-purple-600 text-[8px] font-black text-white rounded uppercase">Rocket</span>
+                                </div>
+                                <div class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand text-white rounded-full flex items-center justify-center border-2 border-white shadow-sm hidden">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 stroke-[3]"></i>
+                                </div>
+                            </button>
+                        </div>
+
+                        <input type="hidden" name="payment-method-value" id="payment-method-value" value="cod">
+
+                        <!-- Mobile Banking inputs (collapsible) -->
+                        <div id="mobile-payment-fields" class="hidden space-y-3 pt-1">
+                            <div id="mobile-payment-label"
+                                class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-3.5 py-2.5 rounded-xl border border-emerald-100 uppercase tracking-wide flex items-center justify-between">
+                                <span>bKash (01700000000)</span>
+                                <span class="flex h-2 w-2 relative">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                            </div>
+                            <div class="space-y-2.5">
+                                <input type="text" id="sender-number" placeholder="Phone"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                                <input type="number" id="payment-amount" placeholder="Amount"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                                <input type="text" id="transaction-id" placeholder="Transaction Id"
+                                    class="w-full bg-gray-50 border border-line rounded-xl px-3.5 py-2.5 text-xs text-ink outline-none focus:border-brand focus:bg-white transition-all font-medium">
+                            </div>
+                        </div>
+
+                        <!-- Terms + Place Order (matches modal footer style) -->
+                        <div class="border-t border-line pt-4 space-y-3">
+                            <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                                <input type="checkbox" id="terms-agree" required
+                                    class="mt-0.5 w-4 h-4 accent-brand border-line rounded cursor-pointer shrink-0">
+                                <span class="text-[10px] font-bold text-charcoal/70 leading-relaxed">
+                                    I have read and agree to the website <a href="#" class="text-brand hover:underline">terms and conditions</a> and <a href="#" class="text-brand hover:underline">privacy policy</a> <span class="text-red-500">*</span>
+                                </span>
+                            </label>
+                            <button type="submit" id="place-order-btn"
+                                class="w-full py-3 px-6 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i> Place Order
+                            </button>
+                        </div>
+
+                    </div><!-- /payment section -->
+
+                </div><!-- /right col -->
+
+            </form>
+
+            <!-- ============ ORDER SUCCESS PANEL ============ -->
+            <div id="order-success-panel"
+                class="hidden max-w-xl mx-auto bg-white border border-line rounded-3xl p-8 text-center shadow-lg"
+                data-aos="fade-up">
+                <div
+                    class="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-5 border border-emerald-100 animate-bounce">
+                    <i data-lucide="check" class="w-10 h-10 stroke-[3]"></i>
+                </div>
+                <h2 class="text-lg font-black text-ink mb-2 uppercase tracking-wide">Order Placed Successfully!</h2>
+                <p class="text-xs text-charcoal/60 leading-relaxed mb-6">Thank you for your purchase. Your order ID is
+                    <strong class="text-brand font-black" id="success-order-id">#GB-18928</strong>. We will contact you
+                    shortly to confirm your delivery details.
+                </p>
+
+                <div class="bg-gray-50 border border-line rounded-2xl p-5 mb-6 text-left space-y-3 text-xs">
+                    <div class="flex justify-between font-semibold text-charcoal/70">
+                        <span>Name:</span>
+                        <span class="text-ink font-bold" id="success-name">-</span>
+                    </div>
+                    <div class="flex justify-between font-semibold text-charcoal/70">
+                        <span>Phone:</span>
+                        <span class="text-ink font-bold" id="success-phone">-</span>
+                    </div>
+                    <div class="flex justify-between font-semibold text-charcoal/70">
+                        <span>Delivery Address:</span>
+                        <span class="text-ink font-bold max-w-[240px] text-right truncate" id="success-address">-</span>
+                    </div>
+                    <div class="flex justify-between font-semibold text-charcoal/70">
+                        <span>Total Paid:</span>
+                        <span class="text-brand font-black" id="success-total">৳0</span>
+                    </div>
+                </div>
+
+                <a href="index.html"
+                    class="inline-flex items-center justify-center w-full py-3.5 bg-ink hover:bg-brand text-white font-extrabold text-xs uppercase tracking-wider rounded-2xl transition-all duration-300">
+                    Continue Shopping
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-[#0b0e14] text-[#a0aec0] pt-16 border-t border-brand/20 relative overflow-hidden mt-16">
+        <!-- Subtle glow background details -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand/5 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="container relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/[0.06]">
+
+                <!-- Column 1: Brand Info (col-span-3) -->
+                <div class="lg:col-span-3 space-y-5">
+                    <a href="index.html" class="flex items-center gap-2.5">
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-md">
+                            <span class="text-brand font-black text-lg tracking-tighter">G</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-black tracking-wider text-white leading-tight">GO BY
+                                FABRIFEST</span>
+                            <span class="text-[8px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S
+                                FASHION</span>
+                        </div>
+                    </a>
+                    <p class="text-xs leading-relaxed text-gray-400">
+                        Go By Fabrifest is the ultimate solution for Fashions & Exclusive collections of Unique Designed
+                        Printed
+                        T-shirts, Men's wear & Lifestyle Products store in online market for the youngsters.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#"
+                            class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+                            aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+                            aria-label="Youtube">
+                            <i class="fa-brands fa-youtube text-xs"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1"
+                            aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Contact Info (col-span-3) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">
+                        Contact Info
+                    </h4>
+                    <ul class="space-y-3.5 text-xs text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand mt-0.5 text-sm shrink-0"></i>
+                            <span class="leading-relaxed">128/1/A, Senpara Parbata, Mirpur-10, Dhaka-1218, Dhaka,
+                                Bangladesh</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand text-xs shrink-0"></i>
+                            <a href="tel:+8801775810098" class="hover:text-brand transition-colors">+8801775-810098</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand text-xs shrink-0"></i>
+                            <a href="mailto:gobyfabrifest@gmail.com"
+                                class="hover:text-brand transition-colors">gobyfabrifest@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: About (col-span-2) -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">
+                        About</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>About
+                                Us</a></li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Contact
+                                Us</a></li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Privacy
+                                Policy</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Cancellation
+                                &
+                                Refund Policy</a></li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Terms
+                                &
+                                Condition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Useful Link (col-span-2) -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">
+                        Useful Link
+                    </h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Track
+                                My Order</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Shopping
+                                Cart</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Login</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-brand transition-all duration-200 flex items-center gap-1 group"><span
+                                    class="w-0 group-hover:w-1.5 h-[2px] bg-brand transition-all duration-200"></span>Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Google Map Embed (col-span-2) -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">
+                        Our Location
+                    </h4>
+                    <div
+                        class="w-full h-32 rounded-2xl overflow-hidden border border-white/[0.08] shadow-md hover:border-brand/40 transition-all duration-300">
+                        <iframe src="https://maps.google.com/maps?q=23.803406,90.369892&z=15&output=embed"
+                            class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Row -->
+            <div
+                class="pt-8 pb-24 md:pb-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/[0.06]">
+                <!-- Copyright -->
+                <div class="text-xs text-gray-500 font-medium">
+                    &copy; Go By Fabrifest. All rights reserved | 2026
+                </div>
+                <!-- Credits -->
+                <div class="text-xs text-gray-500 font-medium">
+                    Designed & Developed by <a href="https://imbdagency.com" target="_blank"
+                        class="text-brand font-semibold hover:underline">IMBD Agency Ltd.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ SCRIPTS ============ -->
+    <!-- JQuery (Local Workspace Path) -->
+    <script src="Plugins-Framework/jquery/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick Slider Core (Local Workspace Path) -->
+    <script src="Plugins-Framework/slick-slider/slick.min.js"></script>
+
+    <!-- Slick Slider Customize Script (Local Workspace Path) -->
+    <script src="Plugins-Framework/slick-slider/slick.customize.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="Plugins-Framework/aos/aos.js"></script>
+    <script src="Plugins-Framework/aos/aos.customize.js"></script>
+
+    <!-- LightGallery Core JS -->
+    <script src="Plugins-Framework/light-gallery/lightgallery.min.js"></script>
+    <!-- LightGallery Plugins -->
+    <script src="Plugins-Framework/light-gallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script src="Plugins-Framework/light-gallery/plugins/zoom/lg-zoom.min.js"></script>
+    <!-- LightGallery Custom Integration -->
+    <script src="Plugins-Framework/light-gallery/lightgallery-custom.js"></script>
+
+    <!-- Custom script.js -->
+    <script src="frontend/assets/js/script.js"></script>
+
+    <!-- ============ QUICK VIEW PRODUCT MODAL (TAILWIND DYNAMIC POPUP) ============ -->
+    <div id="quick-view-modal"
+        class="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300">
+
+        <!-- Modal Backdrop Blur Overlay -->
+        <div id="quick-view-backdrop" class="fixed inset-0 bg-ink/60 backdrop-blur-sm transition-opacity duration-300">
+        </div>
+
+        <!-- Modal Dialog Body -->
+        <div
+            class="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl flex flex-col transform scale-95 transition-all duration-300 z-10 border border-line overflow-hidden">
+
+            <!-- Sticky Close Button Row (never scrolls) -->
+            <div class="flex-shrink-0 flex justify-end">
+                <button id="close-quick-view"
+                    class="w-8 h-8 m-2 rounded-full bg-gray-100 hover:bg-brand hover:text-white text-ink flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm"
+                    aria-label="Close modal">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Hidden Lightgallery Container for Quick View Modal -->
+            <div class="hidden">
+                <div class="lightgallery" id="lightgallery-qv">
+                    <a href="frontend/assets/images/products/shirt (1).jpg"><img
+                            src="frontend/assets/images/products/shirt (1).jpg" alt="Product 1"></a>
+                    <a href="frontend/assets/images/products/shirt (2).jpg"><img
+                            src="frontend/assets/images/products/shirt (2).jpg" alt="Product 2"></a>
+                    <a href="frontend/assets/images/products/shirt (3).jpg"><img
+                            src="frontend/assets/images/products/shirt (3).jpg" alt="Product 3"></a>
+                    <a href="frontend/assets/images/products/shirt (4).jpg"><img
+                            src="frontend/assets/images/products/shirt (4).jpg" alt="Product 4"></a>
+                    <a href="frontend/assets/images/products/shirt (5).jpg"><img
+                            src="frontend/assets/images/products/shirt (5).jpg" alt="Product 5"></a>
+                    <a href="frontend/assets/images/products/shirt (6).jpg"><img
+                            src="frontend/assets/images/products/shirt (6).jpg" alt="Product 6"></a>
+                </div>
+            </div>
+
+            <!-- Scrollable Content Area -->
+            <div id="quick-view-content" class="overflow-y-auto overflow-x-hidden flex-1 px-6 pb-6 md:px-8 md:pb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
+
+                    <!-- Left Column: Primary Image + Gallery Thumbnails + Key Specs -->
+                    <div class="flex flex-col gap-3">
+                        <!-- Primary Main Image Slider (Synced via native asNavFor) -->
+                        <div class="slider qv-main-slider border border-line rounded-2xl overflow-hidden shadow-xs relative group"
+                            slider-name="qv-main" data-slides-to-show="BPD: 1" data-slides-to-scroll="BPD: 1"
+                            data-arrows="true" data-dots="false" data-infinite="true" data-autoplay="false"
+                            data-inner-gap="0" data-center-mode="false" data-slider-for="qv-thumb">
+
+                            <button type="button"
+                                class="left_btn action-btn flex items-center justify-center !w-8 !h-8 !left-2 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
+                                aria-label="Previous slide">
+                                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            </button>
+                            <button type="button"
+                                class="right_btn action-btn flex items-center justify-center !w-8 !h-8 !right-2 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
+                                aria-label="Next slide">
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+
+                            <!-- Quick View Wishlist Button positioned at top-right -->
+                            <button type="button" id="qv-wishlist-btn"
+                                class="hover-z-index wishlist-btn action-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-charcoal hover:text-brand hover:bg-white flex items-center justify-center transition-all duration-200 shadow-md cursor-pointer z-10"
+                                aria-label="Add to wishlist">
+                                <i data-lucide="heart" class="w-4 h-4"></i>
+                            </button>
+
+                            <!-- Zoom / Lightbox Hint Badge (always visible, centered bottom) -->
+                            <div
+                                class="hover-z-index absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-brand text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md pointer-events-none select-none whitespace-nowrap">
+                                <i data-lucide="zoom-in" class="w-3 h-3"></i>
+                                Click to Zoom
+                            </div>
+
+                            <div class="slider_wrap overflow-hidden rounded-[20px]">
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="0">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (1).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="1">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (2).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="2">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (3).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="3">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (4).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="4">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (5).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                                <div class="slider_item lightgallery-selector cursor-pointer"
+                                    data-lightgallery-selector="#lightgallery-qv" data-lightgallery-id="5">
+                                    <div class="relative aspect-square  overflow-hidden bg-gray-50">
+                                        <img class="w-full h-full object-cover"
+                                            src="frontend/assets/images/products/shirt (6).jpg" alt="Product Image">
+                                        <span
+                                            class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm">-20%
+                                            OFF</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Image Gallery Thumbnail Navigation Slider -->
+                        <div class="relative group my-1">
+                            <div class="slider qv-thumb-slider" slider-name="qv-thumb" data-slider-nav="qv-main"
+                                data-slides-to-show="BPD: 3, BP-992: 3, BP-576: 3" data-slides-to-scroll="BPD: 1"
+                                data-autoplay="false" data-arrows="true" data-dots="false" data-infinite="true"
+                                data-center-mode="true" data-inner-gap="8">
+
+                                <button type="button"
+                                    class="left_btn action-btn flex items-center justify-center !w-7 !h-7 !left-1 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
+                                    aria-label="Previous thumbnail">
+                                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                </button>
+
+                                <button type="button"
+                                    class="right_btn action-btn flex items-center justify-center !w-7 !h-7 !right-1 z-10 !bg-white/90 backdrop-blur-xs !text-ink hover:!bg-brand hover:!text-white border border-line shadow-md rounded-full cursor-pointer transition-all opacity-0 group-hover:opacity-100"
+                                    aria-label="Next thumbnail">
+                                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button>
+
+                                <div class="slider_wrap overflow-hidden rounded-xl">
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (1).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (2).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (3).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (4).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (5).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="slider_item p-0.5">
+                                        <div
+                                            class="qv-thumb-btn w-full aspect-square rounded-xl overflow-hidden cursor-pointer bg-white">
+                                            <img src="frontend/assets/images/products/shirt (6).jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Highlights Box (Fills Left Height Cleanly) -->
+                        <div
+                            class="grid grid-cols-2 gap-2 p-3.5 rounded-2xl bg-gray-50/80 border border-black/[0.05] text-[11px] text-charcoal/70">
+                            <div class="flex items-center gap-1.5 font-semibold"><i data-lucide="sparkles"
+                                    class="w-3.5 h-3.5 text-amber-500"></i> Premium Cotton</div>
+                            <div class="flex items-center gap-1.5 font-semibold"><i data-lucide="refresh-cw"
+                                    class="w-3.5 h-3.5 text-brand"></i> 7 Days Return</div>
+                            <div class="flex items-center gap-1.5 font-semibold"><i data-lucide="shield-check"
+                                    class="w-3.5 h-3.5 text-blue-500"></i> 100% Authentic</div>
+                            <div class="flex items-center gap-1.5 font-semibold"><i data-lucide="truck"
+                                    class="w-3.5 h-3.5 text-emerald-500"></i> Fast Shipping</div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Product Information & Variant Selector Form -->
+                    <div class="flex flex-col gap-4">
+
+                        <!-- Category & Live Stock Status (With pr-10 Offset to prevent Close X overlap) -->
+                        <div class="flex items-center justify-between gap-2">
+                            <span id="qv-category" class="text-xs font-bold text-brand uppercase tracking-wider">Men's
+                                Apparel</span>
+                            <span id="qv-stock"
+                                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> In Stock
+                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h2 id="qv-title" class="text-xl md:text-2xl font-black text-ink tracking-tight">
+                            Half Shirt GO-296
+                        </h2>
+
+                        <!-- Rating Stars & Reviews -->
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center text-amber-400 gap-0.5">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400 stroke-none"></i>
+                            </div>
+                            <span id="qv-rating" class="text-xs text-charcoal/60 font-semibold">(24 Customer
+                                Reviews)</span>
+                        </div>
+
+                        <!-- Price Breakdown Container -->
+                        <div class="flex items-baseline gap-3 pb-2 border-b border-black/[0.06]">
+                            <span id="qv-price" class="text-2xl font-black text-ink">৳850</span>
+                            <span id="qv-old-price" class="text-sm text-charcoal/40 line-through">৳1,090</span>
+                            <span id="qv-savings"
+                                class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">Save
+                                ৳240</span>
+                        </div>
+
+                        <!-- Short Product Description -->
+                        <p id="qv-description" class="text-xs md:text-sm text-charcoal/70 leading-relaxed">
+                            Premium quality 100% breathable cotton shirt tailored for maximum comfort and sophisticated
+                            style. Perfect
+                            for casual summer wear and festive gatherings.
+                        </p>
+
+                        <!-- Size Variant Selection -->
+                        <div class="space-y-2 pt-1">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold text-ink uppercase tracking-wider">Select Size:</label>
+                                <a href="#" class="text-[11px] font-bold text-brand hover:underline">Size Guide</a>
+                            </div>
+                            <div id="qv-sizes" class="flex flex-wrap gap-2">
+                                <button type="button"
+                                    class="size-pill py-1.5 px-3.5 text-xs font-bold border border-brand bg-brand text-white rounded-xl shadow-xs transition-all cursor-pointer">M</button>
+                                <button type="button"
+                                    class="size-pill py-1.5 px-3.5 text-xs font-bold border border-line bg-white text-ink hover:border-brand rounded-xl transition-all cursor-pointer">L</button>
+                                <button type="button"
+                                    class="size-pill py-1.5 px-3.5 text-xs font-bold border border-line bg-white text-ink hover:border-brand rounded-xl transition-all cursor-pointer">XL</button>
+                                <button type="button"
+                                    class="size-pill py-1.5 px-3.5 text-xs font-bold border border-line bg-white text-ink hover:border-brand rounded-xl transition-all cursor-pointer">XXL</button>
+                            </div>
+                        </div>
+
+                        <!-- Quantity & Actions Container -->
+                        <div class="flex flex-wrap items-center gap-3 pt-3">
+                            <!-- Quantity Counter -->
+                            <div class="flex items-center border border-line rounded-xl bg-gray-50/80 p-1">
+                                <button type="button" id="qv-qty-minus"
+                                    class="w-8 h-8 rounded-lg bg-white text-ink hover:bg-gray-100 flex items-center justify-center font-bold transition-all shadow-xs cursor-pointer">-</button>
+                                <input id="qv-qty-input" type="number" value="1" min="1" max="99"
+                                    class="w-12 text-center text-xs font-black text-ink bg-transparent focus:outline-none">
+                                <button type="button" id="qv-qty-plus"
+                                    class="w-8 h-8 rounded-lg bg-white text-ink hover:bg-gray-100 flex items-center justify-center font-bold transition-all shadow-xs cursor-pointer">+</button>
+                            </div>
+
+                            <!-- Add to Cart Modal Button -->
+                            <button type="button" id="qv-submit-btn"
+                                class="flex-1 py-3 px-6 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add To Cart
+                            </button>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div
+                            class="flex items-center gap-4 pt-2 text-[11px] text-charcoal/60 border-t border-black/[0.06] mt-2">
+                            <span class="flex items-center gap-1.5"><i data-lucide="truck"
+                                    class="w-3.5 h-3.5 text-brand"></i> Express
+                                Delivery</span>
+                            <span class="flex items-center gap-1.5"><i data-lucide="shield-check"
+                                    class="w-3.5 h-3.5 text-emerald-500"></i> 100% Original</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SCRIPTS ============ -->
+    <!-- JQuery (Local Workspace Path) -->
+    <script src="Plugins-Framework/jquery/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick Slider Core (Local Workspace Path) -->
+    <script src="Plugins-Framework/slick-slider/slick.min.js"></script>
+
+    <!-- Slick Slider Customize Script (Local Workspace Path) -->
+    <script src="Plugins-Framework/slick-slider/slick.customize.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="Plugins-Framework/aos/aos.js"></script>
+    <script src="Plugins-Framework/aos/aos.customize.js"></script>
+
+    <!-- LightGallery Core JS -->
+    <script src="Plugins-Framework/light-gallery/lightgallery.min.js"></script>
+    <!-- LightGallery Plugins -->
+    <script src="Plugins-Framework/light-gallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script src="Plugins-Framework/light-gallery/plugins/zoom/lg-zoom.min.js"></script>
+    <!-- LightGallery Video Plugin CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/video/lg-video.min.js"></script>
+    <!-- LightGallery Custom Integration -->
+    <script src="Plugins-Framework/light-gallery/lightgallery-custom.js"></script>
+
+    <!-- Custom script.js -->
+    <script src="frontend/assets/js/script.js"></script>
+
+    <!-- Quick View Modal Controller Engine Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('quick-view-modal');
+            const backdrop = document.getElementById('quick-view-backdrop');
+            const closeBtn = document.getElementById('close-quick-view');
+            const modalDialog = modal ? modal.querySelector('.relative.w-full') : null;
+
+            if (!modal) return;
+
+            // Open Modal Handler (Synced via native asNavFor Slick Sliders)
+            function openQuickViewModal(productData) {
+                if (productData) {
+                    if (productData.title) document.getElementById('qv-title').textContent = productData.title;
+                    if (productData.price) document.getElementById('qv-price').textContent = productData.price;
+                    if (productData.oldPrice) document.getElementById('qv-old-price').textContent = productData.oldPrice;
+
+                    // Sync wishlist button visual state
+                    const qvWishlistBtn = document.getElementById('qv-wishlist-btn');
+                    if (qvWishlistBtn) {
+                        const icon = qvWishlistBtn.querySelector('[data-lucide="heart"]');
+                        if (productData.isWishlisted) {
+                            qvWishlistBtn.classList.add('text-red-500', 'bg-red-50');
+                            if (icon) icon.classList.add('fill-red-500', 'stroke-red-500');
+                        } else {
+                            qvWishlistBtn.classList.remove('text-red-500', 'bg-red-50');
+                            if (icon) icon.classList.remove('fill-red-500', 'stroke-red-500');
+                        }
+                    }
+
+                    // Match product image URL with slide index and navigate natively
+                    if (productData.image) {
+                        let targetIndex = 0;
+                        const $thumbImgs = jQuery('#quick-view-modal .qv-thumb-slider .slider_wrap img');
+                        $thumbImgs.each(function (idx) {
+                            const src = this.getAttribute('src') || this.src;
+                            if (src && (src === productData.image || productData.image.includes(src) || src.includes(productData.image))) {
+                                targetIndex = idx;
+                            }
+                        });
+
+                        setTimeout(function () {
+                            if (window.jQuery) {
+                                const $mainWrap = jQuery('#quick-view-modal .qv-main-slider .slider_wrap');
+                                const $thumbWrap = jQuery('#quick-view-modal .qv-thumb-slider .slider_wrap');
+                                if ($mainWrap.hasClass('slick-initialized')) {
+                                    $mainWrap.slick('setPosition');
+                                }
+                                if ($thumbWrap.hasClass('slick-initialized')) {
+                                    $thumbWrap.slick('setPosition');
+                                }
+                                if ($mainWrap.hasClass('slick-initialized')) {
+                                    $mainWrap.slick('slickGoTo', targetIndex);
+                                }
+                            }
+                        }, 150);
+                    }
+                }
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+                if (modalDialog) {
+                    modalDialog.classList.remove('scale-95');
+                    modalDialog.classList.add('scale-100');
+                }
+                document.body.style.overflow = 'hidden'; // Lock background scroll
+                if (window.lucide) lucide.createIcons();
+            }
+
+            // Close Modal & Auto-Cleanup Handler
+            function closeQuickViewModal() {
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                if (modalDialog) {
+                    modalDialog.classList.remove('scale-100');
+                    modalDialog.classList.add('scale-95');
+                }
+                document.body.style.overflow = ''; // Restore background scroll
+
+                // Auto-cleanup dynamic state after fade out animation
+                setTimeout(function () {
+                    const qtyInput = document.getElementById('qv-qty-input');
+                    if (qtyInput) qtyInput.value = 1;
+
+                    const qvWishlistBtn = document.getElementById('qv-wishlist-btn');
+                    if (qvWishlistBtn) {
+                        qvWishlistBtn.classList.remove('text-red-500', 'bg-red-50');
+                        const icon = qvWishlistBtn.querySelector('[data-lucide="heart"]');
+                        if (icon) icon.classList.remove('fill-red-500', 'stroke-red-500');
+                    }
+                }, 300);
+            }
+
+            // Event Listeners for Opening Modal via Quick View or Add To Cart Buttons
+            document.addEventListener('click', function (e) {
+                const triggerBtn = e.target.closest('.product-card .quick-view-btn, .product-card .action-btn');
+                // Guard: do not trigger from inside the modal itself or category section
+                if (triggerBtn && !triggerBtn.disabled && !triggerBtn.classList.contains('wishlist-btn') && !triggerBtn.closest('#quick-view-modal') && !triggerBtn.closest('.category-slider')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Extract product details from parent card
+                    const card = triggerBtn.closest('.product-card, .slider_item');
+                    let productData = null;
+                    if (card) {
+                        const img = card.querySelector('img');
+                        const title = card.querySelector('h3');
+                        const price = card.querySelector('.font-black');
+                        const oldPrice = card.querySelector('.line-through');
+                        const cardWishlistBtn = card.querySelector('.wishlist-btn');
+                        const isWishlisted = cardWishlistBtn && cardWishlistBtn.classList.contains('text-red-500');
+
+                        productData = {
+                            image: img ? img.src : '',
+                            title: title ? title.textContent.trim() : '',
+                            price: price ? price.textContent.trim() : '',
+                            oldPrice: oldPrice ? oldPrice.textContent.trim() : '',
+                            isWishlisted: !!isWishlisted
+                        };
+                    }
+
+                    openQuickViewModal(productData);
+                }
+            });
+
+            // Navigate to product-details.html on clicking card titles or image areas (excluding wishlist, quick view, and action buttons)
+            document.addEventListener('click', function (e) {
+                const card = e.target.closest('.product-card');
+                if (card) {
+                    if (e.target.closest('.wishlist-btn') || e.target.closest('.quick-view-btn') || e.target.closest('.action-btn')) {
+                        return;
+                    }
+                    window.location.href = 'product-details.html';
+                }
+            });
+
+            // Close Event Listeners (Static Modal: Only closes via X button click)
+            if (closeBtn) closeBtn.addEventListener('click', closeQuickViewModal);
+
+            // Quantity Counter Controls
+            const qtyInput = document.getElementById('qv-qty-input');
+            const qtyPlus = document.getElementById('qv-qty-plus');
+            const qtyMinus = document.getElementById('qv-qty-minus');
+
+            if (qtyPlus && qtyInput) {
+                qtyPlus.addEventListener('click', function () {
+                    qtyInput.value = Math.min(99, parseInt(qtyInput.value || 1) + 1);
+                });
+            }
+            if (qtyMinus && qtyInput) {
+                qtyMinus.addEventListener('click', function () {
+                    qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1) - 1);
+                });
+            }
+
+            // Size Pill Selection inside Quick View Modal
+            document.addEventListener('click', function (e) {
+                const sizePill = e.target.closest('#qv-sizes .size-pill');
+                if (sizePill) {
+                    const container = sizePill.closest('#qv-sizes');
+                    if (container) {
+                        container.querySelectorAll('.size-pill').forEach(btn => {
+                            btn.className = 'size-pill py-1.5 px-3.5 text-xs font-bold border border-line bg-white text-ink hover:border-brand rounded-xl transition-all cursor-pointer';
+                        });
+                        sizePill.className = 'size-pill py-1.5 px-3.5 text-xs font-bold border border-brand bg-brand text-white rounded-xl shadow-xs transition-all cursor-pointer';
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- CART OFFCANVAS (Tailwind — slides from right like Bootstrap) -->
+    <!-- ============================================================ -->
+
+    <!-- Backdrop Overlay -->
+    <div id="cart-backdrop"
+        class="fixed inset-0 z-[10000] bg-ink/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
+
+    <!-- Offcanvas Panel -->
+    <div id="cart-offcanvas"
+        class="fixed top-0 right-0 z-[10001] h-full w-full max-w-sm bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-5 py-4 border-b border-line shrink-0">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="shopping-cart" class="w-5 h-5 text-brand"></i>
+                <h2 class="font-extrabold text-sm text-ink tracking-wide uppercase">Your Cart</h2>
+                <span id="cart-count-badge"
+                    class="bg-brand text-white text-[10px] font-bold px-2 py-1 rounded-full leading-none hidden">0</span>
+            </div>
+            <button id="cart-close-btn"
+                class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand hover:text-white text-ink flex items-center justify-center transition-all cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable Items Area -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto px-5 py-4 space-y-3 flex flex-col">
+            <!-- Empty State -->
+            <div id="cart-empty-state" class="flex flex-col items-center justify-center text-center min-h-full">
+                <div class="w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mb-4 border border-line">
+                    <i data-lucide="shopping-cart" class="w-9 h-9 text-gray-300"></i>
+                </div>
+                <p class="font-bold text-sm text-ink mb-1">Your cart is empty</p>
+                <p class="text-xs text-charcoal/50 mb-5">Add products to get started</p>
+                <button
+                    class="cart-continue-empty px-5 py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all cursor-pointer">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+
+        <!-- Sticky Footer: Summary + Checkout -->
+        <div id="cart-footer" class="hidden shrink-0 border-t border-line px-5 py-4 bg-white space-y-3">
+            <!-- Subtotal Row -->
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-charcoal/70 font-medium">Subtotal</span>
+                <span id="cart-subtotal" class="font-extrabold text-ink">৳0</span>
+            </div>
+            <!-- Checkout Button -->
+            <a href="checkout.html"
+                class="w-full py-3 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                <i data-lucide="credit-card" class="w-4 h-4"></i> Proceed to Checkout
+            </a>
+            <!-- View Cart & Continue Shopping -->
+            <div class="grid grid-cols-2 gap-2.5">
+                <a href="cart.html"
+                    class="py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> View Cart
+                </a>
+                <button id="cart-continue-btn"
+                    class="py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all cursor-pointer">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MOBILE BOTTOM NAVIGATION ============ -->
+    <div
+        class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-t border-line px-4 flex items-center justify-around shadow-[0_-5px_25px_rgba(0,0,0,0.06)] h-[60px] pb-safe">
+        <a href="index.html"
+            class="flex flex-col items-center justify-center text-charcoal hover:text-brand transition-colors py-1 shrink-0">
+            <i data-lucide="home" class="w-5 h-5 mb-0.5"></i>
+            <span class="text-[9px] font-bold tracking-wider">Home</span>
+        </a>
+        <button id="mobile-bottom-search-btn"
+            class="flex flex-col items-center justify-center text-charcoal hover:text-brand transition-colors py-1 shrink-0 cursor-pointer">
+            <i data-lucide="search" class="w-5 h-5 mb-0.5"></i>
+            <span class="text-[9px] font-bold tracking-wider">Search</span>
+        </button>
+
+        <!-- Prominent Cart Tab -->
+        <button id="mobile-bottom-cart-btn"
+            class="flex flex-col items-center justify-center text-brand transition-colors py-1 shrink-0 relative cursor-pointer">
+            <div class="relative mb-0.5">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand"></i>
+                <span id="mobile-bottom-cart-badge"
+                    class="absolute -top-1.5 -right-2 bg-brand text-white text-[8px] font-bold leading-none min-w-[14px] h-3.5 rounded-full flex items-center justify-center px-0.5 hidden">0</span>
+            </div>
+            <span id="mobile-bottom-cart-total" class="text-[9px] font-extrabold text-ink leading-none">৳0</span>
+        </button>
+
+        <a href="#"
+            class="flex flex-col items-center justify-center text-charcoal hover:text-brand transition-colors py-1 shrink-0">
+            <i data-lucide="heart" class="w-5 h-5 mb-0.5"></i>
+            <span class="text-[9px] font-bold tracking-wider">Wishlist</span>
+        </a>
+        <a href="#"
+            class="flex flex-col items-center justify-center text-charcoal hover:text-brand transition-colors py-1 shrink-0">
+            <i data-lucide="user" class="w-5 h-5 mb-0.5"></i>
+            <span class="text-[9px] font-bold tracking-wider">Account</span>
+        </a>
+    </div>
+
+    <!-- ============ FLOATING CART WIDGET ============ -->
+    <button id="floating-cart-btn"
+        class="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 bg-brand text-white flex flex-col items-center justify-center py-3 px-3.5 rounded-xl hover:bg-white hover:text-brand hover:border-brand shadow-[0_12px_40px_rgba(247,147,30,0.15)] hover:shadow-[0_12px_40px_rgba(247,147,30,0.3)] transition-all duration-300 group cursor-pointer border border-white/15 select-none w-16">
+        <div class="relative mb-1.5" style="animation-duration: 2s;">
+            <i data-lucide="shopping-bag" class="w-6 h-6 stroke-[2]"></i>
+            <span id="floating-cart-badge"
+                class="absolute -top-2 -right-2.5 bg-white text-brand text-[9px] font-black leading-none min-w-[16px] h-4 rounded-full flex items-center justify-center px-1 shadow-xs group-hover:bg-brand group-hover:text-white transition-colors hidden">0</span>
+        </div>
+        <!-- <span class="text-[9px] font-black uppercase tracking-widest text-white/70 transition-colors">Cart</span> -->
+        <span id="floating-cart-total"
+            class="text-xs font-black text-white group-hover:text-brand transition-colors">৳0</span>
+    </button>
+
+    <!-- ============================================================ -->
+    <!-- CART ENGINE SCRIPT                                           -->
+    <!-- ============================================================ -->
+    <script>
+        (function () {
+            // ── State (localStorage Persistent) ────────────────────────
+            let cart = JSON.parse(localStorage.getItem('goby_cart')) || [];   // [{ id, name, price, image, qty }]
+            cart.forEach(item => {
+                if (item.name && !item.name.includes(' - [')) {
+                    item.name = `${item.name} - [${item.size || 'M'}]`;
+                }
+            });
+            let nextId = parseInt(localStorage.getItem('goby_cart_next_id')) || 1;
+
+            function saveCart() {
+                localStorage.setItem('goby_cart', JSON.stringify(cart));
+                localStorage.setItem('goby_cart_next_id', nextId);
+                if (window.renderCartPage) {
+                    window.renderCartPage();
+                }
+            }
+
+            // ── DOM Refs ───────────────────────────────────────────────
+            const offcanvas = document.getElementById('cart-offcanvas');
+            const backdrop = document.getElementById('cart-backdrop');
+            const closeBtn = document.getElementById('cart-close-btn');
+            const toggleBtn = document.getElementById('cart-toggle-btn');
+            const continueBtn = document.getElementById('cart-continue-btn');
+            const itemsContainer = document.getElementById('cart-items-container');
+            const emptyState = document.getElementById('cart-empty-state');
+            const footer = document.getElementById('cart-footer');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const badgeHeader = document.getElementById('cart-badge');        // header icon badge
+            const badgePanel = document.getElementById('cart-count-badge');  // panel header badge
+            const floatingCartBtn = document.getElementById('floating-cart-btn');
+            const floatingBadge = document.getElementById('floating-cart-badge');
+            const floatingTotal = document.getElementById('floating-cart-total');
+            const mobileBottomCartBtn = document.getElementById('mobile-bottom-cart-btn');
+            const mobileBottomBadge = document.getElementById('mobile-bottom-cart-badge');
+            const mobileBottomTotal = document.getElementById('mobile-bottom-cart-total');
+
+            // ── Open / Close ───────────────────────────────────────────
+            // Open
+            function openCart() {
+                cart = JSON.parse(localStorage.getItem('goby_cart')) || [];
+                renderAll();
+                offcanvas.classList.remove('translate-x-full');
+                offcanvas.classList.add('translate-x-0');
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                backdrop.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+                if (window.lucide) lucide.createIcons();
+            }
+
+            // Close
+            function closeCart() {
+                offcanvas.classList.remove('translate-x-0');
+                offcanvas.classList.add('translate-x-full');
+                backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+
+            toggleBtn && toggleBtn.addEventListener('click', openCart);
+            floatingCartBtn && floatingCartBtn.addEventListener('click', openCart);
+            mobileBottomCartBtn && mobileBottomCartBtn.addEventListener('click', openCart);
+            closeBtn && closeBtn.addEventListener('click', closeCart);
+            continueBtn && continueBtn.addEventListener('click', closeCart);
+            document.querySelectorAll('.cart-continue-empty').forEach(btn => btn.addEventListener('click', closeCart));
+            backdrop && backdrop.addEventListener('click', closeCart);
+
+            // ── Badge Update ───────────────────────────────────────────
+            function updateBadge() {
+                const total = cart.reduce((s, i) => s + i.qty, 0);
+                [badgeHeader, badgePanel, floatingBadge, mobileBottomBadge].forEach(el => {
+                    if (!el) return;
+                    el.textContent = total;
+                    if (total > 0) {
+                        el.classList.remove('hidden');
+                        el.classList.add('flex');
+                    } else {
+                        el.classList.add('hidden');
+                        el.classList.remove('flex');
+                    }
+                });
+            }
+
+            // ── Subtotal ───────────────────────────────────────────────
+            // Subtotal
+            function updateSubtotal() {
+                const sub = cart.reduce((s, i) => s + i.price * i.qty, 0);
+                if (subtotalEl) subtotalEl.textContent = '৳' + sub.toLocaleString('en-IN');
+                if (floatingTotal) floatingTotal.textContent = '৳' + sub.toLocaleString('en-IN');
+                if (mobileBottomTotal) mobileBottomTotal.textContent = '৳' + sub.toLocaleString('en-IN');
+            }
+
+            // ── Render Single Item Card ────────────────────────────────
+            function renderItem(item) {
+                const div = document.createElement('div');
+                div.className = 'flex gap-3 bg-gray-50/70 rounded-2xl p-3 border border-line items-start';
+                div.dataset.cartId = item.id;
+                div.innerHTML = `
+          <div class="w-16 h-16 rounded-xl overflow-hidden border border-line bg-white shrink-0">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-ink truncate mb-1">${item.name}</p>
+            <p class="text-xs font-extrabold text-brand mb-2">৳${item.price.toLocaleString('en-IN')}</p>
+            <div class="flex items-center gap-2">
+              <div class="flex items-center border border-line rounded-lg bg-white">
+                <button class="cart-qty-minus w-6 h-6 flex items-center justify-center text-ink hover:text-brand font-bold text-sm transition-colors cursor-pointer">−</button>
+                <span class="cart-qty-display w-7 text-center text-xs font-black text-ink">${item.qty}</span>
+                <button class="cart-qty-plus w-6 h-6 flex items-center justify-center text-ink hover:text-brand font-bold text-sm transition-colors cursor-pointer">+</button>
+              </div>
+              <span class="text-[10px] text-charcoal/40 font-medium">৳${(item.price * item.qty).toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+          <button class="cart-remove shrink-0 w-7 h-7 rounded-full bg-gray-200 hover:bg-red-100 hover:text-red-500 text-charcoal/60 flex items-center justify-center transition-all cursor-pointer mt-0.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        `;
+
+                // Qty + / -
+                div.querySelector('.cart-qty-plus').addEventListener('click', () => {
+                    item.qty = Math.min(99, item.qty + 1);
+                    saveCart();
+                    renderAll();
+                });
+                div.querySelector('.cart-qty-minus').addEventListener('click', () => {
+                    item.qty = Math.max(1, item.qty - 1);
+                    saveCart();
+                    if (item.qty === 0) removeItem(item.id);
+                    else renderAll();
+                });
+                div.querySelector('.cart-remove').addEventListener('click', () => removeItem(item.id));
+
+                return div;
+            }
+
+            // ── Render All Items ───────────────────────────────────────
+            function renderAll() {
+                // Remove all item cards (keep empty state div)
+                Array.from(itemsContainer.children).forEach(child => {
+                    if (child.id !== 'cart-empty-state') child.remove();
+                });
+
+                if (cart.length === 0) {
+                    emptyState.classList.remove('hidden');
+                    footer.classList.add('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    footer.classList.remove('hidden');
+                    cart.forEach(item => itemsContainer.appendChild(renderItem(item)));
+                }
+
+                updateBadge();
+                updateSubtotal();
+            }
+
+            // ── Remove Item ────────────────────────────────────────────
+            function removeItem(id) {
+                const idx = cart.findIndex(i => i.id === id);
+                if (idx > -1) cart.splice(idx, 1);
+                saveCart();
+                renderAll();
+            }
+
+            // ── Add Item (Public API) ──────────────────────────────────
+            window.addToCart = function (productData) {
+                const baseName = productData.name || 'Product';
+                const size = productData.size || '';
+                let name = baseName;
+                if (size && !baseName.includes(' - [')) {
+                    name = `${baseName} - [${size}]`;
+                }
+                const price = parseInt(String(productData.price || '0').replace(/[^0-9]/g, '')) || 0;
+                const image = productData.image || 'frontend/assets/images/products/shirt (1).jpg';
+                const qty = productData.qty || 1;
+
+                // Check if same product already in cart
+                const existing = cart.find(i => i.name === name && i.image === image);
+                if (existing) {
+                    existing.qty = Math.min(99, existing.qty + qty);
+                } else {
+                    cart.push({ id: nextId++, name: name, price: price, image, qty: qty });
+                }
+                saveCart();
+                renderAll();
+                openCart();
+            };
+
+            // ── Wire product card ADD TO CART buttons ─────────────────
+            // Opens Quick View modal (for size selection) instead of direct add
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.product-card .action-btn');
+                if (!btn) return;
+                if (btn.classList.contains('wishlist-btn')) return;
+                if (btn.classList.contains('quick-view-btn')) return;
+                if (btn.closest('#quick-view-modal')) return;  // handled separately by #qv-submit-btn
+                if (btn.disabled) return;
+
+                const card = btn.closest('.product-card, .slider_item');
+                if (!card) return;
+
+                e.stopPropagation();
+
+                // Trigger the quick view modal — same as clicking QUICK VIEW button
+                const qvTrigger = card.querySelector('.quick-view-btn');
+                if (qvTrigger) {
+                    qvTrigger.click();
+                }
+            });
+
+            // ── Wire modal #qv-submit-btn ──────────────────────────────
+            document.addEventListener('DOMContentLoaded', function () {
+                const qvBtn = document.getElementById('qv-submit-btn');
+                if (qvBtn) {
+                    qvBtn.addEventListener('click', function () {
+                        const titleEl = document.getElementById('qv-title');
+                        const priceEl = document.getElementById('qv-price');
+                        const qtyInput = document.getElementById('qv-qty-input');
+                        const mainImg = document.querySelector('#quick-view-modal .qv-main-slider .slider_wrap .slick-current img, #quick-view-modal .qv-main-slider .slider_wrap img');
+
+                        const name = titleEl ? titleEl.textContent.trim() : 'Product';
+                        const price = priceEl ? priceEl.textContent.trim() : '0';
+                        const image = mainImg ? mainImg.src : '';
+                        const qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+
+                        // Close quick view first
+                        const closeQv = document.getElementById('close-quick-view');
+                        if (closeQv) closeQv.click();
+
+                        // Get selected size from Quick View Modal
+                        const activeSizeEl = document.querySelector('#qv-sizes .size-pill.bg-brand, #qv-sizes .size-pill.text-white');
+                        const size = activeSizeEl ? activeSizeEl.textContent.trim() : 'M';
+                        let finalName = name;
+                        if (size) {
+                            finalName = `${name} - [${size}]`;
+                        }
+
+                        // Add qty times (or handle qty directly)
+                        const existing = cart.find(i => i.name === finalName && i.image === image);
+                        const priceNum = parseInt(String(price).replace(/[^0-9]/g, '')) || 0;
+                        if (existing) {
+                            existing.qty = Math.min(99, existing.qty + qty);
+                        } else {
+                            cart.push({ id: nextId++, name, price: priceNum, image, qty });
+                        }
+                        saveCart();
+                        renderAll();
+                        openCart();
+                    });
+                }
+            });
+
+            // Sync View Cart link with current cart data in URL for file:// origin support
+            document.addEventListener('click', function (e) {
+                const link = e.target.closest('a[href="cart.html"]');
+                if (link) {
+                    e.preventDefault();
+                    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(cart))));
+                    window.location.href = `cart.html?share=${encoded}`;
+                }
+            });
+
+            window.syncOffcanvas = function () {
+                cart = JSON.parse(localStorage.getItem('goby_cart')) || [];
+                cart.forEach(item => {
+                    if (item.name && !item.name.includes(' - [')) {
+                        item.name = `${item.name} - [${item.size || 'M'}]`;
+                    }
+                });
+                renderAll();
+            };
+
+            // Init empty render
+            renderAll();
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        })();
+    </script>
+    <!-- ============ CART PAGE DEDICATED SCRIPT ============ -->
+    <script>
+        // Initialize Lucide Icons & Mobile Menu Toggle
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
+        (function () {
+            'use strict';
+
+            const areaMap = {
+                "Dhaka": ["Dhanmondi", "Gulshan", "Banani", "Mirpur", "Uttara", "Mohakhali", "Badda", "Mohammadpur", "Paltan", "Wari"],
+                "Chittagong": ["GEC Circle", "Halishahar", "Nasirabad", "Agrabad", "Chawkbazar", "Panchlaish", "Lalkhan Bazar"],
+                "Sylhet": ["Zindabazar", "Amberkhana", "Shibgonj", "Uposhahar", "Chouhatta", "Pathantula"],
+                "Rajshahi": ["Boalia", "Motihar", "Rajpara", "Shah Mokhdum", "Sopura"],
+                "Khulna": ["Khalishpur", "Daulatpur", "Sonadanga", "Khan Jahan Ali"],
+                "Barisal": ["Sadar Road", "Natullabad", "Rupatoli", "Choumatha"],
+                "Rangpur": ["Dhap", "Jahazcompany", "Modern Mor", "Sadar Town"],
+                "Mymensingh": ["Ganginarpar", "Charpara", "Sadar Town"]
+            };
+
+            const FREE_SHIPPING_THRESHOLD = 1999;
+
+            const emptyState = document.getElementById('checkout-empty-state');
+            const checkoutForm = document.getElementById('checkout-page-form');
+            const successPanel = document.getElementById('order-success-panel');
+
+            const billingDistrict = document.getElementById('billing-district');
+            const billingArea = document.getElementById('billing-area');
+
+            const mobilePaymentFields = document.getElementById('mobile-payment-fields');
+
+            // Helper to load cart
+            function getCart() {
+                try {
+                    let items = JSON.parse(localStorage.getItem('goby_cart') || '[]');
+                    items.forEach(item => {
+                        if (item.name && !item.name.includes(' - [')) {
+                            item.name = `${item.name} - [${item.size || 'M'}]`;
+                        }
+                    });
+                    return items;
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            // Populate Area dropdowns
+            function populateAreas(districtSelect, areaSelect) {
+                const val = districtSelect.value;
+                areaSelect.innerHTML = '<option value="" disabled selected>Select Area</option>';
+                if (areaMap[val]) {
+                    areaSelect.disabled = false;
+                    areaMap[val].forEach(area => {
+                        const opt = document.createElement('option');
+                        opt.value = area;
+                        opt.textContent = area;
+                        areaSelect.appendChild(opt);
+                    });
+                } else {
+                    areaSelect.disabled = true;
+                }
+            }
+
+            if (billingDistrict) {
+                billingDistrict.addEventListener('change', () => {
+                    populateAreas(billingDistrict, billingArea);
+                    updateCheckoutSummary();
+                });
+            }
+
+            // Payment Option Toggle Style
+            const paymentCards = document.querySelectorAll('.payment-card-btn');
+            const paymentValueInput = document.getElementById('payment-method-value');
+
+            paymentCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Reset all cards
+                    paymentCards.forEach(c => {
+                        c.className = 'payment-card-btn relative p-3 border-2 border-line bg-white hover:border-brand/40 rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none';
+                        c.querySelector('.absolute').classList.add('hidden');
+                    });
+
+                    // Set active card
+                    const method = card.getAttribute('data-method');
+                    paymentValueInput.value = method;
+                    card.className = 'payment-card-btn relative p-3 border-2 border-brand bg-brand/5 hover:border-brand rounded-2xl cursor-pointer text-left transition-all flex flex-col justify-between h-[76px] select-none outline-none';
+                    card.querySelector('.absolute').classList.remove('hidden');
+
+                    const senderNum = document.getElementById('sender-number');
+                    const transId = document.getElementById('transaction-id');
+                    const payAmount = document.getElementById('payment-amount');
+                    const labelEl = document.getElementById('mobile-payment-label');
+
+                    if (method !== 'cod') {
+                        mobilePaymentFields.classList.remove('hidden');
+                        senderNum.required = true;
+                        transId.required = true;
+                        payAmount.required = true;
+
+                        if (method === 'bkash') {
+                            labelEl.querySelector('span').textContent = 'bKash (01700000000)';
+                        } else if (method === 'nagad') {
+                            labelEl.querySelector('span').textContent = 'Nagad (01800000000)';
+                        } else if (method === 'rocket') {
+                            labelEl.querySelector('span').textContent = 'Rocket (01900000000)';
+                        }
+                    } else {
+                        mobilePaymentFields.classList.add('hidden');
+                        senderNum.required = false;
+                        transId.required = false;
+                        payAmount.required = false;
+                        senderNum.value = '';
+                        transId.value = '';
+                        payAmount.value = '';
+                    }
+                });
+            });
+
+            // Update Summary
+            function updateCheckoutSummary() {
+                const cart = getCart();
+                const itemsList = document.getElementById('checkout-page-items');
+                const subtotalSpan = document.getElementById('checkout-subtotal');
+                const shippingSpan = document.getElementById('checkout-shipping');
+                const discountSpan = document.getElementById('checkout-discount');
+                const discountRow = document.getElementById('checkout-discount-row');
+                const totalSpan = document.getElementById('checkout-total');
+
+                if (!itemsList) return;
+
+                itemsList.innerHTML = '';
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    subtotal += item.price * item.qty;
+                    const div = document.createElement('div');
+                    div.className = 'flex items-start justify-between py-3 text-xs border-b border-gray-100 last:border-0';
+                    div.innerHTML = `
+                        <div class="flex items-center gap-3 max-w-[70%]">
+                          <img src="${item.image}" alt="" class="w-10 h-10 rounded-xl object-cover border border-line shrink-0 bg-gray-50">
+                          <div class="flex flex-col min-w-0">
+                            <span class="font-extrabold text-ink truncate">${item.name}</span>
+                            <span class="text-[10px] text-charcoal/60 mt-0.5 font-bold">৳${item.price.toLocaleString()} x ${item.qty}</span>
+                          </div>
+                        </div>
+                        <span class="font-black text-ink pt-1.5">৳${(item.price * item.qty).toLocaleString()}</span>
+                    `;
+                    itemsList.appendChild(div);
+                });
+
+                // Get shipping charge
+                let shipping = 0;
+                const district = billingDistrict.value;
+                if (subtotal < FREE_SHIPPING_THRESHOLD && district) {
+                    shipping = (district === 'Dhaka') ? 80 : 150;
+                }
+
+                // Apply discount if applied from cart page
+                const discount = parseInt(localStorage.getItem('goby_discount') || '0') || 0;
+
+                const total = subtotal + shipping - discount;
+
+                subtotalSpan.textContent = subtotal.toLocaleString();
+                shippingSpan.textContent = shipping > 0 ? `৳${shipping}` : 'Free';
+                if (discount > 0) {
+                    discountRow.classList.remove('hidden');
+                    discountSpan.textContent = discount.toLocaleString();
+                } else {
+                    discountRow.classList.add('hidden');
+                }
+                totalSpan.textContent = total.toLocaleString();
+            }
+
+
+            // Init page render
+            function initCheckoutPage() {
+                const cart = getCart();
+                if (cart.length === 0) {
+                    emptyState.classList.remove('hidden');
+                    checkoutForm.classList.add('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    checkoutForm.classList.remove('hidden');
+                    updateCheckoutSummary();
+                }
+            }
+
+            // Sync cart badge on header
+            function syncCartBadge() {
+                const cart = getCart();
+                const total = cart.reduce((s, i) => s + i.qty, 0);
+                const badge = document.getElementById('cart-badge');
+                if (badge) {
+                    badge.textContent = total;
+                    total > 0 ? badge.classList.remove('hidden') : badge.classList.add('hidden');
+                }
+            }
+
+            // Handle checkout form submission
+            if (checkoutForm) {
+                checkoutForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const cart = getCart();
+                    const orderId = '#GB-' + Math.floor(10000 + Math.random() * 90000);
+                    const name = document.getElementById('billing-name').value;
+                    const phone = document.getElementById('billing-phone').value;
+
+                    const bStreet = document.getElementById('billing-address').value;
+                    const bArea = document.getElementById('billing-area').value;
+                    const bDistrict = document.getElementById('billing-district').value;
+                    const address = `${bStreet}, ${bArea}, ${bDistrict}`;
+
+                    const totalSpan = document.getElementById('checkout-total');
+                    const totalPaid = totalSpan ? totalSpan.textContent : '0';
+
+                    // Populate success panel
+                    successPanel.querySelector('#success-order-id').textContent = orderId;
+                    successPanel.querySelector('#success-name').textContent = name;
+                    successPanel.querySelector('#success-phone').textContent = phone;
+                    successPanel.querySelector('#success-address').textContent = address;
+                    successPanel.querySelector('#success-total').textContent = `৳${totalPaid}`;
+
+                    // Clear cart
+                    localStorage.removeItem('goby_cart');
+                    localStorage.removeItem('goby_discount');
+
+                    // Show success panel, hide form
+                    checkoutForm.classList.add('hidden');
+                    successPanel.classList.remove('hidden');
+
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    // Sync badges
+                    syncCartBadge();
+                    if (window.syncOffcanvas) window.syncOffcanvas();
+                });
+            }
+
+            // Run on load
+            initCheckoutPage();
+            syncCartBadge();
+        })();
+    </script>
+
+    <!-- ============ RESTORED GLOBAL UI LOGIC ============ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Product Size Selection Pill & Wishlist Toggle System
+            document.addEventListener('click', function (e) {
+                const sizeBtn = e.target.closest('.size-pill');
+                if (sizeBtn) {
+                    const pillContainer = sizeBtn.closest('.product-size-pills');
+                    if (pillContainer) {
+                        pillContainer.querySelectorAll('.size-pill').forEach(btn => {
+                            btn.classList.remove('bg-brand', 'text-white');
+                            btn.classList.add('bg-gray-100', 'text-charcoal/70');
+                        });
+                        sizeBtn.classList.remove('bg-gray-100', 'text-charcoal/70');
+                        sizeBtn.classList.add('bg-brand', 'text-white');
+                    }
+                }
+
+                const wishlistBtn = e.target.closest('.wishlist-btn');
+                if (wishlistBtn) {
+                    wishlistBtn.classList.toggle('text-red-500');
+                    wishlistBtn.classList.toggle('bg-red-50');
+                    const icon = wishlistBtn.querySelector('[data-lucide="heart"]');
+                    if (icon) {
+                        icon.classList.toggle('fill-red-500');
+                        icon.classList.toggle('stroke-red-500');
+                    }
+                }
+            });
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+            const mobileSearchBtn = document.getElementById('mobile-search-btn');
+            const mobileSearchCloseBtn = document.getElementById('mobile-search-close-btn');
+            const headerTopRow = document.getElementById('header-top-row');
+            const headerMobileSearchBar = document.getElementById('header-mobile-search-bar');
+            const mobileSearchInput = document.getElementById('mobile-search-input');
+            const mobileDrawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+
+            function openMobileSearch() {
+                if (headerTopRow) headerTopRow.classList.add('hidden');
+                if (headerMobileSearchBar) {
+                    headerMobileSearchBar.classList.remove('hidden');
+                    headerMobileSearchBar.classList.add('flex');
+                }
+                if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
+                if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.remove('hidden');
+                if (mobileSearchInput) mobileSearchInput.focus();
+            }
+
+            function closeMobileSearch() {
+                if (headerMobileSearchBar) {
+                    headerMobileSearchBar.classList.add('hidden');
+                    headerMobileSearchBar.classList.remove('flex');
+                }
+                if (headerTopRow) headerTopRow.classList.remove('hidden');
+                if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.add('hidden');
+            }
+
+            function closeAllDrawers() {
+                closeMobileSearch();
+                if (mobileMenuDropdown) mobileMenuDropdown.classList.add('hidden');
+                if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.add('hidden');
+            }
+
+            if (mobileSearchBtn) {
+                mobileSearchBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openMobileSearch();
+                });
+            }
+
+            const mobileBottomSearchBtn = document.getElementById('mobile-bottom-search-btn');
+            if (mobileBottomSearchBtn) {
+                mobileBottomSearchBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openMobileSearch();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            if (mobileSearchCloseBtn) {
+                mobileSearchCloseBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    closeMobileSearch();
+                });
+            }
+
+            if (mobileMenuBtn && mobileMenuDropdown) {
+                mobileMenuBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    closeMobileSearch();
+                    if (mobileMenuDropdown.classList.contains('hidden')) {
+                        mobileMenuDropdown.classList.remove('hidden');
+                        if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.remove('hidden');
+                    } else {
+                        closeAllDrawers();
+                    }
+                });
+            }
+
+            if (mobileDrawerBackdrop) {
+                mobileDrawerBackdrop.addEventListener('click', closeAllDrawers);
+            }
+
+            // Close mobile search or menu dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                if (headerMobileSearchBar && !headerMobileSearchBar.classList.contains('hidden')) {
+                    if (!headerMobileSearchBar.contains(e.target) && !mobileSearchBtn.contains(e.target)) {
+                        closeMobileSearch();
+                    }
+                }
+                if (mobileMenuDropdown && !mobileMenuDropdown.classList.contains('hidden')) {
+                    if (!mobileMenuDropdown.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        closeAllDrawers();
+                    }
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeAllDrawers();
+                }
+            });
+
+            // Mobile Multi-Level Accordion Toggle Logic (Level 1 & Level 2)
+            document.querySelectorAll('.mobile-accordion-btn, .mobile-subaccordion-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const content = btn.nextElementSibling;
+                    const chevron = btn.querySelector('[data-lucide="chevron-down"]');
+                    if (content) {
+                        content.classList.toggle('hidden');
+                        if (chevron) {
+                            chevron.classList.toggle('rotate-180');
+                        }
+                    }
+                });
+            });
+
+            // Desktop Nav Item Dropdowns (Categories, About, More, etc.) Hover Intent Delay Timer (300ms) & Click Toggle
+            function initNavDropdownListeners() {
+                document.querySelectorAll('.nav-item-dropdown').forEach(function (dropdown) {
+                    const panel = dropdown.querySelector('#categories-mega-panel, .nav-dropdown-panel, .more-dropdown-items, div[class*="absolute"]');
+                    const btn = dropdown.querySelector('button, .nav-item-link');
+                    let hideTimer = null;
+
+                    if (panel && btn && !dropdown.dataset.hasDropdownEvents) {
+                        dropdown.dataset.hasDropdownEvents = 'true';
+
+                        function showPanel() {
+                            if (hideTimer) clearTimeout(hideTimer);
+                            document.querySelectorAll('.nav-item-dropdown div[class*="absolute"]').forEach(p => {
+                                if (p !== panel && !p.contains(panel) && !panel.contains(p)) {
+                                    p.classList.add('hidden');
+                                }
+                            });
+                            panel.classList.remove('hidden');
+                        }
+
+                        function hidePanelWithDelay() {
+                            hideTimer = setTimeout(function () {
+                                panel.classList.add('hidden');
+                            }, 300);
+                        }
+
+                        dropdown.addEventListener('mouseenter', showPanel);
+                        dropdown.addEventListener('mouseleave', hidePanelWithDelay);
+                        panel.addEventListener('mouseenter', showPanel);
+                        panel.addEventListener('mouseleave', hidePanelWithDelay);
+
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (panel.classList.contains('hidden')) {
+                                showPanel();
+                            } else {
+                                panel.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            }
+            initNavDropdownListeners();
+
+            document.addEventListener('click', function (e) {
+                document.querySelectorAll('.nav-item-dropdown').forEach(function (dropdown) {
+                    const panel = dropdown.querySelector('#categories-mega-panel, .nav-dropdown-panel, div[class*="absolute"]');
+                    if (panel && !dropdown.contains(e.target)) {
+                        panel.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Automatic 50/50 Dynamic Header Centering & Auto-Close Drawer Engine
+            const topBar = document.getElementById('top-bar');
+            const headerCard = document.getElementById('header-card');
+            const mainHeader = document.getElementById('main-header');
+
+            function updateDynamicHeaderSpacing() {
+                if (topBar && headerCard && mainHeader) {
+                    const cardHeight = headerCard.offsetHeight;
+                    const halfHeight = Math.round(cardHeight / 2);
+
+                    topBar.style.paddingBottom = (halfHeight + 14) + 'px';
+                    mainHeader.style.marginTop = '-' + halfHeight + 'px';
+                    mainHeader.style.marginBottom = '12px';
+                }
+
+                // Calculate sticky top position and height for unified sidebar filter dynamically
+                const unifiedSidebar = document.getElementById('unified-sidebar-filter');
+                if (unifiedSidebar) {
+                    if (window.innerWidth >= 1024) {
+                        const headerCardEl = document.getElementById('header-card');
+                        if (headerCardEl) {
+                            const stickyTopValue = headerCardEl.offsetHeight + 24;
+                            unifiedSidebar.style.top = stickyTopValue + 'px';
+
+                            const remainingHeight = window.innerHeight - stickyTopValue - 20;
+                            unifiedSidebar.style.height = remainingHeight + 'px';
+                        }
+                    } else {
+                        unifiedSidebar.style.top = '';
+                        unifiedSidebar.style.height = '';
+                    }
+                }
+
+                if (window.innerWidth >= 768) {
+                    closeAllDrawers();
+                }
+            }
+
+            // Smart Nav Overflow Engine ("More ▾" Dropdown)
+            function handleNavOverflow() {
+                const navContainer = document.querySelector('.header-desktop-nav');
+                const desktopMenu = document.getElementById('desktop-nav-menu');
+                if (!navContainer || !desktopMenu) return;
+
+                if (window.innerWidth < 768) return;
+
+                let moreDropdown = desktopMenu.querySelector('.more-dropdown');
+                if (moreDropdown) {
+                    const moreMenu = moreDropdown.querySelector('.more-dropdown-items');
+                    if (moreMenu) {
+                        Array.from(moreMenu.children).forEach(child => {
+                            desktopMenu.insertBefore(child, moreDropdown);
+                        });
+                    }
+                    moreDropdown.remove();
+                }
+
+                const availableWidth = navContainer.offsetWidth - 24;
+                let currentWidth = 0;
+
+                moreDropdown = document.createElement('div');
+                moreDropdown.className = 'nav-item-dropdown more-dropdown relative group';
+                moreDropdown.innerHTML = `
+                  <button class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
+                    More <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                  </button>
+                  <div class="more-dropdown-items hidden group-hover:block absolute right-0 top-full mt-[22px] w-52 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-line p-2 z-50 transition-all duration-300 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6 nav-dropdown-panel space-y-1">
+                  </div>
+                `;
+                desktopMenu.appendChild(moreDropdown);
+                if (window.lucide) lucide.createIcons();
+
+                const moreWidth = moreDropdown.offsetWidth || 70;
+                const moreMenu = moreDropdown.querySelector('.more-dropdown-items');
+
+                const children = Array.from(desktopMenu.children).filter(c => c !== moreDropdown);
+                let overflow = false;
+
+                for (let i = 0; i < children.length; i++) {
+                    const child = children[i];
+                    const childWidth = child.offsetWidth + 24;
+                    if (currentWidth + childWidth + moreWidth > availableWidth || overflow) {
+                        overflow = true;
+                        moreMenu.appendChild(child);
+                    } else {
+                        currentWidth += childWidth;
+                    }
+                }
+
+                if (!moreMenu.children.length) {
+                    moreDropdown.remove();
+                } else {
+                    initNavDropdownListeners();
+                }
+            }
+
+            window.addEventListener('resize', function () {
+                updateDynamicHeaderSpacing();
+                handleNavOverflow();
+            });
+            updateDynamicHeaderSpacing();
+            handleNavOverflow();
+            setTimeout(function () {
+                updateDynamicHeaderSpacing();
+                handleNavOverflow();
+            }, 150);
+        });
+    </script>
+
+</body>
+
+</html>
