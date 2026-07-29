@@ -2986,15 +2986,21 @@
         <span id="cart-subtotal" class="font-extrabold text-ink">৳0</span>
       </div>
       <!-- Checkout Button -->
-      <button
+      <a href="checkout.html"
         class="w-full py-3 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
         <i data-lucide="credit-card" class="w-4 h-4"></i> Proceed to Checkout
-      </button>
-      <!-- Continue Shopping -->
-      <button id="cart-continue-btn"
-        class="w-full py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all cursor-pointer">
-        Continue Shopping
-      </button>
+      </a>
+      <!-- View Cart & Continue Shopping -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <a href="cart.html"
+          class="py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> View Cart
+        </a>
+        <button id="cart-continue-btn"
+          class="py-2.5 border border-line bg-gray-50 hover:bg-gray-100 text-ink font-bold text-xs rounded-xl transition-all cursor-pointer">
+          Continue Shopping
+        </button>
+      </div>
     </div>
   </div>
 
@@ -3055,6 +3061,11 @@
     (function () {
       // ── State (localStorage Persistent) ────────────────────────
       let cart = JSON.parse(localStorage.getItem('goby_cart')) || [];   // [{ id, name, price, image, qty }]
+      cart.forEach(item => {
+        if (item.name && !item.name.includes(' - [')) {
+          item.name = `${item.name} - [${item.size || 'M'}]`;
+        }
+      });
       let nextId = parseInt(localStorage.getItem('goby_cart_next_id')) || 1;
 
       function saveCart() {
@@ -3207,7 +3218,12 @@
 
       // ── Add Item (Public API) ──────────────────────────────────
       window.addToCart = function (productData) {
-        const name = productData.name || 'Product';
+        const baseName = productData.name || 'Product';
+        const size = productData.size || '';
+        let name = baseName;
+        if (size && !baseName.includes(' - [')) {
+          name = `${baseName} - [${size}]`;
+        }
         const price = parseInt(String(productData.price || '0').replace(/[^0-9]/g, '')) || 0;
         const image = productData.image || 'frontend/assets/images/products/shirt (1).jpg';
         const qty = productData.qty || 1;
@@ -3217,7 +3233,7 @@
         if (existing) {
           existing.qty = Math.min(99, existing.qty + qty);
         } else {
-          cart.push({ id: nextId++, name, price, image, qty: qty });
+          cart.push({ id: nextId++, name: name, price, image, qty: qty });
         }
         saveCart();
         renderAll();
@@ -3265,18 +3281,36 @@
             const closeQv = document.getElementById('close-quick-view');
             if (closeQv) closeQv.click();
 
+            // Get selected size from Quick View Modal
+            const activeSizeEl = document.querySelector('#qv-sizes .size-pill.bg-brand, #qv-sizes .size-pill.text-white');
+            const size = activeSizeEl ? activeSizeEl.textContent.trim() : 'M';
+            let finalName = name;
+            if (size) {
+              finalName = `${name} - [${size}]`;
+            }
+
             // Add qty times (or handle qty directly)
-            const existing = cart.find(i => i.name === name && i.image === image);
+            const existing = cart.find(i => i.name === finalName && i.image === image);
             const priceNum = parseInt(String(price).replace(/[^0-9]/g, '')) || 0;
             if (existing) {
               existing.qty = Math.min(99, existing.qty + qty);
             } else {
-              cart.push({ id: nextId++, name, price: priceNum, image, qty });
+              cart.push({ id: nextId++, name: finalName, price: priceNum, image, qty });
             }
             saveCart();
             renderAll();
             openCart();
           });
+        }
+      });
+
+      // Sync View Cart link with current cart data in URL for file:// origin support
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href="cart.html"]');
+        if (link) {
+          e.preventDefault();
+          const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(cart))));
+          window.location.href = `cart.html?share=${encoded}`;
         }
       });
 

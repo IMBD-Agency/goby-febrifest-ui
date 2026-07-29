@@ -2,8 +2,8 @@ Febrifest - frontend
 Reference: https://manfarebd.com/
 =======================
 1. home page - heavy - (done)
-2. category/sub-category page
-3. trending product/offer product/hot deal/search result
+2. category/sub-category page - (done)
+3. trending product/offer product/hot deal/search result - (done, will be copy past product page)
 4. product page - heavy - (done)
 5. product detail page - heavy - (done)
 6. login/register
