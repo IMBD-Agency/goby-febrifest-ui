@@ -6,13 +6,13 @@ Reference: https://manfarebd.com/
 3. trending product/offer product/hot deal/search result - (done, will be copy past product page)
 4. product page - heavy - (done)
 5. product detail page - heavy - (done)
-6. login/register
+6. login/register - (done)
 7. cart page - (done)
 8. checkout - heavy - (done)
-9. thank you page
+9. thank you page - (done)
 10. about page
 11. contact page
 12. privacy policy/refund policy/terms & condition
-13. track order
-14. user account (dashboard, wishlist)
-15. user account (profile, setting)
+13. track order - (done)
+14. user account (dashboard, wishlist) - (done)
+15. user account (profile, setting) - (done)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Status — Go By Fabrifest</title>
+    <title>Track My Order — Go By Fabrifest</title>
     <meta name="description" content="Your order status and confirmation from Go By Fabrifest — Premium Men's Fashion.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,14 +61,14 @@
     </style>
 </head>
 
-<body class="text-ink antialiased">
+<body class="text-ink antialiased bg-gray-50/50">
 
 <!-- ============ PRELOADER ============ -->
 <div id="preloader">
     <div class="preloader-glow"></div>
     <div class="relative flex flex-col items-center">
         <div class="w-24 h-24 rounded-full border border-brand/20 flex items-center justify-center relative">
-            <div class="absolute inset-0 rounded-full border-2 border-t-brand border-r-transparent border-b-transparent border-l-transparent animate-spin" style="animation-duration:1.2s"></div>
+            <div class="absolute inset-0 rounded-full border-2 border-brand border-t-brand border-r-transparent border-b-transparent border-l-transparent animate-spin" style="animation-duration:1.2s"></div>
             <div class="absolute w-20 h-20 rounded-full border border-brand/10 animate-ping" style="animation-duration:2s"></div>
             <div class="w-12 h-12 rounded-full border-2 border-brand flex items-center justify-center bg-[#161c24] shadow-[0_0_20px_rgba(247,147,30,0.3)]">
                 <span class="text-brand font-black text-xl tracking-tighter">G</span>
@@ -158,62 +158,6 @@
                     <a href="products.html" class="nav-item-link hover:text-brand transition-colors py-0.5">Products</a>
                     <a href="products.html?deal=Sale" class="nav-item-link hover:text-brand transition-colors py-0.5">Discounted Product</a>
                     <a href="products.html?deal=New" class="nav-item-link hover:text-brand transition-colors py-0.5">Hot Deals</a>
-                    <div class="nav-item-dropdown group">
-                        <button id="categories-mega-btn" class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
-                            Categories <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
-                        </button>
-                        <div id="categories-mega-panel" class="hidden absolute -left-[13px] -right-[13px] w-[calc(100%+26px)] top-full mt-[18px] mega-menu-panel p-6 z-50 transition-all duration-300 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
-                            <div class="grid grid-cols-4 gap-6 text-left">
-                                <div class="space-y-4">
-                                    <div><h4 class="mega-category-title">Katua Shirt</h4><ul class="space-y-1"><li><a href="products.html?category=Katua Shirt" class="mega-subitem">Half Sleeve</a></li><li><a href="products.html?category=Katua Shirt" class="mega-subitem">Full Sleeve</a></li></ul></div>
-                                    <div><h4 class="mega-category-title">Panjabi</h4><ul class="space-y-1"><li><a href="products.html?category=Panjabi" class="mega-subitem">Kabli Set</a></li></ul></div>
-                                </div>
-                                <div class="space-y-4">
-                                    <div><h4 class="mega-category-title">Winter Collection</h4><ul class="space-y-1"><li><a href="products.html?category=Hoodie" class="mega-subitem">Hoodie</a></li><li><a href="products.html?category=Hoodie" class="mega-subitem">Jacket</a></li><li><a href="products.html?category=Sweat Shirt" class="mega-subitem">Sweat Shirt</a></li></ul></div>
-                                </div>
-                                <div class="space-y-4">
-                                    <div><h4 class="mega-category-title">Polo / T-Shirt</h4><ul class="space-y-1"><li><a href="products.html?category=Polo T-Shirt" class="mega-subitem">Polo T-Shirt</a></li><li><a href="products.html?category=Polo T-Shirt" class="mega-subitem">Printed Tees</a></li></ul></div>
-                                    <div><h4 class="mega-category-title">Pant</h4><ul class="space-y-1"><li><a href="products.html" class="mega-subitem">Joggers</a></li></ul></div>
-                                </div>
-                                <div class="space-y-4">
-                                    <div><h4 class="mega-category-title">Shirt</h4><ul class="space-y-1"><li><a href="products.html" class="mega-subitem">Half Sleeve</a></li><li><a href="products.html" class="mega-subitem">Full Sleeve</a></li></ul></div>
-                                    <div><h4 class="mega-category-title">Kurta</h4><ul class="space-y-1"><li><a href="products.html?category=Panjabi" class="mega-subitem">Short Kurta</a></li></ul></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-item-dropdown relative group">
-                        <button class="nav-item-link hover:text-brand transition-colors py-0.5 flex items-center gap-1 cursor-pointer focus:outline-none">
-                            About <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180"></i>
-                        </button>
-                        <div class="hidden absolute left-0 top-full mt-[22px] w-48 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-line p-2 z-50 nav-dropdown-panel before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
-                            <a href="#" class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Our Story</a>
-                            <a href="#" class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Outlets & Stores</a>
-                            <a href="#" class="block px-3 py-2 text-xs text-ink hover:text-brand hover:bg-gray-50 rounded-lg transition-colors font-medium">Careers</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- Mobile Drawer -->
-            <div id="mobile-menu-dropdown" class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-line p-4 z-50 max-h-[80vh] overflow-y-auto">
-                <nav class="flex flex-col space-y-1.5 text-xs font-semibold text-ink">
-                    <a href="index.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Home</a>
-                    <a href="products.html" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Products</a>
-                    <a href="products.html?deal=Sale" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Discounted Product</a>
-                    <a href="products.html?deal=New" class="p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors">Hot Deals</a>
-                    <div class="mobile-accordion-item">
-                        <button type="button" class="mobile-accordion-btn w-full p-2.5 rounded-xl hover:bg-gray-50 hover:text-brand transition-colors flex items-center justify-between text-left font-bold text-ink cursor-pointer">
-                            <span>Categories</span><i data-lucide="chevron-down" class="w-4 h-4"></i>
-                        </button>
-                        <div class="mobile-accordion-content hidden pl-2 pr-1 pt-1 pb-2 space-y-1">
-                            <a href="products.html?category=Katua Shirt" class="block p-2 rounded-lg text-xs font-medium hover:bg-gray-50 hover:text-brand transition-colors">Katua Shirt</a>
-                            <a href="products.html?category=Hoodie" class="block p-2 rounded-lg text-xs font-medium hover:bg-gray-50 hover:text-brand transition-colors">Winter Collection</a>
-                            <a href="products.html?category=Panjabi" class="block p-2 rounded-lg text-xs font-medium hover:bg-gray-50 hover:text-brand transition-colors">Panjabi</a>
-                            <a href="products.html" class="block p-2 rounded-lg text-xs font-medium hover:bg-gray-50 hover:text-brand transition-colors">Shirt</a>
-                            <a href="products.html?category=Polo T-Shirt" class="block p-2 rounded-lg text-xs font-medium hover:bg-gray-50 hover:text-brand transition-colors">Polo / T-Shirt</a>
-                        </div>
-                    </div>
                 </nav>
             </div>
 
@@ -229,7 +173,7 @@
                 <i data-lucide="home" class="w-3 h-3"></i> Home
             </a>
             <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
-            <span class="text-ink font-semibold" id="breadcrumb-label">Order Status</span>
+            <span class="text-ink font-semibold" id="breadcrumb-label">Track My Order</span>
         </div>
     </div>
 </nav>
@@ -237,10 +181,22 @@
 <!-- ============ PAGE HERO BANNER ============ -->
 <section class="mb-8">
     <div class="container">
-        <div class="bg-gray-50/50 border border-line rounded-3xl p-6 sm:p-8 shadow-2xs" data-aos="fade-up">
-            <span class="text-[9px] font-black text-brand uppercase tracking-widest block mb-1">Goby Febrifest</span>
-            <h1 class="text-2xl font-black text-ink uppercase tracking-tight leading-none" id="page-title">Order Status</h1>
-            <p class="text-xs text-charcoal/60 max-w-xl leading-relaxed mt-1" id="page-desc">Here is the summary of your recent order.</p>
+        <div class="bg-white border border-line rounded-3xl p-6 sm:p-8 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6" data-aos="fade-up">
+            <div>
+                <span class="text-[9px] font-black text-brand uppercase tracking-widest block mb-1">Goby Febrifest</span>
+                <h1 class="text-2xl font-black text-ink uppercase tracking-tight leading-none" id="page-title">Track My Order</h1>
+                <p class="text-xs text-charcoal/60 max-w-xl leading-relaxed mt-1.5" id="page-desc">Enter your Order ID (e.g. #GB-84920) to view progress details.</p>
+            </div>
+            
+            <!-- Inline Search Form -->
+            <div class="w-full md:w-auto shrink-0 min-w-[280px] sm:min-w-[340px]">
+                <form id="track-form" class="flex gap-2 w-full">
+                    <input type="text" id="track-input" placeholder="Order ID..." required class="flex-grow bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                    <button type="submit" class="bg-brand hover:bg-ink text-white px-5 py-3 font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md">
+                        Track
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
@@ -267,10 +223,10 @@
                                 </div>
                             </div>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black uppercase tracking-widest rounded-full mb-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Order Confirmed
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Order Active
                             </span>
-                            <h2 class="text-3xl font-black text-ink uppercase tracking-tight mb-1">Thank You!</h2>
-                            <p class="text-xs text-charcoal/60 leading-relaxed max-w-xs mx-auto mb-3">Your order has been placed successfully. We'll contact you shortly to confirm delivery.</p>
+                            <h2 class="text-3xl font-black text-ink uppercase tracking-tight mb-1">In Process</h2>
+                            <p class="text-xs text-charcoal/60 leading-relaxed max-w-xs mx-auto mb-3">Your order is currently processing. Our delivery partner will contact you shortly.</p>
                             <p class="text-sm font-extrabold text-charcoal/60">Order ID: <span id="s-order-id" class="text-brand font-black">#GB-00000</span></p>
                         </div>
 
@@ -435,8 +391,6 @@
 
                     </div>
 
-                    
-
                 </div>
 
             </div>
@@ -457,17 +411,6 @@
                         <h2 class="text-xl font-black text-ink uppercase tracking-tight mb-2 mt-2">Something Went Wrong</h2>
                         <p class="text-xs text-charcoal/60 leading-relaxed max-w-sm mx-auto" id="f-message">We couldn't process your order. Please try again or contact us.</p>
                     </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <a href="checkout.html" class="flex items-center justify-center gap-2 py-3.5 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-2xl transition-all duration-300 shadow-md">
-                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Try Again
-                    </a>
-                    <a href="index.html" class="flex items-center justify-center gap-2 py-3.5 bg-white hover:bg-gray-50 border border-line text-ink font-extrabold text-xs uppercase tracking-wider rounded-2xl transition-all duration-300">
-                        <i data-lucide="home" class="w-4 h-4"></i> Go Home
-                    </a>
-                </div>
-                <div class="bg-red-50/60 border border-red-100 rounded-2xl p-4">
-                    <p class="text-xs text-charcoal/70 font-medium">Need help? Call <a href="tel:+8801775810098" class="text-brand font-bold hover:underline">+8801775-810098</a></p>
                 </div>
             </div>
         </div>
@@ -506,12 +449,6 @@
                     </div>
                 </a>
                 <p class="text-xs leading-relaxed text-gray-400">Go By Fabrifest is the ultimate solution for Fashions & Exclusive collections of Unique Designed Printed T-shirts, Men's wear & Lifestyle Products store in online market for the youngsters.</p>
-                <div class="flex items-center gap-3 pt-2">
-                    <a href="#" class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Youtube"><i class="fa-brands fa-youtube text-xs"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-brand hover:text-white border border-white/[0.08] hover:border-brand flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
-                </div>
             </div>
             <div class="lg:col-span-3 space-y-4">
                 <h4 class="text-xs font-black text-white uppercase tracking-[0.2em] border-l-2 border-brand pl-3">Contact Info</h4>
@@ -559,13 +496,9 @@
 <script src="Plugins-Framework/slick-slider/slick.customize.js"></script>
 <script src="Plugins-Framework/aos/aos.js"></script>
 <script src="Plugins-Framework/aos/aos.customize.js"></script>
-<script src="Plugins-Framework/light-gallery/lightgallery.min.js"></script>
-<script src="Plugins-Framework/light-gallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
-<script src="Plugins-Framework/light-gallery/plugins/zoom/lg-zoom.min.js"></script>
-<script src="Plugins-Framework/light-gallery/lightgallery-custom.js"></script>
 <script src="frontend/assets/js/script.js"></script>
 
-<!-- ORDER STATUS SCRIPT -->
+<!-- TRACK MY ORDER LOGIC -->
 <script>
 (function () {
     'use strict';
@@ -578,44 +511,55 @@
         if (el && val) el.textContent = val;
     }
 
-    // If failed order → swap panels
-    if (order && order.status === 'failed') {
-        document.getElementById('panel-success').classList.add('hidden');
-        document.getElementById('panel-failed').classList.remove('hidden');
-        document.getElementById('page-title').textContent = 'Order Failed';
-        document.getElementById('breadcrumb-label').textContent = 'Order Failed';
-        if (order.message) set('f-message', order.message);
+    var mockOrder = {
+        status: 'success',
+        orderId: '#GB-84920',
+        name: 'John Doe',
+        phone: '01700-000000',
+        address: 'Mirpur 10, Dhaka, Bangladesh',
+        payment: 'Cash on Delivery (COD)',
+        subtotal: 1250,
+        total: 1250,
+        items: [
+            { name: 'Printed Premium T-Shirt - [L]', qty: 1, price: 650, image: 'frontend/assets/images/products/shirt (1).jpg' },
+            { name: 'Classic Katua Shirt - [XL]', qty: 1, price: 600, image: 'frontend/assets/images/products/shirt (2).jpg' }
+        ]
+    };
 
-    } else if (order && order.status === 'success') {
-        // Populate success panel with real data
-        document.getElementById('page-title').textContent = 'Order Confirmed';
-        document.getElementById('page-desc').textContent = 'Your order was placed successfully. Check your details below.';
-        document.getElementById('breadcrumb-label').textContent = 'Order Confirmed';
-
-        set('s-order-id', order.orderId);
-        set('s-name',     order.name);
-        set('s-phone',    order.phone);
-        set('s-address',  order.address);
-        set('s-payment',  order.payment);
-        set('s-subtotal', order.subtotal);
-        set('s-total',    order.total);
-        set('s-phone-notice', order.phone);
+    function renderOrder(data) {
+        if (!data) return;
+        
+        // Hide failure and show success panel
+        document.getElementById('panel-success').classList.remove('hidden');
+        document.getElementById('panel-failed').classList.add('hidden');
+        
+        set('s-order-id', data.orderId);
+        set('s-name',     data.name);
+        set('s-phone',    data.phone);
+        set('s-address',  data.address);
+        set('s-payment',  data.payment);
+        set('s-subtotal', data.subtotal);
+        set('s-total',    data.total);
+        set('s-phone-notice', data.phone);
 
         var shippingEl = document.getElementById('s-shipping');
-        if (shippingEl) shippingEl.textContent = (order.shipping && order.shipping > 0) ? '৳' + order.shipping : 'Free';
+        if (shippingEl) shippingEl.textContent = (data.shipping && data.shipping > 0) ? '৳' + data.shipping : 'Free';
 
-        if (order.discount && parseInt(order.discount) > 0) {
+        if (data.discount && parseInt(data.discount) > 0) {
             var dr = document.getElementById('s-discount-row');
             if (dr) dr.classList.remove('hidden');
-            set('s-discount', order.discount);
+            set('s-discount', data.discount);
+        } else {
+            var dr = document.getElementById('s-discount-row');
+            if (dr) dr.classList.add('hidden');
         }
 
         var itemsList = document.getElementById('s-items-list');
         var itemCount = document.getElementById('s-item-count');
-        var items = order.items || [];
+        var items = data.items || [];
         if (itemCount) itemCount.textContent = items.length + ' item' + (items.length !== 1 ? 's' : '');
 
-        if (itemsList && items.length > 0) {
+        if (itemsList) {
             itemsList.innerHTML = '';
             items.forEach(function (item) {
                 var row = document.createElement('div');
@@ -637,7 +581,36 @@
             });
         }
     }
-    // else: no data — success panel still shows as design preview
+
+    // Default loading action
+    var currentActiveOrder = order || mockOrder;
+    renderOrder(currentActiveOrder);
+    document.getElementById('track-input').value = currentActiveOrder.orderId;
+
+    // Handle submit tracking search
+    var trackForm = document.getElementById('track-form');
+    if (trackForm) {
+        trackForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var searchId = document.getElementById('track-input').value.trim();
+            if (!searchId) return;
+
+            // Normalize match IDs
+            var lastOrderMatch = (order && order.orderId && order.orderId.toLowerCase() === searchId.toLowerCase());
+            var mockOrderMatch = (mockOrder.orderId.toLowerCase() === searchId.toLowerCase() || searchId.replace('#', '') === '84920');
+
+            if (lastOrderMatch) {
+                renderOrder(order);
+            } else if (mockOrderMatch) {
+                renderOrder(mockOrder);
+            } else {
+                // Show order failed/not found view panel
+                document.getElementById('panel-success').classList.add('hidden');
+                document.getElementById('panel-failed').classList.remove('hidden');
+                document.getElementById('f-message').textContent = "We couldn't find any order details for ID: " + searchId + ". Please double check and try again.";
+            }
+        });
+    }
 
     if (window.lucide) lucide.createIcons();
 

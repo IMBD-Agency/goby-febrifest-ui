@@ -144,10 +144,6 @@ body::after {
     .fluid-banner-padding {
         padding-left: clamp(16px, 4cqw, 32px) !important;
     }
-
-    .logo-text {
-        display: none !important;
-    }
 }
 
 .fluid-badge {

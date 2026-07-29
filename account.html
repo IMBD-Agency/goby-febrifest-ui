@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account — Go By Fabrifest</title>
+    <meta name="description" content="Manage your Goby Febrifest profile, orders, settings, and wishlist.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "var(--ColorPrimary)",
+                        "brand-alpha": "var(--ColorPrimaryAlpha)",
+                        "brand-banner": "var(--ColorPrimaryBanner)",
+                        "light-primary": "var(--ColorLightPrimary)",
+                        "dark-primary": "var(--ColorDarkPrimary)",
+                        "dark-secondary": "var(--ColorDarkSecondary)",
+                        line: "rgb(var(--ColorLightSecondaryRGB))",
+                        ink: "var(--ColorInk, #1a1a2e)",
+                        charcoal: "var(--ColorCharcoal, #4a4a6a)",
+                    },
+                    fontFamily: { sans: ["var(--FontPrimary)", "sans-serif"] },
+                    boxShadow: { card: "var(--BoxShadow)", "card-hover": "var(--BoxShadowHover)" },
+                },
+                container: {
+                    center: true,
+                    padding: "0.75rem",
+                    screens: { sm: "540px", md: "720px", lg: "960px", xl: "1140px", "2xl": "1320px" }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.css">
+    <link rel="stylesheet" href="Plugins-Framework/slick-slider/slick.customize.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="Plugins-Framework/light-gallery/lightgallery-custom.css">
+    <link rel="stylesheet" href="frontend/assets/css/fonts.css">
+    <link rel="stylesheet" href="frontend/assets/css/common.css">
+    <link rel="stylesheet" href="frontend/assets/css/tailwind-built.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Plugins-Framework/aos/aos.css">
+    <link rel="stylesheet" href="frontend/assets/css/style.css">
+</head>
+
+<body class="text-ink antialiased bg-gray-50/50">
+
+    <!-- ============ TOP BAR ============ -->
+    <div id="top-bar"
+        class="bg-black text-white text-[11px] pt-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-30 transition-all duration-300">
+        <span>Free Shipping on <span class="text-brand font-semibold">orders over ৳1999</span></span>
+        <i data-lucide="truck" class="w-3.5 h-3.5 text-white ml-0.5"></i>
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header id="main-header" class="sticky top-2 z-50 bg-transparent transition-all duration-300">
+        <div class="container relative z-50">
+            <div id="header-card"
+                class="w-full bg-white rounded-[20px] border border-line px-3 py-3 transition-all duration-300 relative z-50">
+
+                <div id="header-top-row" class="flex items-center justify-between gap-3 sm:gap-4 h-9">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="mobile-menu-btn"
+                            class="md:hidden p-1 rounded-lg text-ink hover:text-brand hover:bg-gray-100 transition-colors focus:outline-none cursor-pointer"
+                            aria-label="Toggle Navigation Menu">
+                            <i data-lucide="menu" class="w-5 h-5"></i>
+                        </button>
+                        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+                            <div
+                                class="w-9 h-9 rounded-full border-2 border-brand flex items-center justify-center bg-white shadow-xs">
+                                <span class="text-brand font-bold text-base tracking-tighter">G</span>
+                            </div>
+                            <div class="flex flex-col logo-text max-[576px]:hidden">
+                                <span class="text-base font-extrabold tracking-wider text-ink leading-tight">GO BY
+                                    FABRIFEST</span>
+                                <span class="text-[7.5px] text-brand tracking-widest font-bold uppercase">PREMIUM MEN'S
+                                    FASHION</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                        <div class="relative header-desktop-search w-44 md:w-64 lg:w-80">
+                            <input type="text" placeholder="Search for products..."
+                                class="w-full bg-[#f4f4f4] text-xs text-ink px-4 py-2 pr-9 rounded-[10px] outline-none border border-transparent focus:border-brand/50 transition-colors placeholder:text-dark-secondary cursor-text">
+                            <button
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-charcoal hover:text-brand transition-colors cursor-pointer z-10"
+                                aria-label="Submit Search">
+                                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-ink">
+                            <button id="mobile-search-btn" aria-label="Search"
+                                class="md:hidden hover:text-brand transition-colors p-1 text-ink focus:outline-none cursor-pointer">
+                                <i data-lucide="search" class="w-4 h-4 stroke-[1.75]"></i>
+                            </button>
+                            <a href="#" aria-label="Wishlist" class="hover:text-brand transition-colors p-1">
+                                <i data-lucide="heart" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <a href="#" aria-label="Account" class="text-brand transition-colors p-1">
+                                <i data-lucide="user" class="w-4 h-4 stroke-[1.75]"></i>
+                            </a>
+                            <button id="cart-toggle-btn" aria-label="Cart"
+                                class="hover:text-brand transition-colors p-1 relative cursor-pointer">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 stroke-[1.75]"></i>
+                                <span id="cart-badge"
+                                    class="absolute -top-1 -right-1 bg-brand text-white text-[8px] leading-none w-3.5 h-3.5 rounded-full items-center justify-center font-bold hidden">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="header-desktop-nav pt-2.5 mt-2 border-t border-gray-100 relative">
+                    <nav id="desktop-nav-menu"
+                        class="flex items-center justify-center gap-6 lg:gap-8 text-[13px] font-semibold tracking-wide text-ink whitespace-nowrap py-1">
+                        <a href="index.html" class="nav-item-link hover:text-brand transition-colors py-0.5">Home</a>
+                        <a href="products.html"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Products</a>
+                        <a href="products.html?deal=Sale"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Discounted Product</a>
+                        <a href="products.html?deal=New"
+                            class="nav-item-link hover:text-brand transition-colors py-0.5">Hot Deals</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <nav class="py-4 mt-4 select-none">
+        <div class="container">
+            <div class="flex items-center gap-1.5 text-xs text-charcoal/60 font-medium">
+                <a href="index.html" class="hover:text-brand transition-colors flex items-center gap-1">
+                    <i data-lucide="home" class="w-3 h-3"></i> Home
+                </a>
+                <i data-lucide="chevron-right" class="w-3 h-3 text-charcoal/40"></i>
+                <span class="text-ink font-semibold">My Account</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ ACCOUNT WRAPPER ============ -->
+    <main class="pb-20">
+        <div class="container">
+            <!-- Mobile Account Sidebar Toggler Button -->
+            <div
+                class="lg:hidden mb-6 sticky top-[68px] z-40 flex items-center justify-between bg-white/90 backdrop-blur-md border border-line p-4 rounded-2xl shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-sm">
+                        JD
+                    </div>
+                    <div class="min-w-0">
+                        <h4 class="text-xs font-black text-ink">John Doe</h4>
+                        <p class="text-[9px] text-charcoal/50 font-semibold" id="active-tab-label">Dashboard</p>
+                    </div>
+                </div>
+                <button id="account-menu-toggle-btn"
+                    class="flex items-center gap-1.5 px-3 py-2 bg-brand/5 border border-brand/10 hover:bg-brand text-brand hover:text-white text-[10px] font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer">
+                    <i data-lucide="menu" class="w-3.5 h-3.5"></i> Menu
+                </button>
+            </div>
+
+            <!-- Dashboard Layout Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative">
+
+                <!-- Account Menu Drawer Backdrop -->
+                <div id="account-drawer-backdrop"
+                    class="fixed inset-0 bg-ink/50 backdrop-blur-sm z-[10000] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+                </div>
+
+                <!-- Left Sidebar Navigation / Drawer (3 columns) -->
+                <aside id="account-sidebar-drawer"
+                    class="fixed top-0 left-0 h-full w-full max-w-[290px] bg-[#f8fafc] z-[10001] overflow-hidden transition-transform duration-300 -translate-x-full flex flex-col lg:static lg:flex lg:flex-col lg:col-span-3 lg:w-auto lg:max-w-none lg:bg-[#f8fafc] lg:rounded-3xl lg:border lg:border-line lg:shadow-xs lg:z-0 lg:translate-x-0 lg:sticky lg:top-[100px]">
+
+                    <!-- Drawer Close Header (Mobile Only) -->
+                    <div
+                        class="h-[68px] flex items-center justify-between px-5 border-b border-line shrink-0 bg-white z-10 lg:hidden">
+                        <span class="text-xs font-black text-ink uppercase tracking-wider">Account Navigation</span>
+                        <button id="account-menu-close-btn"
+                            class="w-8 h-8 rounded-full bg-gray-50 hover:bg-brand hover:text-white text-ink flex items-center justify-center transition-all cursor-pointer">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Scrolling Content -->
+                    <div class="flex-1 overflow-y-auto p-4 space-y-4 lg:p-5 scrollbar-thin">
+                        <!-- User Profile Brief -->
+                        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-line">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-lg">
+                                JD
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-sm font-black text-ink truncate">John Doe</h3>
+                                <p class="text-[10px] text-charcoal/50 font-semibold truncate">01700-000000</p>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Links -->
+                        <nav class="flex flex-col space-y-1">
+                            <button onclick="switchAccountTab('dashboard', this)"
+                                class="account-nav-btn active flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-left transition-colors w-full cursor-pointer">
+                                <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
+                            </button>
+                            <button onclick="switchAccountTab('wishlist', this)"
+                                class="account-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-left transition-colors w-full cursor-pointer">
+                                <i data-lucide="heart" class="w-4 h-4"></i> Wishlist
+                            </button>
+                            <button onclick="switchAccountTab('profile', this)"
+                                class="account-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-left transition-colors w-full cursor-pointer">
+                                <i data-lucide="user" class="w-4 h-4"></i> My Profile
+                            </button>
+                            <button onclick="switchAccountTab('settings', this)"
+                                class="account-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-left transition-colors w-full cursor-pointer">
+                                <i data-lucide="settings" class="w-4 h-4"></i> Settings
+                            </button>
+                            <a href="index.html"
+                                class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-red-500 hover:bg-red-50 transition-colors w-full">
+                                <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
+                            </a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Right Content Panels (9 columns) -->
+                <div
+                    class="lg:col-span-9 bg-white border border-line rounded-[32px] p-6 sm:p-8 shadow-xs min-h-[500px] flex flex-col">
+
+                    <!-- ============ TAB 1: DASHBOARD ============ -->
+                    <div id="account-tab-dashboard" class="account-tab-content space-y-6">
+                        <div>
+                            <h2 class="text-xl font-black text-ink uppercase tracking-tight">Dashboard Overview</h2>
+                            <p class="text-xs text-charcoal/60 mt-1">Hello, John Doe! Here you can check your recent
+                                orders and edit account info.</p>
+                        </div>
+
+                        <!-- Stat Cards -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 border border-line rounded-2xl p-4">
+                                <span
+                                    class="text-[9px] font-black text-charcoal/50 uppercase tracking-wider block mb-1">Total
+                                    Orders</span>
+                                <span class="text-2xl font-black text-ink">02</span>
+                            </div>
+                            <div class="bg-gray-50 border border-line rounded-2xl p-4">
+                                <span
+                                    class="text-[9px] font-black text-charcoal/50 uppercase tracking-wider block mb-1">Items
+                                    Wishlisted</span>
+                                <span class="text-2xl font-black text-brand" id="stat-wishlist-count">02</span>
+                            </div>
+                            <div class="bg-gray-50 border border-line rounded-2xl p-4 col-span-2 sm:col-span-1">
+                                <span
+                                    class="text-[9px] font-black text-charcoal/50 uppercase tracking-wider block mb-1">Account
+                                    Tier</span>
+                                <span
+                                    class="text-xs font-black text-emerald-600 uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full inline-block mt-1">Premium
+                                    VIP</span>
+                            </div>
+                        </div>
+
+                        <!-- Recent Orders Table -->
+                        <div class="space-y-3">
+                            <h3 class="text-xs font-black text-ink uppercase tracking-wider pb-2 border-b border-line">
+                                Recent Orders</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse text-xs">
+                                    <thead>
+                                        <tr
+                                            class="border-b border-line text-charcoal/50 font-black uppercase tracking-wider text-[10px]">
+                                            <th class="py-3 pr-4">Order ID</th>
+                                            <th class="py-3 px-4">Date</th>
+                                            <th class="py-3 px-4">Status</th>
+                                            <th class="py-3 px-4">Total</th>
+                                            <th class="py-3 pl-4 text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100">
+                                        <tr>
+                                            <td class="py-3.5 pr-4 font-bold text-ink">#GB-84920</td>
+                                            <td class="py-3.5 px-4 text-charcoal/70">29 July, 2026</td>
+                                            <td class="py-3.5 px-4">
+                                                <span
+                                                    class="px-2 py-0.5 bg-brand/10 border border-brand/20 text-brand text-[9px] font-bold rounded-full uppercase">Processing</span>
+                                            </td>
+                                            <td class="py-3.5 px-4 font-bold text-ink">৳1,250</td>
+                                            <td class="py-3.5 pl-4 text-right">
+                                                <a href="track-order.html?id=GB-84920"
+                                                    class="text-brand hover:underline font-bold">Track Order</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3.5 pr-4 font-bold text-ink">#GB-73821</td>
+                                            <td class="py-3.5 px-4 text-charcoal/70">12 May, 2026</td>
+                                            <td class="py-3.5 px-4">
+                                                <span
+                                                    class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-600 text-[9px] font-bold rounded-full uppercase">Delivered</span>
+                                            </td>
+                                            <td class="py-3.5 px-4 font-bold text-ink">৳650</td>
+                                            <td class="py-3.5 pl-4 text-right">
+                                                <a href="track-order.html?id=GB-73821"
+                                                    class="text-brand hover:underline font-bold">Track Order</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ TAB 2: WISHLIST ============ -->
+                    <div id="account-tab-wishlist" class="account-tab-content space-y-6 hidden">
+                        <div>
+                            <h2 class="text-xl font-black text-ink uppercase tracking-tight">My Wishlist</h2>
+                            <p class="text-xs text-charcoal/60 mt-1">Products you've saved to buy later.</p>
+                        </div>
+
+                        <!-- Grid Layout for Wishlist Items -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="wishlist-grid">
+                            <!-- Wishlist Card 1 -->
+                            <div class="bg-white border border-line rounded-2xl p-3 flex flex-col relative group">
+                                <div
+                                    class="aspect-square rounded-xl overflow-hidden border border-line bg-gray-50 mb-3 shrink-0">
+                                    <img src="frontend/assets/images/products/shirt (1).jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <h4 class="text-xs font-bold text-ink truncate mb-1">Printed Premium T-Shirt</h4>
+                                <p class="text-xs font-black text-brand mb-3">৳650</p>
+                                <div class="grid grid-cols-12 gap-2 mt-auto">
+                                    <button
+                                        class="col-span-9 py-2 bg-brand hover:bg-ink text-white font-extrabold text-[10px] uppercase rounded-xl transition-colors">Add
+                                        to Cart</button>
+                                    <button onclick="removeFromWishlist(this)"
+                                        class="col-span-3 border border-line hover:bg-red-50 hover:text-red-500 rounded-xl flex items-center justify-center transition-colors">
+                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Wishlist Card 2 -->
+                            <div class="bg-white border border-line rounded-2xl p-3 flex flex-col relative group">
+                                <div
+                                    class="aspect-square rounded-xl overflow-hidden border border-line bg-gray-50 mb-3 shrink-0">
+                                    <img src="frontend/assets/images/products/shirt (2).jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <h4 class="text-xs font-bold text-ink truncate mb-1">Classic Katua Shirt</h4>
+                                <p class="text-xs font-black text-brand mb-3">৳600</p>
+                                <div class="grid grid-cols-12 gap-2 mt-auto">
+                                    <button
+                                        class="col-span-9 py-2 bg-brand hover:bg-ink text-white font-extrabold text-[10px] uppercase rounded-xl transition-colors">Add
+                                        to Cart</button>
+                                    <button onclick="removeFromWishlist(this)"
+                                        class="col-span-3 border border-line hover:bg-red-50 hover:text-red-500 rounded-xl flex items-center justify-center transition-colors">
+                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ TAB 3: PROFILE ============ -->
+                    <div id="account-tab-profile" class="account-tab-content space-y-6 hidden">
+                        <div>
+                            <h2 class="text-xl font-black text-ink uppercase tracking-tight">My Profile</h2>
+                            <p class="text-xs text-charcoal/60 mt-1">Review your personal identification and tier
+                                statistics.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs">
+                            <div class="bg-gray-50 border border-line rounded-2xl p-5">
+                                <p class="text-[9px] font-black text-charcoal/50 uppercase tracking-widest mb-3">Full
+                                    Name</p>
+                                <p class="text-sm font-black text-ink">John Doe</p>
+                            </div>
+                            <div class="bg-gray-50 border border-line rounded-2xl p-5">
+                                <p class="text-[9px] font-black text-charcoal/50 uppercase tracking-widest mb-3">Phone
+                                    Number</p>
+                                <p class="text-sm font-black text-ink">01700-000000</p>
+                            </div>
+                            <div class="bg-gray-50 border border-line rounded-2xl p-5">
+                                <p class="text-[9px] font-black text-charcoal/50 uppercase tracking-widest mb-3">Email
+                                    Address</p>
+                                <p class="text-sm font-black text-ink">johndoe@example.com</p>
+                            </div>
+                            <div class="bg-gray-50 border border-line rounded-2xl p-5">
+                                <p class="text-[9px] font-black text-charcoal/50 uppercase tracking-widest mb-3">Member
+                                    Status</p>
+                                <p class="text-sm font-black text-emerald-600">VIP Premium Tier (Est. 2026)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ TAB 4: SETTINGS ============ -->
+                    <div id="account-tab-settings" class="account-tab-content space-y-6 hidden">
+                        <div>
+                            <h2 class="text-xl font-black text-ink uppercase tracking-tight">Account Settings</h2>
+                            <p class="text-xs text-charcoal/60 mt-1">Update your delivery address, email, or reset
+                                password.</p>
+                        </div>
+
+                        <!-- settings form -->
+                        <form class="space-y-4"
+                            onsubmit="event.preventDefault(); alert('Profile updated successfully!');">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label
+                                        class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5">Full
+                                        Name</label>
+                                    <input type="text" value="John Doe"
+                                        class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5">Phone
+                                        Number</label>
+                                    <input type="tel" value="01700-000000"
+                                        class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5">Default
+                                    Delivery Address</label>
+                                <input type="text" value="Mirpur 10, Dhaka, Bangladesh"
+                                    class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                            </div>
+
+                            <div class="border-t border-line pt-4 space-y-4">
+                                <h3 class="text-xs font-black text-ink uppercase tracking-wider">Change Password</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label
+                                            class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5">New
+                                            Password</label>
+                                        <input type="password" placeholder="••••••••"
+                                            class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="block text-[9px] font-black text-ink uppercase tracking-wider mb-1.5">Confirm
+                                            New Password</label>
+                                        <input type="password" placeholder="••••••••"
+                                            class="w-full bg-[#f8f9fa] border border-line focus:border-brand/40 focus:bg-white text-xs text-ink px-4 py-3 rounded-xl outline-none transition-all">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                class="py-3 px-6 bg-brand hover:bg-ink text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md">
+                                Save Changes
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-[#0b0e14] text-[#a0aec0] py-8 border-t border-brand/10 relative overflow-hidden">
+        <div class="container text-center">
+            <p class="text-xs text-gray-500">&copy; Go By Fabrifest. All rights reserved | 2026</p>
+        </div>
+    </footer>
+
+    <style>
+        .account-nav-btn {
+            background: transparent;
+            color: var(--ColorInk, #1a1a2e);
+        }
+
+        .account-nav-btn.active {
+            background-color: var(--ColorPrimary, #F7931E);
+            color: white;
+        }
+    </style>
+
+    <script>
+        function switchAccountTab(tabId, btn) {
+            // Toggle Nav Buttons
+            document.querySelectorAll('.account-nav-btn').forEach(b => b.classList.remove('active'));
+
+            // Find corresponding buttons in both desktop sidebar and mobile drawer
+            document.querySelectorAll(`.account-nav-btn[onclick*="'${tabId}'"]`).forEach(b => b.classList.add('active'));
+
+            // Toggle Content Panels
+            document.querySelectorAll('.account-tab-content').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`account-tab-${tabId}`).classList.remove('hidden');
+
+            // Update mobile label header
+            const activeLabel = document.getElementById('active-tab-label');
+            if (activeLabel) {
+                // Capitalize first letter
+                activeLabel.textContent = tabId.charAt(0).toUpperCase() + tabId.slice(1);
+            }
+
+            // Close mobile drawer automatically
+            closeAccountDrawer();
+
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // Mobile Drawer Actions
+        const drawer = document.getElementById('account-sidebar-drawer');
+        const backdrop = document.getElementById('account-drawer-backdrop');
+        const openBtn = document.getElementById('account-menu-toggle-btn');
+        const closeBtn = document.getElementById('account-menu-close-btn');
+
+        function openAccountDrawer() {
+            if (!drawer || !backdrop) return;
+            drawer.classList.remove('-translate-x-full');
+            drawer.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAccountDrawer() {
+            if (!drawer || !backdrop) return;
+            drawer.classList.add('-translate-x-full');
+            drawer.classList.remove('translate-x-0');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+        }
+
+        if (openBtn) openBtn.addEventListener('click', openAccountDrawer);
+        if (closeBtn) closeBtn.addEventListener('click', closeAccountDrawer);
+        if (backdrop) backdrop.addEventListener('click', closeAccountDrawer);
+
+        // Auto close offcanvas drawer when screen resizes to desktop width, restoring scroll
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                if (drawer && drawer.classList.contains('translate-x-0')) {
+                    closeAccountDrawer();
+                }
+            }
+        });
+
+        function removeFromWishlist(btn) {
+            const card = btn.closest('.group');
+            if (card) {
+                card.remove();
+                // Update stats count
+                const countEl = document.getElementById('stat-wishlist-count');
+                if (countEl) {
+                    let count = parseInt(countEl.textContent) || 0;
+                    countEl.textContent = Math.max(0, count - 1);
+                }
+            }
+        }
+
+        // Dynamic header sticky spacing calculation (matches product page aside top offset spacing)
+        function calculateStickyHeaderOffsets() {
+            const topBar = document.getElementById('top-bar');
+            const headerCard = document.getElementById('header-card');
+            const mainHeader = document.getElementById('main-header');
+            const togglerBar = document.querySelector('.lg\\:hidden.mb-6.sticky');
+            const asideDrawer = document.getElementById('account-sidebar-drawer');
+
+            if (topBar && headerCard && mainHeader) {
+                const cardHeight = headerCard.offsetHeight;
+                const halfHeight = Math.round(cardHeight / 2);
+
+                topBar.style.paddingBottom = (halfHeight + 14) + 'px';
+                mainHeader.style.marginTop = '-' + halfHeight + 'px';
+                mainHeader.style.marginBottom = '12px';
+
+                // Calculate sticky top position and height for unified sidebar filter dynamically
+                if (asideDrawer) {
+                    if (window.innerWidth >= 1024) {
+                        const stickyTopValue = cardHeight + 24;
+                        asideDrawer.style.top = stickyTopValue + 'px';
+
+                        // Unified height calculation matching the filter page
+                        const remainingHeight = window.innerHeight - stickyTopValue - 20;
+                        asideDrawer.style.height = remainingHeight + 'px';
+                    } else {
+                        // Reset styles on mobile drawer viewports
+                        asideDrawer.style.top = '';
+                        asideDrawer.style.height = '';
+                    }
+                }
+
+                // Offset for mobile sticky menu bar
+                if (togglerBar) {
+                    if (window.innerWidth < 1024) {
+                        const stickyTopValue = cardHeight + 10;
+                        togglerBar.style.top = stickyTopValue + 'px';
+                    } else {
+                        togglerBar.style.top = '';
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+            calculateStickyHeaderOffsets();
+            window.addEventListener('resize', calculateStickyHeaderOffsets);
+            setTimeout(calculateStickyHeaderOffsets, 150);
+        });</script>
+
+</body>
+
+</html>
